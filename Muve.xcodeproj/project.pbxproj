@@ -1,0 +1,315 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CD4D11E41D0B0A4D00A0DBD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4D11E31D0B0A4D00A0DBD3 /* AppDelegate.swift */; };
+		CD4D11E61D0B0A4D00A0DBD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4D11E51D0B0A4D00A0DBD3 /* ViewController.swift */; };
+		CD4D11E91D0B0A4D00A0DBD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11E71D0B0A4D00A0DBD3 /* Main.storyboard */; };
+		CD4D11EB1D0B0A4D00A0DBD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11EA1D0B0A4D00A0DBD3 /* Assets.xcassets */; };
+		CD4D11EE1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11EC1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard */; };
+		CD4D11F61D0B0C7400A0DBD3 /* muve.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11F51D0B0C7400A0DBD3 /* muve.jpg */; };
+		CD4D11F81D0B115100A0DBD3 /* personicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11F71D0B115100A0DBD3 /* personicon.png */; };
+		CD4D11FA1D0B127700A0DBD3 /* lockicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11F91D0B127700A0DBD3 /* lockicon.png */; };
+		CD4D11FE1D0B797500A0DBD3 /* muve copy.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11FD1D0B797500A0DBD3 /* muve copy.png */; };
+		CD4D12001D0C3F9F00A0DBD3 /* beach_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11FF1D0C3F9F00A0DBD3 /* beach_background.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CD4D11E01D0B0A4C00A0DBD3 /* Muve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muve.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD4D11E31D0B0A4D00A0DBD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CD4D11E51D0B0A4D00A0DBD3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CD4D11E81D0B0A4D00A0DBD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CD4D11EA1D0B0A4D00A0DBD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CD4D11ED1D0B0A4D00A0DBD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CD4D11EF1D0B0A4D00A0DBD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD4D11F51D0B0C7400A0DBD3 /* muve.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = muve.jpg; path = ../../Icons/muve.jpg; sourceTree = "<group>"; };
+		CD4D11F71D0B115100A0DBD3 /* personicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = personicon.png; path = ../../Icons/personicon.png; sourceTree = "<group>"; };
+		CD4D11F91D0B127700A0DBD3 /* lockicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lockicon.png; path = "../../../Downloads/MUVE-master/app/build/intermediates/res/merged/debug/drawable/lockicon.png"; sourceTree = "<group>"; };
+		CD4D11FD1D0B797500A0DBD3 /* muve copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "muve copy.png"; path = "../../Icons/muve copy.png"; sourceTree = "<group>"; };
+		CD4D11FF1D0C3F9F00A0DBD3 /* beach_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = beach_background.jpg; path = ../../beach_background.jpg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CD4D11DD1D0B0A4C00A0DBD3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CD4D11D71D0B0A4C00A0DBD3 = {
+			isa = PBXGroup;
+			children = (
+				CD4D11E21D0B0A4C00A0DBD3 /* Muve */,
+				CD4D11E11D0B0A4C00A0DBD3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CD4D11E11D0B0A4C00A0DBD3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CD4D11E01D0B0A4C00A0DBD3 /* Muve.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD4D11E21D0B0A4C00A0DBD3 /* Muve */ = {
+			isa = PBXGroup;
+			children = (
+				CD4D11FF1D0C3F9F00A0DBD3 /* beach_background.jpg */,
+				CD4D11FD1D0B797500A0DBD3 /* muve copy.png */,
+				CD4D11F91D0B127700A0DBD3 /* lockicon.png */,
+				CD4D11F71D0B115100A0DBD3 /* personicon.png */,
+				CD4D11F51D0B0C7400A0DBD3 /* muve.jpg */,
+				CD4D11E31D0B0A4D00A0DBD3 /* AppDelegate.swift */,
+				CD4D11E51D0B0A4D00A0DBD3 /* ViewController.swift */,
+				CD4D11E71D0B0A4D00A0DBD3 /* Main.storyboard */,
+				CD4D11EA1D0B0A4D00A0DBD3 /* Assets.xcassets */,
+				CD4D11EC1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard */,
+				CD4D11EF1D0B0A4D00A0DBD3 /* Info.plist */,
+			);
+			path = Muve;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CD4D11DF1D0B0A4C00A0DBD3 /* Muve */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD4D11F21D0B0A4D00A0DBD3 /* Build configuration list for PBXNativeTarget "Muve" */;
+			buildPhases = (
+				CD4D11DC1D0B0A4C00A0DBD3 /* Sources */,
+				CD4D11DD1D0B0A4C00A0DBD3 /* Frameworks */,
+				CD4D11DE1D0B0A4C00A0DBD3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Muve;
+			productName = Muve;
+			productReference = CD4D11E01D0B0A4C00A0DBD3 /* Muve.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CD4D11D81D0B0A4C00A0DBD3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Muve;
+				TargetAttributes = {
+					CD4D11DF1D0B0A4C00A0DBD3 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = YBE5448SV3;
+					};
+				};
+			};
+			buildConfigurationList = CD4D11DB1D0B0A4C00A0DBD3 /* Build configuration list for PBXProject "Muve" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CD4D11D71D0B0A4C00A0DBD3;
+			productRefGroup = CD4D11E11D0B0A4C00A0DBD3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CD4D11DF1D0B0A4C00A0DBD3 /* Muve */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CD4D11DE1D0B0A4C00A0DBD3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD4D12001D0C3F9F00A0DBD3 /* beach_background.jpg in Resources */,
+				CD4D11FE1D0B797500A0DBD3 /* muve copy.png in Resources */,
+				CD4D11F81D0B115100A0DBD3 /* personicon.png in Resources */,
+				CD4D11F61D0B0C7400A0DBD3 /* muve.jpg in Resources */,
+				CD4D11EE1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard in Resources */,
+				CD4D11FA1D0B127700A0DBD3 /* lockicon.png in Resources */,
+				CD4D11EB1D0B0A4D00A0DBD3 /* Assets.xcassets in Resources */,
+				CD4D11E91D0B0A4D00A0DBD3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CD4D11DC1D0B0A4C00A0DBD3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD4D11E61D0B0A4D00A0DBD3 /* ViewController.swift in Sources */,
+				CD4D11E41D0B0A4D00A0DBD3 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CD4D11E71D0B0A4D00A0DBD3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD4D11E81D0B0A4D00A0DBD3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CD4D11EC1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD4D11ED1D0B0A4D00A0DBD3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CD4D11F01D0B0A4D00A0DBD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CD4D11F11D0B0A4D00A0DBD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CD4D11F31D0B0A4D00A0DBD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Muve/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Project.Muve;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CD4D11F41D0B0A4D00A0DBD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Muve/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Project.Muve;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CD4D11DB1D0B0A4C00A0DBD3 /* Build configuration list for PBXProject "Muve" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD4D11F01D0B0A4D00A0DBD3 /* Debug */,
+				CD4D11F11D0B0A4D00A0DBD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD4D11F21D0B0A4D00A0DBD3 /* Build configuration list for PBXNativeTarget "Muve" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD4D11F31D0B0A4D00A0DBD3 /* Debug */,
+				CD4D11F41D0B0A4D00A0DBD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CD4D11D81D0B0A4C00A0DBD3 /* Project object */;
+}
