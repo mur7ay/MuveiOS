@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		552153F8D00D1FAC5DCD930F /* Pods_Muve.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F02A14F2BDBA9D1B3AD686C /* Pods_Muve.framework */; };
 		CD4D11E41D0B0A4D00A0DBD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4D11E31D0B0A4D00A0DBD3 /* AppDelegate.swift */; };
 		CD4D11E61D0B0A4D00A0DBD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4D11E51D0B0A4D00A0DBD3 /* ViewController.swift */; };
 		CD4D11E91D0B0A4D00A0DBD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11E71D0B0A4D00A0DBD3 /* Main.storyboard */; };
@@ -17,9 +18,13 @@
 		CD4D11FA1D0B127700A0DBD3 /* lockicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11F91D0B127700A0DBD3 /* lockicon.png */; };
 		CD4D11FE1D0B797500A0DBD3 /* muve copy.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11FD1D0B797500A0DBD3 /* muve copy.png */; };
 		CD4D12001D0C3F9F00A0DBD3 /* beach_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11FF1D0C3F9F00A0DBD3 /* beach_background.jpg */; };
+		CDB21D651D1864B1009CB579 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDB21D641D1864B1009CB579 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13FE3B48A69A11F696CE4481 /* Pods-Muve.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Muve.release.xcconfig"; path = "Pods/Target Support Files/Pods-Muve/Pods-Muve.release.xcconfig"; sourceTree = "<group>"; };
+		1F02A14F2BDBA9D1B3AD686C /* Pods_Muve.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Muve.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B18BC3347F88306CE5D5FE02 /* Pods-Muve.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Muve.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Muve/Pods-Muve.debug.xcconfig"; sourceTree = "<group>"; };
 		CD4D11E01D0B0A4C00A0DBD3 /* Muve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muve.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4D11E31D0B0A4D00A0DBD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD4D11E51D0B0A4D00A0DBD3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,6 +37,7 @@
 		CD4D11F91D0B127700A0DBD3 /* lockicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lockicon.png; path = "../../../Downloads/MUVE-master/app/build/intermediates/res/merged/debug/drawable/lockicon.png"; sourceTree = "<group>"; };
 		CD4D11FD1D0B797500A0DBD3 /* muve copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "muve copy.png"; path = "../../Icons/muve copy.png"; sourceTree = "<group>"; };
 		CD4D11FF1D0C3F9F00A0DBD3 /* beach_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = beach_background.jpg; path = ../../beach_background.jpg; sourceTree = "<group>"; };
+		CDB21D641D1864B1009CB579 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +45,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				552153F8D00D1FAC5DCD930F /* Pods_Muve.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C38BDB114604FEE4A6131A3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F02A14F2BDBA9D1B3AD686C /* Pods_Muve.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CD4D11D71D0B0A4C00A0DBD3 = {
 			isa = PBXGroup;
 			children = (
 				CD4D11E21D0B0A4C00A0DBD3 /* Muve */,
 				CD4D11E11D0B0A4C00A0DBD3 /* Products */,
+				CE85237F2EA0BA2FEB7E7829 /* Pods */,
+				7C38BDB114604FEE4A6131A3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,8 +92,18 @@
 				CD4D11EA1D0B0A4D00A0DBD3 /* Assets.xcassets */,
 				CD4D11EC1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard */,
 				CD4D11EF1D0B0A4D00A0DBD3 /* Info.plist */,
+				CDB21D641D1864B1009CB579 /* GoogleService-Info.plist */,
 			);
 			path = Muve;
+			sourceTree = "<group>";
+		};
+		CE85237F2EA0BA2FEB7E7829 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B18BC3347F88306CE5D5FE02 /* Pods-Muve.debug.xcconfig */,
+				13FE3B48A69A11F696CE4481 /* Pods-Muve.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,9 +113,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CD4D11F21D0B0A4D00A0DBD3 /* Build configuration list for PBXNativeTarget "Muve" */;
 			buildPhases = (
+				F684DD45020A6221AF8854A5 /* [CP] Check Pods Manifest.lock */,
 				CD4D11DC1D0B0A4C00A0DBD3 /* Sources */,
 				CD4D11DD1D0B0A4C00A0DBD3 /* Frameworks */,
 				CD4D11DE1D0B0A4C00A0DBD3 /* Resources */,
+				9B45D0B5E5487440E03945DF /* [CP] Embed Pods Frameworks */,
+				CCFDA82E41B490676B0A67E3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -140,6 +170,7 @@
 			files = (
 				CD4D12001D0C3F9F00A0DBD3 /* beach_background.jpg in Resources */,
 				CD4D11FE1D0B797500A0DBD3 /* muve copy.png in Resources */,
+				CDB21D651D1864B1009CB579 /* GoogleService-Info.plist in Resources */,
 				CD4D11F81D0B115100A0DBD3 /* personicon.png in Resources */,
 				CD4D11F61D0B0C7400A0DBD3 /* muve.jpg in Resources */,
 				CD4D11EE1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard in Resources */,
@@ -150,6 +181,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9B45D0B5E5487440E03945DF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Muve/Pods-Muve-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCFDA82E41B490676B0A67E3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Muve/Pods-Muve-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F684DD45020A6221AF8854A5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CD4D11DC1D0B0A4C00A0DBD3 /* Sources */ = {
@@ -268,22 +347,24 @@
 		};
 		CD4D11F31D0B0A4D00A0DBD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B18BC3347F88306CE5D5FE02 /* Pods-Muve.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Muve/Info.plist;
+				INFOPLIST_FILE = Muve/info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Project.Muve;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muveapp.muve;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		CD4D11F41D0B0A4D00A0DBD3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13FE3B48A69A11F696CE4481 /* Pods-Muve.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Muve/Info.plist;
+				INFOPLIST_FILE = Muve/info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Project.Muve;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muveapp.muve;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
