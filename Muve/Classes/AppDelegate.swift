@@ -49,13 +49,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             print(error.localizedDescription)
             return
         }
-        // ...
     }
     
     func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
                 withError error: NSError!) {
-        // Perform any operations when the user disconnects from app here.
-        // ...
     }
     
     func applicationWillResignActive(application: UIApplication) {
