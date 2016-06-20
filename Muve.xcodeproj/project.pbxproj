@@ -25,6 +25,7 @@
 		A72AD56B1D18812700FFC381 /* autoupdate-build-version.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "autoupdate-build-version.sh"; path = "Resources/Scripts/autoupdate-build-version.sh"; sourceTree = "<group>"; };
 		A72AD56D1D1881EF00FFC381 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resources/Infos/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A72AD56E1D1881EF00FFC381 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Infos/Info.plist; sourceTree = "<group>"; };
+		A72AD5741D188C0700FFC381 /* Muve-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Muve-Bridging-Header.h"; path = "Classes/Common/Muve-Bridging-Header.h"; sourceTree = "<group>"; };
 		B18BC3347F88306CE5D5FE02 /* Pods-Muve.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Muve.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Muve/Pods-Muve.debug.xcconfig"; sourceTree = "<group>"; };
 		CD4D11E01D0B0A4C00A0DBD3 /* Muve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muve.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4D11ED1D0B0A4D00A0DBD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,11 +54,10 @@
 		A72AD55B1D187E4900FFC381 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A72AD5731D188B2800FFC381 /* Protocols */,
+				A72AD5721D188B2100FFC381 /* Controllers */,
+				A72AD5711D188AFD00FFC381 /* Common */,
 				A72AD5651D1880F100FFC381 /* AppDelegate.swift */,
-				A72AD5641D187F0500FFC381 /* Vendors */,
-				A72AD5631D187EEF00FFC381 /* Model */,
-				A72AD5621D187EAA00FFC381 /* Helpers */,
-				A72AD5611D187EA100FFC381 /* Extentions */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -132,6 +132,32 @@
 			children = (
 			);
 			name = Vendors;
+			sourceTree = "<group>";
+		};
+		A72AD5711D188AFD00FFC381 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A72AD5641D187F0500FFC381 /* Vendors */,
+				A72AD5631D187EEF00FFC381 /* Model */,
+				A72AD5621D187EAA00FFC381 /* Helpers */,
+				A72AD5611D187EA100FFC381 /* Extentions */,
+				A72AD5741D188C0700FFC381 /* Muve-Bridging-Header.h */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		A72AD5721D188B2100FFC381 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A72AD5731D188B2800FFC381 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		CD4D11D71D0B0A4C00A0DBD3 = {
@@ -408,6 +434,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.muveapp.muve;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Muve/Classes/Common/Muve-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -423,6 +450,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.muveapp.muve;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Muve/Classes/Common/Muve-Bridging-Header.h";
 			};
 			name = Release;
 		};
