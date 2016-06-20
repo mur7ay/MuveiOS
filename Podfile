@@ -8,5 +8,6 @@ target 'Muve' do
   # Pods for Muve
   pod 'Firebase'
   pod 'Firebase/Database'
-
+  pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
 end
