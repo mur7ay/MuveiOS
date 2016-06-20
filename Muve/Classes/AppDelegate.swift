@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         return true
     }
 
+    @available(iOS 9.0, *)
     func application(application: UIApplication,
                      openURL url: NSURL, options: [String: AnyObject]) -> Bool {
         return GIDSignIn.sharedInstance().handleURL(url,
@@ -30,15 +31,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                                     annotation: options[UIApplicationOpenURLOptionsAnnotationKey])
     }
     
-    func application(
-//    
+//    @available(iOS 8.0, *)
 //    func application(application: UIApplication,
 //                     openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+//        if let _annotation = annotation {
 //        var options: [String: AnyObject] = [UIApplicationOpenURLOptionsSourceApplicationKey: sourceApplication!,
-//                                            UIApplicationOpenURLOptionsAnnotationKey: annotation]
+//                                            UIApplicationOpenURLOptionsAnnotationKey: _annotation]
 //        return GIDSignIn.sharedInstance().handleURL(url,
 //                                                    sourceApplication: sourceApplication,
 //                                                    annotation: annotation)
+//        }
 //    }
     
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,

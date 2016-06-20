@@ -261,10 +261,10 @@
             </objects>
             <point key="canvasLocation" x="1535" y="1114"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="q9q-TW-dVE">
             <objects>
-                <viewController id="1Id-Pa-wiq" sceneMemberID="viewController">
+                <viewController id="1Id-Pa-wiq" customClass="LoginViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Q7-fV-n8x"/>
                         <viewControllerLayoutGuide type="bottom" id="i78-jc-s4L"/>
@@ -274,38 +274,112 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainLogo" translatesAutoresizingMaskIntoConstraints="NO" id="dgZ-yT-Zrg">
-                                <rect key="frame" x="255" y="90" width="91" height="112"/>
+                                <rect key="frame" x="255" y="50" width="91" height="112"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dm2-1z-2ng">
-                                <rect key="frame" x="258" y="542" width="85" height="38"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <state key="normal" title="SIGN UP"/>
+                                <rect key="frame" x="257" y="542" width="86" height="38"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="21"/>
+                                <state key="normal" title="SIGN UP">
+                                    <color key="titleColor" red="0.98431372549999996" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGe-BP-NgJ">
-                                <rect key="frame" x="211" y="513" width="179" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="209" y="514" width="182" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oF-p7-xNl">
-                                <rect key="frame" x="128" y="446" width="345" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oF-p7-xNl">
+                                <rect key="frame" x="150" y="449" width="300" height="45"/>
                                 <color key="backgroundColor" red="0.2627450980392157" green="0.4823529411764706" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Cqb-uq-85S"/>
+                                    <constraint firstAttribute="width" constant="300" id="vaP-dh-kzb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <state key="normal" title="SIGN IN WITH GOOGLE"/>
+                                <connections>
+                                    <action selector="btnSignInGoogle:" destination="1Id-Pa-wiq" eventType="touchUpInside" id="GBd-1g-rcT"/>
+                                </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1w-Pa-V72">
+                                <rect key="frame" x="150" y="384" width="300" height="45"/>
+                                <color key="backgroundColor" red="0.98431372549019602" green="0.23137254901960785" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="8at-ve-WXi"/>
+                                    <constraint firstAttribute="height" constant="45" id="eBD-6l-s7z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                                <state key="normal" title="SIGN IN"/>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PBZ-44-KVS">
+                                <rect key="frame" x="155" y="329" width="290" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="290" id="09j-8G-4i5"/>
+                                    <constraint firstAttribute="height" constant="30" id="lvE-1V-WYh"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ZB-4W-Bx0">
+                                <rect key="frame" x="155" y="279" width="290" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="GCj-pa-mWF"/>
+                                    <constraint firstAttribute="width" constant="290" id="KMc-pz-kSp"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="toC-EX-7H9">
+                                <rect key="frame" x="155" y="308" width="290" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="290" id="JgS-9z-exA"/>
+                                    <constraint firstAttribute="height" constant="1" id="v1c-1V-0s5"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CP0-E0-rii">
+                                <rect key="frame" x="155" y="358" width="290" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="290" id="TkK-3U-g8P"/>
+                                    <constraint firstAttribute="height" constant="1" id="fWb-0r-OCw"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dm2-1z-2ng" firstAttribute="top" secondItem="YGe-BP-NgJ" secondAttribute="bottom" constant="8" id="0vZ-tK-O4e"/>
+                            <constraint firstItem="PBZ-44-KVS" firstAttribute="top" secondItem="8ZB-4W-Bx0" secondAttribute="bottom" constant="20" id="1rK-Z0-dXJ"/>
+                            <constraint firstItem="8ZB-4W-Bx0" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="3Gy-mL-cmy"/>
+                            <constraint firstItem="o1w-Pa-V72" firstAttribute="top" secondItem="PBZ-44-KVS" secondAttribute="bottom" constant="25" id="3Tl-hR-wyy"/>
                             <constraint firstItem="dgZ-yT-Zrg" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="3ch-ju-Cqp"/>
                             <constraint firstItem="YGe-BP-NgJ" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="8nP-eG-otV"/>
-                            <constraint firstItem="dgZ-yT-Zrg" firstAttribute="top" secondItem="8Q7-fV-n8x" secondAttribute="bottom" constant="70" id="BKx-S4-Ycb"/>
+                            <constraint firstItem="dgZ-yT-Zrg" firstAttribute="top" secondItem="8Q7-fV-n8x" secondAttribute="bottom" constant="30" id="BKx-S4-Ycb"/>
                             <constraint firstItem="i78-jc-s4L" firstAttribute="top" secondItem="dm2-1z-2ng" secondAttribute="bottom" constant="20" id="Fhj-f8-Dr7"/>
                             <constraint firstItem="dm2-1z-2ng" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="Hrt-cG-0Mk"/>
+                            <constraint firstItem="CP0-E0-rii" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="L3m-mR-p37"/>
+                            <constraint firstItem="toC-EX-7H9" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="LkT-KF-x6Z"/>
+                            <constraint firstItem="o1w-Pa-V72" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="PRY-5g-O2x"/>
                             <constraint firstItem="2oF-p7-xNl" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="hUn-50-OIN"/>
+                            <constraint firstItem="o1w-Pa-V72" firstAttribute="top" secondItem="CP0-E0-rii" secondAttribute="bottom" constant="25" id="iw9-Of-ENs"/>
+                            <constraint firstItem="2oF-p7-xNl" firstAttribute="top" secondItem="o1w-Pa-V72" secondAttribute="bottom" constant="20" id="l3N-f4-DMP"/>
+                            <constraint firstItem="PBZ-44-KVS" firstAttribute="top" secondItem="toC-EX-7H9" secondAttribute="bottom" constant="20" id="nBU-LJ-crO"/>
+                            <constraint firstItem="PBZ-44-KVS" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="vTd-Fp-Tls"/>
                             <constraint firstItem="YGe-BP-NgJ" firstAttribute="top" secondItem="2oF-p7-xNl" secondAttribute="bottom" constant="20" id="wwy-N2-8BK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnSignIn" destination="o1w-Pa-V72" id="MtY-5r-iNL"/>
+                        <outlet property="btnSignInGoogle" destination="2oF-p7-xNl" id="6cd-Bu-z7v"/>
+                        <outlet property="btnSignUp" destination="dm2-1z-2ng" id="sCt-uv-g2O"/>
+                        <outlet property="lineEmail" destination="toC-EX-7H9" id="HXm-mu-Jq3"/>
+                        <outlet property="linePass" destination="CP0-E0-rii" id="905-Oq-xmW"/>
+                        <outlet property="txtEmail" destination="8ZB-4W-Bx0" id="ucY-8H-bIC"/>
+                        <outlet property="txtPass" destination="PBZ-44-KVS" id="hV6-w7-goz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZL-Iz-FG9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
