@@ -12,6 +12,7 @@
 		A72AD5681D18810400FFC381 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A72AD5671D18810400FFC381 /* Assets.xcassets */; };
 		A72AD56A1D18811700FFC381 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A72AD5691D18811700FFC381 /* Main.storyboard */; };
 		A72AD56C1D18812700FFC381 /* autoupdate-build-version.sh in Resources */ = {isa = PBXBuildFile; fileRef = A72AD56B1D18812700FFC381 /* autoupdate-build-version.sh */; };
+		A72AD56F1D1881EF00FFC381 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A72AD56D1D1881EF00FFC381 /* GoogleService-Info.plist */; };
 		CD4D11EE1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11EC1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -22,6 +23,8 @@
 		A72AD5671D18810400FFC381 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		A72AD5691D18811700FFC381 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Resources/Storyboards/Main.storyboard; sourceTree = "<group>"; };
 		A72AD56B1D18812700FFC381 /* autoupdate-build-version.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "autoupdate-build-version.sh"; path = "Resources/Scripts/autoupdate-build-version.sh"; sourceTree = "<group>"; };
+		A72AD56D1D1881EF00FFC381 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resources/Infos/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A72AD56E1D1881EF00FFC381 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Infos/Info.plist; sourceTree = "<group>"; };
 		B18BC3347F88306CE5D5FE02 /* Pods-Muve.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Muve.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Muve/Pods-Muve.debug.xcconfig"; sourceTree = "<group>"; };
 		CD4D11E01D0B0A4C00A0DBD3 /* Muve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muve.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4D11ED1D0B0A4D00A0DBD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -80,6 +83,8 @@
 		A72AD55E1D187E7300FFC381 /* Infos */ = {
 			isa = PBXGroup;
 			children = (
+				A72AD56D1D1881EF00FFC381 /* GoogleService-Info.plist */,
+				A72AD56E1D1881EF00FFC381 /* Info.plist */,
 			);
 			name = Infos;
 			sourceTree = "<group>";
@@ -201,7 +206,7 @@
 				TargetAttributes = {
 					CD4D11DF1D0B0A4C00A0DBD3 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = YBE5448SV3;
+						DevelopmentTeam = C55XMLS7R2;
 					};
 				};
 			};
@@ -230,6 +235,7 @@
 			files = (
 				A72AD56C1D18812700FFC381 /* autoupdate-build-version.sh in Resources */,
 				A72AD56A1D18811700FFC381 /* Main.storyboard in Resources */,
+				A72AD56F1D1881EF00FFC381 /* GoogleService-Info.plist in Resources */,
 				CD4D11EE1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard in Resources */,
 				A72AD5681D18810400FFC381 /* Assets.xcassets in Resources */,
 			);
@@ -397,7 +403,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = Muve/info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/Muve/Resources/Infos/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.muveapp.muve;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -411,7 +418,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = Muve/info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/Muve/Resources/Infos/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.muveapp.muve;
 				PRODUCT_NAME = "$(TARGET_NAME)";
