@@ -8,36 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		552153F8D00D1FAC5DCD930F /* Pods_Muve.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F02A14F2BDBA9D1B3AD686C /* Pods_Muve.framework */; };
-		CD4D11E41D0B0A4D00A0DBD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4D11E31D0B0A4D00A0DBD3 /* AppDelegate.swift */; };
-		CD4D11E61D0B0A4D00A0DBD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4D11E51D0B0A4D00A0DBD3 /* ViewController.swift */; };
-		CD4D11E91D0B0A4D00A0DBD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11E71D0B0A4D00A0DBD3 /* Main.storyboard */; };
-		CD4D11EB1D0B0A4D00A0DBD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11EA1D0B0A4D00A0DBD3 /* Assets.xcassets */; };
+		A72AD5661D1880F100FFC381 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72AD5651D1880F100FFC381 /* AppDelegate.swift */; };
+		A72AD5681D18810400FFC381 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A72AD5671D18810400FFC381 /* Assets.xcassets */; };
+		A72AD56A1D18811700FFC381 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A72AD5691D18811700FFC381 /* Main.storyboard */; };
+		A72AD56C1D18812700FFC381 /* autoupdate-build-version.sh in Resources */ = {isa = PBXBuildFile; fileRef = A72AD56B1D18812700FFC381 /* autoupdate-build-version.sh */; };
 		CD4D11EE1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11EC1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard */; };
-		CD4D11F61D0B0C7400A0DBD3 /* muve.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11F51D0B0C7400A0DBD3 /* muve.jpg */; };
-		CD4D11F81D0B115100A0DBD3 /* personicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11F71D0B115100A0DBD3 /* personicon.png */; };
-		CD4D11FA1D0B127700A0DBD3 /* lockicon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11F91D0B127700A0DBD3 /* lockicon.png */; };
-		CD4D11FE1D0B797500A0DBD3 /* muve copy.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11FD1D0B797500A0DBD3 /* muve copy.png */; };
-		CD4D12001D0C3F9F00A0DBD3 /* beach_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11FF1D0C3F9F00A0DBD3 /* beach_background.jpg */; };
-		CDB21D651D1864B1009CB579 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDB21D641D1864B1009CB579 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		13FE3B48A69A11F696CE4481 /* Pods-Muve.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Muve.release.xcconfig"; path = "Pods/Target Support Files/Pods-Muve/Pods-Muve.release.xcconfig"; sourceTree = "<group>"; };
 		1F02A14F2BDBA9D1B3AD686C /* Pods_Muve.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Muve.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A72AD5651D1880F100FFC381 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Classes/AppDelegate.swift; sourceTree = "<group>"; };
+		A72AD5671D18810400FFC381 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
+		A72AD5691D18811700FFC381 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Resources/Storyboards/Main.storyboard; sourceTree = "<group>"; };
+		A72AD56B1D18812700FFC381 /* autoupdate-build-version.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = "autoupdate-build-version.sh"; path = "Resources/Scripts/autoupdate-build-version.sh"; sourceTree = "<group>"; };
 		B18BC3347F88306CE5D5FE02 /* Pods-Muve.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Muve.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Muve/Pods-Muve.debug.xcconfig"; sourceTree = "<group>"; };
 		CD4D11E01D0B0A4C00A0DBD3 /* Muve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muve.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CD4D11E31D0B0A4D00A0DBD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CD4D11E51D0B0A4D00A0DBD3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CD4D11E81D0B0A4D00A0DBD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CD4D11EA1D0B0A4D00A0DBD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD4D11ED1D0B0A4D00A0DBD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		CD4D11EF1D0B0A4D00A0DBD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CD4D11F51D0B0C7400A0DBD3 /* muve.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = muve.jpg; path = ../../Icons/muve.jpg; sourceTree = "<group>"; };
-		CD4D11F71D0B115100A0DBD3 /* personicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = personicon.png; path = ../../Icons/personicon.png; sourceTree = "<group>"; };
-		CD4D11F91D0B127700A0DBD3 /* lockicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lockicon.png; path = "../../../Downloads/MUVE-master/app/build/intermediates/res/merged/debug/drawable/lockicon.png"; sourceTree = "<group>"; };
-		CD4D11FD1D0B797500A0DBD3 /* muve copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "muve copy.png"; path = "../../Icons/muve copy.png"; sourceTree = "<group>"; };
-		CD4D11FF1D0C3F9F00A0DBD3 /* beach_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = beach_background.jpg; path = ../../beach_background.jpg; sourceTree = "<group>"; };
-		CDB21D641D1864B1009CB579 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +45,88 @@
 				1F02A14F2BDBA9D1B3AD686C /* Pods_Muve.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A72AD55B1D187E4900FFC381 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A72AD5651D1880F100FFC381 /* AppDelegate.swift */,
+				A72AD5641D187F0500FFC381 /* Vendors */,
+				A72AD5631D187EEF00FFC381 /* Model */,
+				A72AD5621D187EAA00FFC381 /* Helpers */,
+				A72AD5611D187EA100FFC381 /* Extentions */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		A72AD55C1D187E5900FFC381 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A72AD5601D187E7D00FFC381 /* Storyboards */,
+				A72AD55F1D187E7800FFC381 /* Scripts */,
+				A72AD55E1D187E7300FFC381 /* Infos */,
+				A72AD55D1D187E6600FFC381 /* Fonts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A72AD55D1D187E6600FFC381 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		A72AD55E1D187E7300FFC381 /* Infos */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Infos;
+			sourceTree = "<group>";
+		};
+		A72AD55F1D187E7800FFC381 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				A72AD56B1D18812700FFC381 /* autoupdate-build-version.sh */,
+			);
+			name = Scripts;
+			sourceTree = "<group>";
+		};
+		A72AD5601D187E7D00FFC381 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A72AD5691D18811700FFC381 /* Main.storyboard */,
+				CD4D11EC1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		A72AD5611D187EA100FFC381 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extentions;
+			sourceTree = "<group>";
+		};
+		A72AD5621D187EAA00FFC381 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		A72AD5631D187EEF00FFC381 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A72AD5641D187F0500FFC381 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Vendors;
 			sourceTree = "<group>";
 		};
 		CD4D11D71D0B0A4C00A0DBD3 = {
@@ -81,18 +150,9 @@
 		CD4D11E21D0B0A4C00A0DBD3 /* Muve */ = {
 			isa = PBXGroup;
 			children = (
-				CD4D11FF1D0C3F9F00A0DBD3 /* beach_background.jpg */,
-				CD4D11FD1D0B797500A0DBD3 /* muve copy.png */,
-				CD4D11F91D0B127700A0DBD3 /* lockicon.png */,
-				CD4D11F71D0B115100A0DBD3 /* personicon.png */,
-				CD4D11F51D0B0C7400A0DBD3 /* muve.jpg */,
-				CD4D11E31D0B0A4D00A0DBD3 /* AppDelegate.swift */,
-				CD4D11E51D0B0A4D00A0DBD3 /* ViewController.swift */,
-				CD4D11E71D0B0A4D00A0DBD3 /* Main.storyboard */,
-				CD4D11EA1D0B0A4D00A0DBD3 /* Assets.xcassets */,
-				CD4D11EC1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard */,
-				CD4D11EF1D0B0A4D00A0DBD3 /* Info.plist */,
-				CDB21D641D1864B1009CB579 /* GoogleService-Info.plist */,
+				A72AD55B1D187E4900FFC381 /* Classes */,
+				A72AD55C1D187E5900FFC381 /* Resources */,
+				A72AD5671D18810400FFC381 /* Assets.xcassets */,
 			);
 			path = Muve;
 			sourceTree = "<group>";
@@ -135,7 +195,7 @@
 		CD4D11D81D0B0A4C00A0DBD3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Muve;
 				TargetAttributes = {
@@ -168,15 +228,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD4D12001D0C3F9F00A0DBD3 /* beach_background.jpg in Resources */,
-				CD4D11FE1D0B797500A0DBD3 /* muve copy.png in Resources */,
-				CDB21D651D1864B1009CB579 /* GoogleService-Info.plist in Resources */,
-				CD4D11F81D0B115100A0DBD3 /* personicon.png in Resources */,
-				CD4D11F61D0B0C7400A0DBD3 /* muve.jpg in Resources */,
+				A72AD56C1D18812700FFC381 /* autoupdate-build-version.sh in Resources */,
+				A72AD56A1D18811700FFC381 /* Main.storyboard in Resources */,
 				CD4D11EE1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard in Resources */,
-				CD4D11FA1D0B127700A0DBD3 /* lockicon.png in Resources */,
-				CD4D11EB1D0B0A4D00A0DBD3 /* Assets.xcassets in Resources */,
-				CD4D11E91D0B0A4D00A0DBD3 /* Main.storyboard in Resources */,
+				A72AD5681D18810400FFC381 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,22 +290,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD4D11E61D0B0A4D00A0DBD3 /* ViewController.swift in Sources */,
-				CD4D11E41D0B0A4D00A0DBD3 /* AppDelegate.swift in Sources */,
+				A72AD5661D1880F100FFC381 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CD4D11E71D0B0A4D00A0DBD3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CD4D11E81D0B0A4D00A0DBD3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CD4D11EC1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -350,10 +396,12 @@
 			baseConfigurationReference = B18BC3347F88306CE5D5FE02 /* Pods-Muve.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Muve/info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.muveapp.muve;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -362,6 +410,7 @@
 			baseConfigurationReference = 13FE3B48A69A11F696CE4481 /* Pods-Muve.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Muve/info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.muveapp.muve;
