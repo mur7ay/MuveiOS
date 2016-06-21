@@ -276,107 +276,153 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainLogo" translatesAutoresizingMaskIntoConstraints="NO" id="dgZ-yT-Zrg">
                                 <rect key="frame" x="255" y="50" width="91" height="112"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dm2-1z-2ng">
-                                <rect key="frame" x="257" y="542" width="86" height="38"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="21"/>
-                                <state key="normal" title="SIGN UP">
-                                    <color key="titleColor" red="0.98431372549999996" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGe-BP-NgJ">
-                                <rect key="frame" x="209" y="514" width="182" height="20"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oF-p7-xNl">
-                                <rect key="frame" x="150" y="449" width="300" height="45"/>
-                                <color key="backgroundColor" red="0.2627450980392157" green="0.4823529411764706" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="Cqb-uq-85S"/>
-                                    <constraint firstAttribute="width" constant="300" id="vaP-dh-kzb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                <state key="normal" title="SIGN IN WITH GOOGLE"/>
-                                <connections>
-                                    <action selector="btnSignInGoogle:" destination="1Id-Pa-wiq" eventType="touchUpInside" id="GBd-1g-rcT"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1w-Pa-V72">
-                                <rect key="frame" x="150" y="384" width="300" height="45"/>
-                                <color key="backgroundColor" red="0.98431372549019602" green="0.23137254901960785" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="160" y="351" width="280" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="8at-ve-WXi"/>
+                                    <constraint firstAttribute="width" constant="280" id="8at-ve-WXi"/>
                                     <constraint firstAttribute="height" constant="45" id="eBD-6l-s7z"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
-                                <state key="normal" title="SIGN IN"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="btnSignIn:" destination="1Id-Pa-wiq" eventType="touchUpInside" id="FRq-U3-Re3"/>
+                                </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PBZ-44-KVS">
-                                <rect key="frame" x="155" y="319" width="290" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PBZ-44-KVS">
+                                <rect key="frame" x="160" y="301" width="280" height="40"/>
+                                <color key="backgroundColor" red="0.91372549020000005" green="0.36470588240000001" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="290" id="09j-8G-4i5"/>
-                                    <constraint firstAttribute="height" constant="30" id="lvE-1V-WYh"/>
+                                    <constraint firstAttribute="width" constant="280" id="09j-8G-4i5"/>
+                                    <constraint firstAttribute="height" constant="40" id="lvE-1V-WYh"/>
                                 </constraints>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ZB-4W-Bx0">
-                                <rect key="frame" x="155" y="269" width="290" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ZB-4W-Bx0">
+                                <rect key="frame" x="160" y="253" width="280" height="40"/>
+                                <color key="backgroundColor" red="0.91372549020000005" green="0.36470588240000001" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="GCj-pa-mWF"/>
-                                    <constraint firstAttribute="width" constant="290" id="KMc-pz-kSp"/>
+                                    <constraint firstAttribute="height" constant="40" id="GCj-pa-mWF"/>
+                                    <constraint firstAttribute="width" constant="280" id="KMc-pz-kSp"/>
                                 </constraints>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="toC-EX-7H9">
-                                <rect key="frame" x="155" y="298" width="290" height="1"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUI-38-6rZ">
+                                <rect key="frame" x="228" y="404" width="145" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="290" id="JgS-9z-exA"/>
-                                    <constraint firstAttribute="height" constant="1" id="v1c-1V-0s5"/>
+                                    <constraint firstAttribute="width" constant="145" id="BIO-iS-UkS"/>
+                                    <constraint firstAttribute="height" constant="34" id="WUd-A9-oGd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Forgot Password?">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnForgotPassword:" destination="1Id-Pa-wiq" eventType="touchUpInside" id="c4C-d3-N8k"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVG-vK-KR7">
+                                <rect key="frame" x="160" y="446" width="280" height="20"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQB-Ul-I9j">
+                                        <rect key="frame" x="130" y="2" width="20" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6S8-Xn-nsT">
+                                        <rect key="frame" x="155" y="10" width="125" height="1"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="125" id="LEN-5b-ZaG"/>
+                                            <constraint firstAttribute="height" constant="1" id="nnT-cs-4oD"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s5Y-Wk-bN7">
+                                        <rect key="frame" x="0.0" y="10" width="125" height="1"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="125" id="JTh-VW-WYH"/>
+                                            <constraint firstAttribute="height" constant="1" id="VEg-6q-GqS"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="s5Y-Wk-bN7" firstAttribute="centerY" secondItem="rVG-vK-KR7" secondAttribute="centerY" id="KOF-SM-51m"/>
+                                    <constraint firstItem="wQB-Ul-I9j" firstAttribute="centerY" secondItem="rVG-vK-KR7" secondAttribute="centerY" id="O6N-xg-5qk"/>
+                                    <constraint firstItem="6S8-Xn-nsT" firstAttribute="centerY" secondItem="rVG-vK-KR7" secondAttribute="centerY" id="OYb-fs-aBs"/>
+                                    <constraint firstItem="s5Y-Wk-bN7" firstAttribute="leading" secondItem="rVG-vK-KR7" secondAttribute="leading" id="Vdq-oX-DLY"/>
+                                    <constraint firstAttribute="trailing" secondItem="6S8-Xn-nsT" secondAttribute="trailing" id="YIH-1D-kJW"/>
+                                    <constraint firstAttribute="height" constant="20" id="er2-5a-Sqg"/>
+                                    <constraint firstAttribute="width" constant="280" id="oYD-rc-hHh"/>
+                                    <constraint firstItem="wQB-Ul-I9j" firstAttribute="centerX" secondItem="rVG-vK-KR7" secondAttribute="centerX" id="qUf-SQ-Kgf"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CP0-E0-rii">
-                                <rect key="frame" x="155" y="348" width="290" height="1"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="290" id="TkK-3U-g8P"/>
-                                    <constraint firstAttribute="height" constant="1" id="fWb-0r-OCw"/>
-                                </constraints>
-                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z58-HK-VLm">
+                                <rect key="frame" x="224" y="474" width="152" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
+                                <state key="normal" title="Login With Facebook">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnSignInFacebook:" destination="1Id-Pa-wiq" eventType="touchUpInside" id="dEF-YR-wS5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zuM-Oo-igz">
+                                <rect key="frame" x="234" y="512" width="132" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Login With Google">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnSignInGoogle:" destination="1Id-Pa-wiq" eventType="touchUpInside" id="ibb-kr-1I5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeQ-oc-nSB">
+                                <rect key="frame" x="206" y="562" width="189" height="28"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                <state key="normal" title="Don't have an account? Sign Up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnSignUp:" destination="1Id-Pa-wiq" eventType="touchUpInside" id="rNG-KV-MVF"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.98431372549999996" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="dm2-1z-2ng" firstAttribute="top" secondItem="YGe-BP-NgJ" secondAttribute="bottom" constant="8" id="0vZ-tK-O4e"/>
-                            <constraint firstItem="PBZ-44-KVS" firstAttribute="top" secondItem="8ZB-4W-Bx0" secondAttribute="bottom" constant="20" id="1rK-Z0-dXJ"/>
+                            <constraint firstItem="PBZ-44-KVS" firstAttribute="top" secondItem="8ZB-4W-Bx0" secondAttribute="bottom" constant="8" id="1rK-Z0-dXJ"/>
                             <constraint firstItem="8ZB-4W-Bx0" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="3Gy-mL-cmy"/>
-                            <constraint firstItem="o1w-Pa-V72" firstAttribute="top" secondItem="PBZ-44-KVS" secondAttribute="bottom" constant="35" id="3Tl-hR-wyy"/>
+                            <constraint firstItem="o1w-Pa-V72" firstAttribute="top" secondItem="PBZ-44-KVS" secondAttribute="bottom" constant="10" id="3Tl-hR-wyy"/>
                             <constraint firstItem="dgZ-yT-Zrg" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="3ch-ju-Cqp"/>
-                            <constraint firstItem="YGe-BP-NgJ" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="8nP-eG-otV"/>
+                            <constraint firstItem="zeQ-oc-nSB" firstAttribute="top" secondItem="zuM-Oo-igz" secondAttribute="bottom" constant="20" id="5TA-7e-kie"/>
+                            <constraint firstItem="iUI-38-6rZ" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="6gb-Mc-Ue8"/>
+                            <constraint firstItem="rVG-vK-KR7" firstAttribute="top" secondItem="iUI-38-6rZ" secondAttribute="bottom" constant="8" id="Aca-ny-xwY"/>
                             <constraint firstItem="dgZ-yT-Zrg" firstAttribute="top" secondItem="8Q7-fV-n8x" secondAttribute="bottom" constant="30" id="BKx-S4-Ycb"/>
-                            <constraint firstItem="i78-jc-s4L" firstAttribute="top" secondItem="dm2-1z-2ng" secondAttribute="bottom" constant="20" id="Fhj-f8-Dr7"/>
-                            <constraint firstItem="dm2-1z-2ng" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="Hrt-cG-0Mk"/>
-                            <constraint firstItem="CP0-E0-rii" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="L3m-mR-p37"/>
-                            <constraint firstItem="toC-EX-7H9" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="LkT-KF-x6Z"/>
+                            <constraint firstItem="iUI-38-6rZ" firstAttribute="top" secondItem="o1w-Pa-V72" secondAttribute="bottom" constant="8" id="FDj-23-ptz"/>
+                            <constraint firstItem="z58-HK-VLm" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="FO3-tB-Pig"/>
                             <constraint firstItem="o1w-Pa-V72" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="PRY-5g-O2x"/>
-                            <constraint firstItem="2oF-p7-xNl" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="hUn-50-OIN"/>
-                            <constraint firstItem="o1w-Pa-V72" firstAttribute="top" secondItem="CP0-E0-rii" secondAttribute="bottom" constant="35" id="iw9-Of-ENs"/>
-                            <constraint firstItem="2oF-p7-xNl" firstAttribute="top" secondItem="o1w-Pa-V72" secondAttribute="bottom" constant="20" id="l3N-f4-DMP"/>
-                            <constraint firstItem="PBZ-44-KVS" firstAttribute="top" secondItem="toC-EX-7H9" secondAttribute="bottom" constant="20" id="nBU-LJ-crO"/>
+                            <constraint firstItem="rVG-vK-KR7" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="Ux9-MV-3Xz"/>
+                            <constraint firstItem="i78-jc-s4L" firstAttribute="top" secondItem="zeQ-oc-nSB" secondAttribute="bottom" constant="10" id="ZYB-f5-LyJ"/>
+                            <constraint firstItem="zeQ-oc-nSB" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="ZjN-iT-D1D"/>
+                            <constraint firstItem="zuM-Oo-igz" firstAttribute="top" secondItem="z58-HK-VLm" secondAttribute="bottom" constant="8" id="b5K-dz-x1M"/>
+                            <constraint firstItem="zuM-Oo-igz" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="gUl-zJ-s1O"/>
+                            <constraint firstItem="z58-HK-VLm" firstAttribute="top" secondItem="rVG-vK-KR7" secondAttribute="bottom" constant="8" id="jYQ-6g-Yzk"/>
                             <constraint firstItem="PBZ-44-KVS" firstAttribute="centerX" secondItem="QlR-Bo-m4S" secondAttribute="centerX" id="vTd-Fp-Tls"/>
-                            <constraint firstItem="YGe-BP-NgJ" firstAttribute="top" secondItem="2oF-p7-xNl" secondAttribute="bottom" constant="20" id="wwy-N2-8BK"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnSignIn" destination="o1w-Pa-V72" id="MtY-5r-iNL"/>
-                        <outlet property="btnSignInGoogle" destination="2oF-p7-xNl" id="6cd-Bu-z7v"/>
-                        <outlet property="btnSignUp" destination="dm2-1z-2ng" id="sCt-uv-g2O"/>
-                        <outlet property="lineEmail" destination="toC-EX-7H9" id="HXm-mu-Jq3"/>
-                        <outlet property="linePass" destination="CP0-E0-rii" id="905-Oq-xmW"/>
+                        <outlet property="btnSignInFacebook" destination="z58-HK-VLm" id="qBh-mU-LwI"/>
+                        <outlet property="btnSignInGoogle" destination="zuM-Oo-igz" id="gEr-V6-VmG"/>
+                        <outlet property="btnSignUp" destination="zeQ-oc-nSB" id="uTG-8R-zjW"/>
                         <outlet property="txtEmail" destination="8ZB-4W-Bx0" id="ucY-8H-bIC"/>
                         <outlet property="txtPass" destination="PBZ-44-KVS" id="hV6-w7-goz"/>
                     </connections>

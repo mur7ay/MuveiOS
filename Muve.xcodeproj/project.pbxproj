@@ -11,6 +11,9 @@
 		A70E91761D18930200C287A6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70E91751D18930200C287A6 /* LoginViewController.swift */; };
 		A70E917C1D1895D400C287A6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70E917B1D1895D400C287A6 /* Constants.swift */; };
 		A70E91801D18971400C287A6 /* UIViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70E917E1D18971400C287A6 /* UIViewController+Helper.swift */; };
+		A70E91821D19B2A500C287A6 /* UITextField+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70E91811D19B2A500C287A6 /* UITextField+Helper.swift */; };
+		A70E91841D19B41800C287A6 /* UIButton+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70E91831D19B41800C287A6 /* UIButton+Helper.swift */; };
+		A70E91861D19B4FD00C287A6 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70E91851D19B4FD00C287A6 /* UIImage+Color.swift */; };
 		A72AD5661D1880F100FFC381 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72AD5651D1880F100FFC381 /* AppDelegate.swift */; };
 		A72AD5681D18810400FFC381 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A72AD5671D18810400FFC381 /* Assets.xcassets */; };
 		A72AD56A1D18811700FFC381 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A72AD5691D18811700FFC381 /* Main.storyboard */; };
@@ -25,6 +28,9 @@
 		A70E91751D18930200C287A6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Classes/Controllers/Login/LoginViewController.swift; sourceTree = "<group>"; };
 		A70E917B1D1895D400C287A6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Classes/Common/Constants.swift; sourceTree = "<group>"; };
 		A70E917E1D18971400C287A6 /* UIViewController+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Helper.swift"; path = "Classes/Common/Extentions/UIViewController+Helper.swift"; sourceTree = "<group>"; };
+		A70E91811D19B2A500C287A6 /* UITextField+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITextField+Helper.swift"; path = "Classes/Common/Extentions/UITextField+Helper.swift"; sourceTree = "<group>"; };
+		A70E91831D19B41800C287A6 /* UIButton+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIButton+Helper.swift"; path = "Classes/Common/Extentions/UIButton+Helper.swift"; sourceTree = "<group>"; };
+		A70E91851D19B4FD00C287A6 /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Color.swift"; path = "Classes/Common/Extentions/UIImage+Color.swift"; sourceTree = "<group>"; };
 		A72AD5651D1880F100FFC381 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Classes/AppDelegate.swift; sourceTree = "<group>"; };
 		A72AD5671D18810400FFC381 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		A72AD5691D18811700FFC381 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Resources/Storyboards/Main.storyboard; sourceTree = "<group>"; };
@@ -123,6 +129,9 @@
 		A72AD5611D187EA100FFC381 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
+				A70E91831D19B41800C287A6 /* UIButton+Helper.swift */,
+				A70E91851D19B4FD00C287A6 /* UIImage+Color.swift */,
+				A70E91811D19B2A500C287A6 /* UITextField+Helper.swift */,
 				A70E917E1D18971400C287A6 /* UIViewController+Helper.swift */,
 			);
 			name = Extentions;
@@ -339,9 +348,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A70E91821D19B2A500C287A6 /* UITextField+Helper.swift in Sources */,
+				A70E91841D19B41800C287A6 /* UIButton+Helper.swift in Sources */,
 				A70E91801D18971400C287A6 /* UIViewController+Helper.swift in Sources */,
 				A70E91761D18930200C287A6 /* LoginViewController.swift in Sources */,
 				A72AD5661D1880F100FFC381 /* AppDelegate.swift in Sources */,
+				A70E91861D19B4FD00C287A6 /* UIImage+Color.swift in Sources */,
 				A70E917C1D1895D400C287A6 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

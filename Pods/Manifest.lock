@@ -23,6 +23,7 @@ PODS:
   - FirebaseDatabase (3.0.1):
     - FirebaseAnalytics (~> 3.2)
   - FirebaseInstanceID (1.0.6)
+  - Font-Awesome-Swift (1.4.7)
   - GoogleAppUtilities (1.1.1):
     - GoogleSymbolUtilities (~> 1.0)
   - GoogleAuthUtilities (2.0.1):
@@ -45,6 +46,7 @@ DEPENDENCIES:
   - Firebase
   - Firebase/Auth
   - Firebase/Database
+  - Font-Awesome-Swift (~> 1.4)
   - GoogleSignIn
 
 SPEC CHECKSUMS:
@@ -53,6 +55,7 @@ SPEC CHECKSUMS:
   FirebaseAuth: 94b851fc345ce98036dfedfdc2eddeaef8fa3b4c
   FirebaseDatabase: 34301d11621a83546f39f670d256477ba6f7fcea
   FirebaseInstanceID: d014d574053a2fe84478f12f7bae96979e7051bb
+  Font-Awesome-Swift: 0131fd0f683ac024ce9abf1fdbc9fb482150ce49
   GoogleAppUtilities: f1730f91f67767b453c289577040dd3f425ffdc7
   GoogleAuthUtilities: d7a19615cd7627688afcf181737f1011ee8b5a23
   GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
@@ -61,6 +64,6 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
 
-PODFILE CHECKSUM: f5f12af4542ab60bc4a6683224799e06d07b7c8e
+PODFILE CHECKSUM: 66b6b0b8e89c4bb839e1ed4eb2fb629022f353d2
 
 COCOAPODS: 1.0.1
