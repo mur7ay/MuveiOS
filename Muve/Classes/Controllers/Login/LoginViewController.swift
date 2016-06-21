@@ -8,10 +8,10 @@
 
 import UIKit
 import Firebase
+import KRProgressHUD
 import Font_Awesome_Swift
 
-class LoginViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDelegate {
-
+class LoginViewController: UIViewController {
     
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPass: UITextField!
@@ -20,23 +20,15 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDel
     @IBOutlet weak var btnSignInFacebook: UIButton!
     @IBOutlet weak var btnSignUp: UIButton!
     
+    @IBOutlet weak var signInButton: GIDSignInButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        GIDSignIn.sharedInstance().uiDelegate = self
         hideKeyboardWhenTappedAround()
+        
+        setupGoogleAuth()
         setupTxtFields()
         setupButtons()
-    }
- 
-    @IBAction func btnSignInGoogle(sender: AnyObject) {
-    }
-    @IBAction func btnSignInFacebook(sender: AnyObject) {
-    }
-    @IBAction func btnSignUp(sender: AnyObject) {
-    }
-    @IBAction func btnForgotPassword(sender: AnyObject) {
-    }
-    @IBAction func btnSignIn(sender: AnyObject) {
     }
     
     func setupButtons() {
@@ -60,21 +52,35 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDel
         txtPass.leftViewMode = .Always
     }
     
-    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError?) {
-        if let error = error {
-//            self.showMessagePrompt(error.localizedDescription)
-            print("Login with google failed with error: \(error)")
-            return
-        }
-        
-        let authentication = user.authentication
-        let credential = FIRGoogleAuthProvider.credentialWithIDToken(authentication.idToken,
-                                                                     accessToken: authentication.accessToken)
-        FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
-            print("user: \(user)")
-            print("error: \(error)")
-        }
+    @IBAction func btnSignInGoogle(sender: AnyObject) {
+        GIDSignIn.sharedInstance().signIn()
+        KRProgressHUD.show()
     }
+    
+    @IBAction func btnSignInFacebook(sender: AnyObject) {
+    }
+    
+    @IBAction func btnSignUp(sender: AnyObject) {
+    }
+    
+    @IBAction func btnForgotPassword(sender: AnyObject) {
+    }
+    
+    @IBAction func btnSignIn(sender: AnyObject) {
+    }
+}
+
+extension LoginViewController: GIDSignInUIDelegate {
+    func setupGoogleAuth() {
+        GIDSignIn.sharedInstance().uiDelegate = self
+    }
+    
+    func signInWillDispatch(signIn: GIDSignIn!, error: NSError!) {
+        KRProgressHUD.dismiss()
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(textField: UITextField) {
         switch textField {
@@ -91,7 +97,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDel
     func textFieldDidEndEditing(textField: UITextField) {
         switch textField {
         case txtEmail:
-            if txtEmail.text == "" { txtEmail.text = "Username"}
+            if txtEmail.text == "" {
+                txtEmail.text = "Email Address"
+            }
         case txtPass:
             if txtPass.text == "" {
                 txtPass.secureTextEntry = false
@@ -101,7 +109,5 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDel
             return
         }
     }
-    
-    
-    
 }
+

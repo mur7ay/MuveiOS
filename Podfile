@@ -7,6 +7,8 @@ target 'Muve' do
 
   # Pods for Muve
   pod 'Font-Awesome-Swift', '~> 1.4'
+  pod 'KRProgressHUD', '~> 1.4'
+  pod 'TTTAttributedLabel', '~> 2.0'
   
   # Firebase Pods
   pod 'Firebase'

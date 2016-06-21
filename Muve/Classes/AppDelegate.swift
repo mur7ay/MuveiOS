@@ -31,18 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                                     annotation: options[UIApplicationOpenURLOptionsAnnotationKey])
     }
     
-//    @available(iOS 8.0, *)
-//    func application(application: UIApplication,
-//                     openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-//        if let _annotation = annotation {
-//        var options: [String: AnyObject] = [UIApplicationOpenURLOptionsSourceApplicationKey: sourceApplication!,
-//                                            UIApplicationOpenURLOptionsAnnotationKey: _annotation]
-//        return GIDSignIn.sharedInstance().handleURL(url,
-//                                                    sourceApplication: sourceApplication,
-//                                                    annotation: annotation)
-//        }
-//    }
-    
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
                 withError error: NSError!) {
         if let error = error {
