@@ -1,9 +1,9 @@
 //
 //  UIButton+UnderlineTitle.swift
-//  Everest
+//  Muve
 //
-//  Created by Givi on 18/05/16.
-//  Copyright © 2016 EVE. All rights reserved.
+//  Created by Givi Pataridze on 21/06/16.
+//  Copyright © 2016 Muve. All rights reserved.
 //
 
 import UIKit

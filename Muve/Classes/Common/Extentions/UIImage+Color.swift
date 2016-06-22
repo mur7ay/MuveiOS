@@ -1,6 +1,8 @@
 //
-// Created by Виктор Заикин on 21.04.16.
-// Copyright (c) 2016 EVE. All rights reserved.
+//  Muve
+//
+//  Created by Givi Pataridze on 21/06/16.
+//  Copyright © 2016 Muve. All rights reserved.
 //
 
 import UIKit
