@@ -11,7 +11,7 @@ import Firebase
 import KRProgressHUD
 import Font_Awesome_Swift
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, BaseViewController {
     
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPass: UITextField!
@@ -21,6 +21,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var btnSignUp: UIButton!
     
     @IBOutlet weak var signInButton: GIDSignInButton!
+    
+    static func storyBoardName() -> String {
+        return "Main"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

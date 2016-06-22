@@ -9,7 +9,7 @@
 import UIKit
 import TTTAttributedLabel
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, BaseViewController {
 
     
     @IBOutlet weak var btnSignUp: UIButton!
@@ -19,6 +19,9 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var btnAlreadyRegistered: UIButton!
     @IBOutlet weak var lblTermsPrivacy: TTTAttributedLabel!
     
+    static func storyBoardName() -> String {
+        return "Main"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
