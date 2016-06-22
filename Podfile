@@ -6,6 +6,11 @@ target 'Muve' do
   use_frameworks!
 
   # Pods for Muve
+  pod 'Font-Awesome-Swift', '~> 1.4'
+  pod 'KRProgressHUD', '~> 1.4'
+  pod 'TTTAttributedLabel', '~> 2.0'
+  
+  # Firebase Pods
   pod 'Firebase'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
