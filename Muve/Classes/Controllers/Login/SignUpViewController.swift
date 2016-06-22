@@ -7,7 +7,10 @@
 //
 
 import UIKit
-import TTTAttributedLabel
+import Firebase
+import UITextField_Shake_Swift
+
+//import TTTAttributedLabel
 
 class SignUpViewController: UIViewController, BaseViewController {
 
@@ -17,7 +20,6 @@ class SignUpViewController: UIViewController, BaseViewController {
     @IBOutlet weak var txtPass: UITextField!
     @IBOutlet weak var txtPassConfirm: UITextField!
     @IBOutlet weak var btnAlreadyRegistered: UIButton!
-    @IBOutlet weak var lblTermsPrivacy: TTTAttributedLabel!
     
     static func storyBoardName() -> String {
         return "Main"
@@ -28,7 +30,16 @@ class SignUpViewController: UIViewController, BaseViewController {
         hideKeyboardWhenTappedAround()
         setupButtons()
         setupTxtFields()
-        setupAttributedLabel()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.view.backgroundColor = UIColor.clearColor()
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     func setupButtons() {
@@ -51,33 +62,30 @@ class SignUpViewController: UIViewController, BaseViewController {
         txtPassConfirm.leftViewMode = .Always
     }
     
-    func setupAttributedLabel() {
-        let text: NSString = "By joining you agree our Terms and Privacy Policy"
-        lblTermsPrivacy.text = text as String
-        lblTermsPrivacy.textColor = UIColor.whiteColor()
-        lblTermsPrivacy.delegate = self
-        let terms: NSRange = text.rangeOfString("Terms")
-        lblTermsPrivacy.addLinkToURL(NSURL(string: "Terms"), withRange: terms)
-        let policy: NSRange = text.rangeOfString("Privacy Policy")
-        lblTermsPrivacy.addLinkToURL(NSURL(string: "Privacy Policy"), withRange: policy)
-    }
-}
-
-extension SignUpViewController: TTTAttributedLabelDelegate {
-
-    func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
-        if let text = url {
-            switch text.absoluteString {
-            case "Terms":
-                break
-                //open Terms
-            case "Private Policy":
-                break
-                //open Policy
-            default:
-                return
+    @IBAction func btnSignUp(sender: AnyObject) {
+        if txtEmail.text != "" {
+            if txtPass.text == txtPassConfirm.text {
+                if let email = txtEmail.text, pass = txtPass.text {
+                    ProgressHUD.show()
+                    FIRAuth.auth()?.createUserWithEmail(email, password: pass) { (user, error) in
+                        ProgressHUD.hide()
+                        if let _error = error {
+                            self.showSimpleAlert("Error", message: _error.localizedDescription)
+                        } else {
+                            self.presentViewController(TabBarViewController(), animated: true, completion: nil)
+                        }
+                    }
+                }
+            } else {
+                txtPassConfirm.shake()
             }
+        } else {
+            txtEmail.shake()
         }
+    }
+    
+    @IBAction func btnAlreadyRegistered(sender: AnyObject) {
+        pop()
     }
 }
 
@@ -86,7 +94,9 @@ extension SignUpViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(textField: UITextField) {
         switch textField {
         case txtEmail:
-            txtEmail.text = ""
+            if txtEmail.text == "Email Address" {
+                txtEmail.text = ""
+            }
         case txtPass:
             txtPass.text = ""
             txtPass.secureTextEntry = true
@@ -116,6 +126,15 @@ extension SignUpViewController: UITextFieldDelegate {
             }
         default:
             return
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == txtPass {
+            btnSignUp(self)
+            return true
+        } else {
+            return false
         }
     }
 }

@@ -1,5 +1,5 @@
 # Uncomment this line to define a global platform for your project
- platform :ios, '8.0'
+ platform :ios, '8.4'
 
 target 'Muve' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
@@ -8,7 +8,9 @@ target 'Muve' do
   # Pods for Muve
   pod 'Font-Awesome-Swift', '~> 1.4'
   pod 'KRProgressHUD', '~> 1.4'
-  pod 'TTTAttributedLabel', '~> 2.0'
+  pod 'ActiveLabel', '~> 0.5'
+  pod 'PTPopupWebView', '~> 0.3'
+  pod 'UITextField-Shake-Swift', '~> 1.0'
   
   # Firebase Pods
   pod 'Firebase'

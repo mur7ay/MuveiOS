@@ -61,7 +61,7 @@
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email Address" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ZB-4W-Bx0">
                                 <rect key="frame" x="160" y="253" width="280" height="40"/>
@@ -73,7 +73,7 @@
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUI-38-6rZ">
                                 <rect key="frame" x="228" y="404" width="145" height="34"/>
@@ -86,7 +86,7 @@
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnForgotPassword:" destination="1Id-Pa-wiq" eventType="touchUpInside" id="c4C-d3-N8k"/>
+                                    <segue destination="NFB-s3-eW1" kind="show" id="yly-fG-I22"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVG-vK-KR7">
@@ -155,7 +155,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnSignUp:" destination="1Id-Pa-wiq" eventType="touchUpInside" id="rNG-KV-MVF"/>
                                     <segue destination="ZWC-HS-yBj" kind="show" id="S7n-n8-EP4"/>
                                 </connections>
                             </button>
@@ -203,6 +202,33 @@
             </objects>
             <point key="canvasLocation" x="1382" y="348"/>
         </scene>
+        <!--Forgot Password View Controller-->
+        <scene sceneID="onv-im-Ta9">
+            <objects>
+                <viewController id="NFB-s3-eW1" customClass="ForgotPasswordViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EpU-iG-lF1"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z0G-Ib-IoX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Kri-0O-WbM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.98431372549999996" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="HaL-zY-Fxf" appends="YES" id="7op-Gs-JWV"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GHF-75-rXH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="HaL-zY-Fxf">
+                    <connections>
+                        <segue destination="1Id-Pa-wiq" kind="show" id="884-gi-Gwc"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1382" y="1046"/>
+        </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="CEe-d0-kdq">
             <objects>
@@ -223,6 +249,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="btnSignUp:" destination="ZWC-HS-yBj" eventType="touchUpInside" id="slv-pU-eZg"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Confirm Password" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eju-TV-aQj">
                                 <rect key="frame" x="160" y="355" width="280" height="40"/>
@@ -234,7 +263,7 @@
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V26-Nu-z6j">
                                 <rect key="frame" x="160" y="307" width="280" height="40"/>
@@ -246,7 +275,7 @@
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email Address" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wHK-mc-O67">
                                 <rect key="frame" x="160" y="259" width="280" height="40"/>
@@ -260,11 +289,19 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="By joining you agree our Terms and Privacy Policy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyO-q7-tqd" customClass="TTTAttributedLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="By joining you agree our Terms and Privacy Policy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyO-q7-tqd" customClass="ActiveLabel" customModule="ActiveLabel">
                                 <rect key="frame" x="50" y="574" width="500" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="URLColor">
+                                        <color key="value" red="0.26274509800000001" green="0.4823529412" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="URLSelectedColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAZ-6l-s3W">
                                 <rect key="frame" x="228" y="510" width="145" height="34"/>
@@ -276,6 +313,9 @@
                                 <state key="normal" title="Already Registered?">
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnAlreadyRegistered:" destination="ZWC-HS-yBj" eventType="touchUpInside" id="2Vg-Q8-QJV"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="MainLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5rz-Jj-1Dl">
                                 <rect key="frame" x="198" y="20" width="204" height="209"/>
@@ -291,6 +331,7 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.98431372549999996" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Eju-TV-aQj" firstAttribute="top" secondItem="V26-Nu-z6j" secondAttribute="bottom" constant="8" id="3hT-Hq-iJd"/>
                             <constraint firstItem="Eju-TV-aQj" firstAttribute="centerX" secondItem="Na9-ct-kdj" secondAttribute="centerX" id="76L-QT-jH9"/>
@@ -310,17 +351,24 @@
                             <constraint firstItem="zyO-q7-tqd" firstAttribute="top" secondItem="ZAZ-6l-s3W" secondAttribute="bottom" constant="30" id="rCy-oh-18a"/>
                             <constraint firstItem="V26-Nu-z6j" firstAttribute="top" secondItem="wHK-mc-O67" secondAttribute="bottom" constant="8" id="xEM-Hf-htQ"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="H0T-va-UFi" appends="YES" id="jqj-ez-ihb"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="btnAlreadyRegistered" destination="ZAZ-6l-s3W" id="F2A-nG-ObC"/>
                         <outlet property="btnSignUp" destination="MHk-uc-MQu" id="Pu6-aF-q2j"/>
-                        <outlet property="lblTermsPrivacy" destination="zyO-q7-tqd" id="4jU-cO-lIu"/>
                         <outlet property="txtEmail" destination="wHK-mc-O67" id="gfQ-tV-Mjk"/>
                         <outlet property="txtPass" destination="V26-Nu-z6j" id="UDt-RP-bId"/>
                         <outlet property="txtPassConfirm" destination="Eju-TV-aQj" id="zDA-wH-yGJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tOj-YT-dyL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="H0T-va-UFi">
+                    <connections>
+                        <segue destination="1Id-Pa-wiq" kind="show" id="wxx-WA-N92"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2085" y="348"/>
         </scene>
@@ -328,4 +376,7 @@
     <resources>
         <image name="MainLogo" width="305" height="315"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="wxx-WA-N92"/>
+    </inferredMetricsTieBreakers>
 </document>

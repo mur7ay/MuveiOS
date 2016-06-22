@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         FIRApp.configure()
-        
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         return true
@@ -40,13 +39,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             let authentication = user.authentication
             let credential = FIRGoogleAuthProvider.credentialWithIDToken(authentication.idToken, accessToken: authentication.accessToken)
             FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
-                print(user)
+                if let _error = error {
+                    print(_error.localizedDescription)
+                } else {
+                    self.window?.rootViewController?.presentViewController(TabBarViewController(), animated: true, completion: nil)
+                }
             }
         }
     }
     
     func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
                 withError error: NSError!) {
+        window?.rootViewController = LoginViewController.create() as! LoginViewController
     }
     
     func applicationWillResignActive(application: UIApplication) {
