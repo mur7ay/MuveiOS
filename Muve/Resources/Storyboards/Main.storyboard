@@ -204,7 +204,7 @@
                                 <state key="normal" title="Sign Up"/>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Confirm Password" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eju-TV-aQj">
-                                <rect key="frame" x="160" y="385" width="280" height="40"/>
+                                <rect key="frame" x="160" y="355" width="280" height="40"/>
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.36470588240000001" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -216,7 +216,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V26-Nu-z6j">
-                                <rect key="frame" x="160" y="337" width="280" height="40"/>
+                                <rect key="frame" x="160" y="307" width="280" height="40"/>
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.36470588240000001" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -228,7 +228,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email Address" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wHK-mc-O67">
-                                <rect key="frame" x="160" y="289" width="280" height="40"/>
+                                <rect key="frame" x="160" y="259" width="280" height="40"/>
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.36470588240000001" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -237,7 +237,7 @@
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="By joining you agree our Terms and Privacy Policy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyO-q7-tqd" customClass="TTTAttributedLabel">
                                 <rect key="frame" x="50" y="574" width="500" height="18"/>
@@ -257,7 +257,7 @@
                                 </state>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="MainLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5rz-Jj-1Dl">
-                                <rect key="frame" x="184" y="20" width="232" height="239"/>
+                                <rect key="frame" x="198" y="20" width="204" height="209"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="257" id="VAR-Dl-Vi4"/>
                                     <constraint firstAttribute="width" secondItem="5rz-Jj-1Dl" secondAttribute="height" multiplier="250:257" id="lGG-Vu-qaw"/>
@@ -279,22 +279,16 @@
                             <constraint firstAttribute="trailingMargin" secondItem="zyO-q7-tqd" secondAttribute="trailing" constant="30" id="Fw7-RO-nZ5"/>
                             <constraint firstItem="5rz-Jj-1Dl" firstAttribute="centerX" secondItem="Na9-ct-kdj" secondAttribute="centerX" id="HYL-Zm-bzZ"/>
                             <constraint firstItem="wHK-mc-O67" firstAttribute="top" secondItem="5rz-Jj-1Dl" secondAttribute="bottom" constant="30" id="J4A-wM-pWA"/>
-                            <constraint firstItem="MHk-uc-MQu" firstAttribute="top" secondItem="Eju-TV-aQj" secondAttribute="bottom" constant="10" id="NNj-0F-VCm"/>
+                            <constraint firstItem="MHk-uc-MQu" firstAttribute="top" secondItem="Eju-TV-aQj" secondAttribute="bottom" constant="40" id="NNj-0F-VCm"/>
                             <constraint firstItem="ZAZ-6l-s3W" firstAttribute="centerX" secondItem="Na9-ct-kdj" secondAttribute="centerX" id="VaB-5E-wEg"/>
                             <constraint firstItem="zyO-q7-tqd" firstAttribute="centerX" secondItem="Na9-ct-kdj" secondAttribute="centerX" id="XYX-Wh-kyJ"/>
                             <constraint firstItem="MHk-uc-MQu" firstAttribute="centerX" secondItem="Na9-ct-kdj" secondAttribute="centerX" id="ej9-3O-7bq"/>
                             <constraint firstItem="V26-Nu-z6j" firstAttribute="centerX" secondItem="Na9-ct-kdj" secondAttribute="centerX" id="g9u-2Q-stP"/>
                             <constraint firstItem="vYS-Pq-Mqz" firstAttribute="top" secondItem="zyO-q7-tqd" secondAttribute="bottom" constant="8" id="j5z-A9-pb4"/>
-                            <constraint firstItem="wHK-mc-O67" firstAttribute="top" secondItem="5rz-Jj-1Dl" secondAttribute="bottom" constant="40" id="jbJ-5L-6FH"/>
                             <constraint firstItem="zyO-q7-tqd" firstAttribute="leading" secondItem="Na9-ct-kdj" secondAttribute="leadingMargin" constant="30" id="lNO-AX-iQl"/>
                             <constraint firstItem="zyO-q7-tqd" firstAttribute="top" secondItem="ZAZ-6l-s3W" secondAttribute="bottom" constant="30" id="rCy-oh-18a"/>
                             <constraint firstItem="V26-Nu-z6j" firstAttribute="top" secondItem="wHK-mc-O67" secondAttribute="bottom" constant="8" id="xEM-Hf-htQ"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="jbJ-5L-6FH"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="btnAlreadyRegistered" destination="ZAZ-6l-s3W" id="F2A-nG-ObC"/>
