@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import KRProgressHUD
 import Font_Awesome_Swift
 
 class LoginViewController: UIViewController, BaseViewController {
@@ -35,6 +34,11 @@ class LoginViewController: UIViewController, BaseViewController {
         setupButtons()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     func setupButtons() {
         btnSignIn.customBorder(borderWidth: 1, borderColor: UIColor.whiteColor(), normalColor: UIColor.clearColor(), highlightedColor: Colors.loginButtonPressed)
         btnSignIn.layer.cornerRadius = CGFloat(8)
@@ -58,10 +62,11 @@ class LoginViewController: UIViewController, BaseViewController {
     
     @IBAction func btnSignInGoogle(sender: AnyObject) {
         GIDSignIn.sharedInstance().signIn()
-        KRProgressHUD.show()
+        ProgressHUD.show()
     }
     
     @IBAction func btnSignInFacebook(sender: AnyObject) {
+        
     }
     
     @IBAction func btnSignUp(sender: AnyObject) {
@@ -80,7 +85,7 @@ extension LoginViewController: GIDSignInUIDelegate {
     }
     
     func signInWillDispatch(signIn: GIDSignIn!, error: NSError!) {
-        KRProgressHUD.dismiss()
+        ProgressHUD.hide()
     }
 }
 
