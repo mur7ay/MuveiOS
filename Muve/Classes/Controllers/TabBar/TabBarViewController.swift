@@ -13,38 +13,40 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tabBar.backgroundColor = Colors.muveRed
+        // Sets the default color of the icon of the selected UITabBarItem and Title
+        UITabBar.appearance().tintColor = UIColor.whiteColor()
         
-        let feedVC = FeedViewController.create()
-        let feedNC = NavController.init(rootViewController: feedVC)
-        //        homeNavController.title = "Home"
-//        feedNC.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName : constant.defaultTextColor], forState: .Selected)
-        feedNC.tabBarItem.image = UIImage.init(named: "TabBarHistory")
-        feedNC.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
-//        if let selectedImage = UIImage(named: "Home Icon-1")?.imageWithRenderingMode(.AlwaysOriginal) {
-//            feedNC.tabBarItem.selectedImage = selectedImage
+        // Sets the default color of the background of the UITabBar
+        UITabBar.appearance().barTintColor = Colors.muveRed
+        
+        // Sets the background color of the selected UITabBarItem (using and plain colored UIImage with the width = 1/5 of the tabBar (if you have 5 items) and the height of the tabBar)
+//        UITabBar.appearance().selectionIndicatorImage = UIImage.imageWithColor(UIColor.blueColor())
+        
+        // Sets the background color of the selected UITabBarItem (using and plain colored UIImage with the width = 1/5 of the tabBar (if you have 5 items) and the height of the tabBar)
+//        UITabBar.appearance().selectionIndicatorImage = UIImage().makeImageWithColorAndSize(UIColor.blueColor(), size: CGSizeMake(tabBar.frame.width/5, tabBar.frame.height))
+        
+        // Uses the original colors for your images, so they aren't not rendered as grey automatically.
+//        for item in self.tabBar.items as! [UITabBarItem] {
+//            if let image = item.image {
+//                item.image = image.imageWithRenderingMode(.AlwaysOriginal)
+//            }
 //        }
         
-        let mapVC = MapViewController.create()
-        filmRoomMainController.title = "Film Room"
-        let filmNavController = FilmRoomNavController.init(rootViewController: filmRoomMainController)
-        filmNavController.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName : constant.defaultTextColor], forState: .Selected)
-        filmNavController.tabBarItem.image = UIImage.init(named: "Film Room Icon - Inactive")
-        filmNavController.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
-        if let selectedImage = UIImage(named: "Film Room Icon - Active")?.imageWithRenderingMode(.AlwaysOriginal) {
-            filmNavController.tabBarItem.selectedImage = selectedImage
-        }
+//        tabBar.backgroundImage = UIImage.imageWithColor(UIColor.clearColor())
         
-        let profileNavController = ProfileController.create()
-        //        profileNavController.title = "Profile"
-        profileNavController.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName : constant.defaultTextColor], forState: .Selected)
-        profileNavController.tabBarItem.image = UIImage.init(named: "Profile Icon")
-        profileNavController.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
-        if let selectedImage = UIImage(named: "Profile Icon - Active")?.imageWithRenderingMode(.AlwaysOriginal) {
-            profileNavController.tabBarItem.selectedImage = selectedImage
-        }
+        let feedNC = NavController.init(rootViewController: FeedViewController.create())
+        feedNC.tabBarItem.title = "History"
+        feedNC.tabBarItem.image = UIImage.init(named: "TabBarHistory")
         
-        self.viewControllers = [homeNavController,filmNavController,profileNavController]
+        let mapNC = NavController.init(rootViewController: MapViewController.create())
+        mapNC.tabBarItem.title = "Requests"
+        mapNC.tabBarItem.image = UIImage.init(named: "TabBarMap")
+        
+        let profileNC = NavController.init(rootViewController: ProfileViewController.create())
+        profileNC.tabBarItem.title = "Account"
+        profileNC.tabBarItem.image = UIImage.init(named: "TabBarProfile")
+        
+        self.viewControllers = [feedNC,mapNC,profileNC]
     }
     
 }

@@ -158,8 +158,8 @@
 				A753AFA21D1B232500D1F30E /* Map.storyboard */,
 				A753AFA41D1B233600D1F30E /* Profile.storyboard */,
 				A753AFA61D1B234100D1F30E /* Feed.storyboard */,
-				CD4D11EC1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard */,
 				A753AFB91D1B351E00D1F30E /* Message.storyboard */,
+				CD4D11EC1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";

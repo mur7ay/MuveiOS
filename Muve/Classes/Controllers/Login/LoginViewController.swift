@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import Font_Awesome_Swift
+import UITextField_Shake_Swift
 
 class LoginViewController: UIViewController, BaseViewController {
     
@@ -69,13 +70,28 @@ class LoginViewController: UIViewController, BaseViewController {
         
     }
     
-    @IBAction func btnSignUp(sender: AnyObject) {
-    }
-    
-    @IBAction func btnForgotPassword(sender: AnyObject) {
-    }
-    
     @IBAction func btnSignIn(sender: AnyObject) {
+        if txtEmail.text != "" {
+            if let email = txtEmail.text, pass = txtPass.text {
+                ProgressHUD.show()
+                FIRAuth.auth()?.signInWithEmail(email, password: pass) { (user, error) in
+                    ProgressHUD.hide()
+                    if let _error = error {
+                        switch _error.code {
+                        case 17009:
+                            self.txtPass.shake()
+                        default:
+                            self.showSimpleAlert("Error", message: _error.localizedDescription)
+                        }
+                    } else {
+                        self.presentViewController(TabBarViewController(), animated: true, completion: nil)
+
+                    }
+                }
+            }
+        } else {
+            txtEmail.shake()
+        }
     }
 }
 
@@ -94,7 +110,9 @@ extension LoginViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(textField: UITextField) {
         switch textField {
         case txtEmail:
-            txtEmail.text = ""
+            if txtEmail.text == "Email Address" {
+                txtEmail.text = ""
+            }
         case txtPass:
             txtPass.text = ""
             txtPass.secureTextEntry = true
@@ -116,6 +134,15 @@ extension LoginViewController: UITextFieldDelegate {
             }
         default:
             return
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == txtPass {
+            btnSignIn(self)
+            return true
+        } else {
+            return false
         }
     }
 }

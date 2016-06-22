@@ -8,7 +8,7 @@
         <!--Map View Controller-->
         <scene sceneID="0BI-GC-zSY">
             <objects>
-                <viewController id="Kca-Wb-WjC" customClass="MapViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewControllerID" id="Kca-Wb-WjC" customClass="MapViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9pf-XO-lPX"/>
                         <viewControllerLayoutGuide type="bottom" id="2zn-X6-alu"/>

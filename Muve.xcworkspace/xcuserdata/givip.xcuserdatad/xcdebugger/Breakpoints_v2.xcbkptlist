@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Muve/Classes/Controllers/Login/SignUpViewController.swift"
-            timestampString = "488320963.366045"
+            timestampString = "488327546.553305"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "btnSignUp(_:)"
             landmarkType = "5">
          </BreakpointContent>

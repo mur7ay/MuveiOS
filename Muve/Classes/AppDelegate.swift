@@ -39,7 +39,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             let authentication = user.authentication
             let credential = FIRGoogleAuthProvider.credentialWithIDToken(authentication.idToken, accessToken: authentication.accessToken)
             FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
-                print(user)
+                if let _error = error {
+                    print(_error.localizedDescription)
+                } else {
+                    self.window?.rootViewController?.presentViewController(TabBarViewController(), animated: true, completion: nil)
+                }
             }
         }
     }

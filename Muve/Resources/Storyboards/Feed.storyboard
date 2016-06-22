@@ -8,7 +8,7 @@
         <!--Feed View Controller-->
         <scene sceneID="rnT-xf-qBc">
             <objects>
-                <viewController id="hCn-Hs-edg" customClass="FeedViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedViewControllerID" id="hCn-Hs-edg" customClass="FeedViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rUY-pU-NZ2"/>
                         <viewControllerLayoutGuide type="bottom" id="Dgr-g3-lyb"/>

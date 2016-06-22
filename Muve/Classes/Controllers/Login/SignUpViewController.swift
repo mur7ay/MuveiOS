@@ -20,7 +20,6 @@ class SignUpViewController: UIViewController, BaseViewController {
     @IBOutlet weak var txtPass: UITextField!
     @IBOutlet weak var txtPassConfirm: UITextField!
     @IBOutlet weak var btnAlreadyRegistered: UIButton!
-//    @IBOutlet weak var lblTermsPrivacy: TTTAttributedLabel!
     
     static func storyBoardName() -> String {
         return "Main"
@@ -31,7 +30,6 @@ class SignUpViewController: UIViewController, BaseViewController {
         hideKeyboardWhenTappedAround()
         setupButtons()
         setupTxtFields()
-//        setupAttributedLabel()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -68,11 +66,13 @@ class SignUpViewController: UIViewController, BaseViewController {
         if txtEmail.text != "" {
             if txtPass.text == txtPassConfirm.text {
                 if let email = txtEmail.text, pass = txtPass.text {
+                    ProgressHUD.show()
                     FIRAuth.auth()?.createUserWithEmail(email, password: pass) { (user, error) in
+                        ProgressHUD.hide()
                         if let _error = error {
                             self.showSimpleAlert("Error", message: _error.localizedDescription)
                         } else {
-                            // Push Main Screen
+                            self.presentViewController(TabBarViewController(), animated: true, completion: nil)
                         }
                     }
                 }
@@ -84,44 +84,19 @@ class SignUpViewController: UIViewController, BaseViewController {
         }
     }
     
-    
-    
-//    func setupAttributedLabel() {
-//        let text: NSString = "By joining you agree our Terms and Privacy Policy"
-//        lblTermsPrivacy.text = text as String
-//        lblTermsPrivacy.textColor = UIColor.whiteColor()
-//        lblTermsPrivacy.delegate = self
-//        let terms: NSRange = text.rangeOfString("Terms")
-//        lblTermsPrivacy.addLinkToURL(NSURL(string: "Terms"), withRange: terms)
-//        let policy: NSRange = text.rangeOfString("Privacy Policy")
-//        lblTermsPrivacy.addLinkToURL(NSURL(string: "Privacy Policy"), withRange: policy)
-//    }
+    @IBAction func btnAlreadyRegistered(sender: AnyObject) {
+        pop()
+    }
 }
-
-//extension SignUpViewController: TTTAttributedLabelDelegate {
-//
-//    func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
-//        if let text = url {
-//            switch text.absoluteString {
-//            case "Terms":
-//                break
-//                //open Terms
-//            case "Private Policy":
-//                break
-//                //open Policy
-//            default:
-//                return
-//            }
-//        }
-//    }
-//}
 
 extension SignUpViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(textField: UITextField) {
         switch textField {
         case txtEmail:
-            txtEmail.text = ""
+            if txtEmail.text == "Email Address" {
+                txtEmail.text = ""
+            }
         case txtPass:
             txtPass.text = ""
             txtPass.secureTextEntry = true
@@ -151,6 +126,15 @@ extension SignUpViewController: UITextFieldDelegate {
             }
         default:
             return
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == txtPass {
+            btnSignUp(self)
+            return true
+        } else {
+            return false
         }
     }
 }

@@ -8,7 +8,7 @@
         <!--Message View Controller-->
         <scene sceneID="K9U-Ge-0SK">
             <objects>
-                <viewController id="0QT-mF-jEj" customClass="MessageViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MessageViewControllerID" id="0QT-mF-jEj" customClass="MessageViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nof-9a-56u"/>
                         <viewControllerLayoutGuide type="bottom" id="fu3-YT-j2h"/>

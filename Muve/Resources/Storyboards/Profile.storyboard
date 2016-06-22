@@ -8,7 +8,7 @@
         <!--Profile View Controller-->
         <scene sceneID="M4Y-15-iey">
             <objects>
-                <viewController id="cfF-Wu-nNL" customClass="ProfileViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewControllerID" id="cfF-Wu-nNL" customClass="ProfileViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yVh-QH-nO8"/>
                         <viewControllerLayoutGuide type="bottom" id="svr-C8-fZ4"/>
