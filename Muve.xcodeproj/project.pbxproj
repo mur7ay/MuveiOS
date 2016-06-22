@@ -267,7 +267,6 @@
 				TargetAttributes = {
 					CD4D11DF1D0B0A4C00A0DBD3 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = C55XMLS7R2;
 					};
 				};
 			};

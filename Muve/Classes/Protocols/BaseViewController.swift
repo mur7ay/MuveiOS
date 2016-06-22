@@ -10,6 +10,7 @@ import UIKit
 
 public protocol BaseViewController {
     static func storyBoardName() -> String
+    func showSimpleAlert(title: String?, message: String?)
 }
 
 public extension BaseViewController where Self: UIViewController {
@@ -25,6 +26,10 @@ public extension BaseViewController where Self: UIViewController {
     
     static func storyboard() -> UIStoryboard {
         return UIStoryboard(name: storyBoardName(), bundle: nil)
+    }
+    
+    func showSimpleAlert(title: String?, message: String?) {
+        UIAlertController.showAlertTitle(title, message: message, controller: self)
     }
     
     func push(viewController: UIViewController) {

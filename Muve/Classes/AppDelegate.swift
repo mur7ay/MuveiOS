@@ -36,6 +36,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         if let error = error {
             print(error.localizedDescription)
             return
+        } else {
+            let authentication = user.authentication
+            let credential = FIRGoogleAuthProvider.credentialWithIDToken(authentication.idToken, accessToken: authentication.accessToken)
+            FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
+                print(user)
+            }
         }
     }
     
