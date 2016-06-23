@@ -20,8 +20,6 @@ class LoginViewController: UIViewController, BaseViewController {
     @IBOutlet weak var btnSignInFacebook: UIButton!
     @IBOutlet weak var btnSignUp: UIButton!
     
-    @IBOutlet weak var signInButton: GIDSignInButton!
-    
     static func storyBoardName() -> String {
         return "Main"
     }
