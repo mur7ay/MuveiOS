@@ -108,10 +108,10 @@
 		A72AD55B1D187E4900FFC381 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A72AD5651D1880F100FFC381 /* AppDelegate.swift */,
 				A72AD5731D188B2800FFC381 /* Protocols */,
 				A72AD5721D188B2100FFC381 /* Controllers */,
 				A72AD5711D188AFD00FFC381 /* Common */,
-				A72AD5651D1880F100FFC381 /* AppDelegate.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
