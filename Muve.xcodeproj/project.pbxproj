@@ -215,13 +215,13 @@
 		A72AD5721D188B2100FFC381 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A753AFAD1D1B327D00D1F30E /* TabBar */,
 				A753AFBB1D1B368C00D1F30E /* NavigationController */,
+				A70E91741D1892DC00C287A6 /* Login */,
 				A753AFB41D1B34DC00D1F30E /* Message */,
 				A753AFB31D1B34D400D1F30E /* Feed */,
 				A753AFB01D1B346900D1F30E /* Profile */,
-				A753AFAD1D1B327D00D1F30E /* TabBar */,
 				A753AFAA1D1B325800D1F30E /* Map */,
-				A70E91741D1892DC00C287A6 /* Login */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

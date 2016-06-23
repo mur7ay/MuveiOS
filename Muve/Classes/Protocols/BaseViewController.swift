@@ -29,7 +29,19 @@ public extension BaseViewController where Self: UIViewController {
     }
     
     func showSimpleAlert(title: String?, message: String?) {
+//        showAlertTitleWithVelocity(title, message: message, controller: self)
         UIAlertController.showAlertTitle(title, message: message, controller: self)
+    }
+    
+    func showAlertTitleWithVelocity(title: String?, message: String?, controller: UIViewController) {
+        let animator = UIDynamicAnimator(referenceView: controller.view)
+        let alert = UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: "OK")
+        let gravityBehaviour = UIGravityBehavior(items: [alert])
+        animator.addBehavior(gravityBehaviour)
+        let alertBehaviour = UIDynamicItemBehavior(items: [alert])
+        alertBehaviour.addAngularVelocity(CGFloat(-M_PI_2), forItem: alert)
+        animator.addBehavior(alertBehaviour)
+        alert.show()
     }
     
     func push(viewController: UIViewController) {

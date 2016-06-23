@@ -82,8 +82,14 @@ class LoginViewController: UIViewController, BaseViewController {
                             self.showSimpleAlert("Error", message: _error.localizedDescription)
                         }
                     } else {
+                        FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
+                            if let user = user {
+                                // User is signed in.
+                            } else {
+                                // No user is signed in.
+                            }
+                        }
                         self.presentViewController(TabBarViewController(), animated: true, completion: nil)
-
                     }
                 }
             }
