@@ -12,10 +12,15 @@ class FeedViewController: UIViewController, BaseViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var dataSource = FeedsDataSource()
+    var dataSource: FeedsDataSource!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let newDataTrigger = {
+            DLog("Data was reloaded now!")
+            self.collectionView.reloadData()
+        }
+        dataSource = FeedsDataSource(trigger: newDataTrigger)
         collectionView.dataSource = dataSource
         collectionView.delegate = self
     }
@@ -24,7 +29,6 @@ class FeedViewController: UIViewController, BaseViewController {
         return "Feed"
     }
 
-    
 }
 
 extension FeedViewController: UICollectionViewDelegate {

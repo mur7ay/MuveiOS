@@ -7,10 +7,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Nav Controller-->
         <scene sceneID="Kpe-xW-LcW">
             <objects>
-                <navigationController navigationBarHidden="YES" id="tMi-a0-I98" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavControllerID" navigationBarHidden="YES" id="tMi-a0-I98" customClass="NavController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vfF-tm-cqt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -20,17 +20,17 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="1Id-Pa-wiq" kind="relationship" relationship="rootViewController" id="zvx-rY-0uO"/>
+                        <segue destination="e5V-Af-gq0" kind="relationship" relationship="rootViewController" id="7FR-Fr-g46"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pYh-co-Ixg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="701" y="348"/>
+            <point key="canvasLocation" x="28" y="348"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="q9q-TW-dVE">
             <objects>
-                <viewController id="1Id-Pa-wiq" customClass="LoginViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewControllerID" id="1Id-Pa-wiq" customClass="LoginViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Q7-fV-n8x"/>
                         <viewControllerLayoutGuide type="bottom" id="i78-jc-s4L"/>
@@ -205,7 +205,7 @@
         <!--Forgot Password View Controller-->
         <scene sceneID="onv-im-Ta9">
             <objects>
-                <viewController id="NFB-s3-eW1" customClass="ForgotPasswordViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ForgotPasswordViewControllerID" id="NFB-s3-eW1" customClass="ForgotPasswordViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EpU-iG-lF1"/>
                         <viewControllerLayoutGuide type="bottom" id="Z0G-Ib-IoX"/>
@@ -232,7 +232,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="CEe-d0-kdq">
             <objects>
-                <viewController id="ZWC-HS-yBj" customClass="SignUpViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewControllerID" id="ZWC-HS-yBj" customClass="SignUpViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ISb-o4-uIs"/>
                         <viewControllerLayoutGuide type="bottom" id="vYS-Pq-Mqz"/>
@@ -372,11 +372,43 @@
             </objects>
             <point key="canvasLocation" x="2085" y="348"/>
         </scene>
+        <!--Loader Screen View Controller-->
+        <scene sceneID="AWC-rh-o4O">
+            <objects>
+                <viewController storyboardIdentifier="LoaderScreenViewControllerID" id="e5V-Af-gq0" customClass="LoaderScreenViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YwF-Fc-dbW"/>
+                        <viewControllerLayoutGuide type="bottom" id="L1b-eJ-CTM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h6A-8b-Ohk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="2No-pb-CZn">
+                                <rect key="frame" x="255" y="244" width="91" height="112"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2No-pb-CZn" firstAttribute="centerY" secondItem="h6A-8b-Ohk" secondAttribute="centerY" id="86r-bm-wtZ"/>
+                            <constraint firstItem="2No-pb-CZn" firstAttribute="centerX" secondItem="h6A-8b-Ohk" secondAttribute="centerX" id="Ohk-G7-Taq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="KiL-TT-Mot"/>
+                    <connections>
+                        <segue destination="1Id-Pa-wiq" kind="presentation" identifier="segueLoginScreenID" id="9yr-rx-boM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="phn-RR-XBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="716" y="348"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="LaunchLogo" width="91" height="112"/>
         <image name="MainLogo" width="305" height="315"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wxx-WA-N92"/>
+        <segue reference="9yr-rx-boM"/>
     </inferredMetricsTieBreakers>
 </document>

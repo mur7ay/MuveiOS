@@ -16,5 +16,4 @@ public class ProgressHUD {
     static func hide() {
         KRProgressHUD.dismiss()
     }
-    
 }

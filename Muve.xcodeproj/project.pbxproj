@@ -26,6 +26,10 @@
 		A73F50AC1D1E67F90055A0A3 /* CollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F50AA1D1E67F90055A0A3 /* CollectionDataSource.swift */; };
 		A73F50AD1D1E67F90055A0A3 /* FeedsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F50AB1D1E67F90055A0A3 /* FeedsDataSource.swift */; };
 		A73F50AF1D1E73770055A0A3 /* FIRDatabaseReference+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F50AE1D1E73770055A0A3 /* FIRDatabaseReference+Helper.swift */; };
+		A73F50B11D1E9F8E0055A0A3 /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F50B01D1E9F8E0055A0A3 /* TypeAliases.swift */; };
+		A73F50B31D1EAAE10055A0A3 /* LoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F50B21D1EAAE10055A0A3 /* LoginHelper.swift */; };
+		A73F50B51D1EC6990055A0A3 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F50B41D1EC6990055A0A3 /* UserDefaultsHelper.swift */; };
+		A73F50B71D1EDA0B0055A0A3 /* LoaderScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F50B61D1EDA0B0055A0A3 /* LoaderScreenViewController.swift */; };
 		A74A18671D19DA9B00B323CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A74A18661D19DA9B00B323CE /* GoogleService-Info.plist */; };
 		A74A18691D19E79700B323CE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74A18681D19E79700B323CE /* SignUpViewController.swift */; };
 		A753AFA11D1B21F400D1F30E /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A753AFA01D1B21F400D1F30E /* ForgotPasswordViewController.swift */; };
@@ -73,6 +77,10 @@
 		A73F50AA1D1E67F90055A0A3 /* CollectionDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionDataSource.swift; path = Classes/Common/DataSource/CollectionDataSource.swift; sourceTree = "<group>"; };
 		A73F50AB1D1E67F90055A0A3 /* FeedsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedsDataSource.swift; path = Classes/Common/DataSource/FeedsDataSource.swift; sourceTree = "<group>"; };
 		A73F50AE1D1E73770055A0A3 /* FIRDatabaseReference+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FIRDatabaseReference+Helper.swift"; path = "Classes/Common/Extentions/FIRDatabaseReference+Helper.swift"; sourceTree = "<group>"; };
+		A73F50B01D1E9F8E0055A0A3 /* TypeAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TypeAliases.swift; path = Classes/Common/Helpers/TypeAliases.swift; sourceTree = "<group>"; };
+		A73F50B21D1EAAE10055A0A3 /* LoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginHelper.swift; path = Classes/Common/Helpers/LoginHelper.swift; sourceTree = "<group>"; };
+		A73F50B41D1EC6990055A0A3 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDefaultsHelper.swift; path = Classes/Common/Helpers/UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		A73F50B61D1EDA0B0055A0A3 /* LoaderScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoaderScreenViewController.swift; path = Classes/Controllers/Login/LoaderScreenViewController.swift; sourceTree = "<group>"; };
 		A74A18661D19DA9B00B323CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resources/Infos/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A74A18681D19E79700B323CE /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = Classes/Controllers/Login/SignUpViewController.swift; sourceTree = "<group>"; };
 		A753AFA01D1B21F400D1F30E /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = Classes/Controllers/Login/ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +130,7 @@
 		A70E91741D1892DC00C287A6 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				A73F50B61D1EDA0B0055A0A3 /* LoaderScreenViewController.swift */,
 				A70E91751D18930200C287A6 /* LoginViewController.swift */,
 				A74A18681D19E79700B323CE /* SignUpViewController.swift */,
 				A753AFA01D1B21F400D1F30E /* ForgotPasswordViewController.swift */,
@@ -207,8 +216,11 @@
 			children = (
 				A78730561D1B17BE009B0FFB /* ProgressHUD.swift */,
 				A7A07D251D1E434600E35B2E /* DataManager.swift */,
+				A73F50B41D1EC6990055A0A3 /* UserDefaultsHelper.swift */,
 				A753AFA81D1B2A5800D1F30E /* ErrorHandler.swift */,
 				A7A07D271D1E449000E35B2E /* Logger.swift */,
+				A73F50B01D1E9F8E0055A0A3 /* TypeAliases.swift */,
+				A73F50B21D1EAAE10055A0A3 /* LoginHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -235,13 +247,13 @@
 		A72AD5711D188AFD00FFC381 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A70E917B1D1895D400C287A6 /* Constants.swift */,
 				A73F50A91D1E67A10055A0A3 /* DataSources */,
 				A72AD5641D187F0500FFC381 /* Vendors */,
 				A72AD5631D187EEF00FFC381 /* Model */,
 				A72AD5621D187EAA00FFC381 /* Helpers */,
 				A72AD5611D187EA100FFC381 /* Extentions */,
 				A72AD5741D188C0700FFC381 /* Muve-Bridging-Header.h */,
-				A70E917B1D1895D400C287A6 /* Constants.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -503,9 +515,11 @@
 			files = (
 				A70E91821D19B2A500C287A6 /* UITextField+Helper.swift in Sources */,
 				A70E91841D19B41800C287A6 /* UIButton+Helper.swift in Sources */,
+				A73F50B71D1EDA0B0055A0A3 /* LoaderScreenViewController.swift in Sources */,
 				A74A18691D19E79700B323CE /* SignUpViewController.swift in Sources */,
 				A7A07D2A1D1E47C900E35B2E /* Client.swift in Sources */,
 				A73F50AC1D1E67F90055A0A3 /* CollectionDataSource.swift in Sources */,
+				A73F50B31D1EAAE10055A0A3 /* LoginHelper.swift in Sources */,
 				A73F50A21D1E4D0F0055A0A3 /* Hand.swift in Sources */,
 				A73F50A41D1E54060055A0A3 /* Helper.swift in Sources */,
 				A70E91801D18971400C287A6 /* UIViewController+Helper.swift in Sources */,
@@ -518,6 +532,7 @@
 				A753AFA91D1B2A5800D1F30E /* ErrorHandler.swift in Sources */,
 				A73F50A61D1E5D030055A0A3 /* BaseStructure.swift in Sources */,
 				A753AFB21D1B348A00D1F30E /* ProfileViewController.swift in Sources */,
+				A73F50B51D1EC6990055A0A3 /* UserDefaultsHelper.swift in Sources */,
 				A78730571D1B17BE009B0FFB /* ProgressHUD.swift in Sources */,
 				57E723BC1D1A5E2500D21C8B /* UIAlertViewController+Helper.swift in Sources */,
 				A753AFB61D1B34F200D1F30E /* FeedViewController.swift in Sources */,
@@ -528,6 +543,7 @@
 				A72AD5661D1880F100FFC381 /* AppDelegate.swift in Sources */,
 				A70E91861D19B4FD00C287A6 /* UIImage+Color.swift in Sources */,
 				A753AFBD1D1B36C100D1F30E /* NavController.swift in Sources */,
+				A73F50B11D1E9F8E0055A0A3 /* TypeAliases.swift in Sources */,
 				A70E917C1D1895D400C287A6 /* Constants.swift in Sources */,
 				A753AFAF1D1B333500D1F30E /* TabBarViewController.swift in Sources */,
 				A753AFAC1D1B327900D1F30E /* MapViewController.swift in Sources */,

@@ -8,26 +8,21 @@
 
 import UIKit
 
-class NavController: UINavigationController, UINavigationControllerDelegate {
+class NavController: UINavigationController, UINavigationControllerDelegate, BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.delegate = self;
-        self.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
-        self.navigationBar.shadowImage = UIImage()
-        self.navigationBar.translucent = true
-        self.view.backgroundColor = .clearColor()
-        self.navigationBar.tintColor = UIColor.whiteColor()
+//        
+//        self.delegate = self;
+//        self.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+//        self.navigationBar.shadowImage = UIImage()
+//        self.navigationBar.translucent = true
+//        self.view.backgroundColor = .clearColor()
+//        self.navigationBar.tintColor = UIColor.whiteColor()
     }
     
-    //MARK:- UINavigationControllerDelegate Methods
-//    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
-//        if viewController.isEqual(self.viewControllers[0]) {
-//            self.setNavigationBarHidden(true, animated: true)
-//        } else {
-//            self.setNavigationBarHidden(false, animated: true)
-//        }
-//    }
+    static func storyBoardName() -> String {
+        return "Login"
+    }
     
 }

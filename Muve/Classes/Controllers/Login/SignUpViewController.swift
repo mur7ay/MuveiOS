@@ -22,7 +22,7 @@ class SignUpViewController: UIViewController, BaseViewController {
     @IBOutlet weak var btnAlreadyRegistered: UIButton!
     
     static func storyBoardName() -> String {
-        return "Main"
+        return "Login"
     }
     
     override func viewDidLoad() {

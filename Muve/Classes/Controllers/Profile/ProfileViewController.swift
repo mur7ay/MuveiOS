@@ -17,4 +17,11 @@ class ProfileViewController: UIViewController, BaseViewController {
     static func storyBoardName() -> String {
         return "Profile"
     }
+    
+    @IBAction func btnSignOut(sender: AnyObject) {
+        LoginHelper.removeKeyChains()
+        tabBarController?.dismissViewControllerAnimated(false) {
+            self.presentViewController(NavController.create(), animated: true, completion: nil)
+        }
+    }
 }

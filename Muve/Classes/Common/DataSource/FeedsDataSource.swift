@@ -10,21 +10,30 @@ import UIKit
 import Firebase
 import ObjectMapper
 
-class FeedsDataSource: CollectionDataSource<Order>, UICollectionViewDataSource {
+class FeedsDataSource: CollectionDataSource<Client>, UICollectionViewDataSource {
     
     let loader = DataManager.sharedManager
+    let dataSourceTrigger: QueryFunc
     
-    override init() {
+    init(trigger: QueryFunc) {
+        dataSourceTrigger = trigger
         super.init()
-        var _ = loader.base.child(.clients).observeEventType(.ChildAdded, withBlock: { (snapshot) in
-            DLog("Export Native Value: \(snapshot.value)")
-            DLog("Export Value: \(snapshot.valueInExportFormat())")
-            DLog("__________")
-            let client = Mapper<Client>().map(snapshot.value)
-            let client1 = Mapper<Client>().map(snapshot.valueInExportFormat())
-            DLog("__________")
+        setupDataObserving()
+    }
+    
+    func setupDataObserving() {
+        loader.base.child(.clients).observeEventType(.ChildAdded, withBlock: { [weak self] snapshot in
+            guard let strongSelf = self else { return }
+            guard let response = snapshot.value else { return }
+            if let data = Mapper<Client>().map(response) {
+                strongSelf.add(element: [data])
+            }
+
+            DLog("Export Native Value: \(Mapper<Client>().map(snapshot.value))")
+            DLog("Export Value: \(Mapper<Client>().map(snapshot.valueInExportFormat()))")
         })
     }
+    
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 0

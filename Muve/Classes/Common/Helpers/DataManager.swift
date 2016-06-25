@@ -6,14 +6,6 @@
 //  Copyright © 2016 Muve. All rights reserved.
 //
 
-//
-//  DataManager.swift
-//  BusinessApps
-//
-//  Created by Виктор Заикин on 22.01.16.
-//  Copyright © 2016 Виктор Заикин. All rights reserved.
-//
-
 import UIKit
 import ObjectMapper
 import Firebase

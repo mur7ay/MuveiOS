@@ -14,11 +14,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         FIRApp.configure()
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
+        if let loginType = LoginHelper.getLoginType() {
+            switch loginType {
+            case .email:
+                if let loginAndPass = LoginHelper.getKeyChainLogin() {
+                    let loaderScreen = LoaderScreenViewController.create() as! LoaderScreenViewController
+                    loaderScreen.credentials = loginAndPass
+                    setRoot(NavController(rootViewController: loaderScreen))
+                }
+            case .google:
+                if let token = LoginHelper.getKeyChainTokenGoogle() {
+                    LoginHelper.googleLogin(token.0, accessToken: token.1) { user, error in
+                        if let _error = error {
+                            print(_error.localizedDescription)
+                            self.setRoot(LoginViewController())
+                        } else {
+                            self.setRoot(TabBarViewController())
+                        }
+                    }
+                }
+            case .facebook:
+                break
+            }
+        }
         return true
     }
 
@@ -37,12 +59,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             return
         } else {
             let authentication = user.authentication
-            let credential = FIRGoogleAuthProvider.credentialWithIDToken(authentication.idToken, accessToken: authentication.accessToken)
-            FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
+            LoginHelper.googleLogin(authentication.idToken, accessToken: authentication.accessToken) { user, error in
                 if let _error = error {
                     print(_error.localizedDescription)
                 } else {
-                    self.window?.rootViewController?.presentViewController(TabBarViewController(), animated: true, completion: nil)
+                    let tokens = (authentication.idToken!,authentication.accessToken!)
+                    LoginHelper.setKeyChainTokenGoogle(tokens)
+                    self.setRoot(TabBarViewController())
                 }
             }
         }
@@ -50,6 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
                 withError error: NSError!) {
+        LoginHelper.removeKeyChains()
         window?.rootViewController = LoginViewController.create() as! LoginViewController
     }
     
@@ -75,6 +99,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    private func setRoot(controller: UIViewController, withNavigationController: Bool = false) {
+        if withNavigationController {
+            self.window?.rootViewController? = UINavigationController(rootViewController: controller)
+        } else {
+            self.window?.rootViewController? = controller
+        }
+    }
 
 }
 

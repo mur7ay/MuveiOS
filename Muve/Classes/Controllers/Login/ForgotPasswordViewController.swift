@@ -25,7 +25,7 @@ class ForgotPasswordViewController: UIViewController, BaseViewController {
     }
     
     static func storyBoardName() -> String {
-        return "Main"
+        return "Login"
     }
     
 }

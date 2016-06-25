@@ -11,6 +11,7 @@ target 'Muve' do
   pod 'ActiveLabel', '~> 0.5'
   pod 'PTPopupWebView', '~> 0.3'
   pod 'UITextField-Shake-Swift', '~> 1.0'
+  pod 'KeychainSwift', '~> 3.0'
   
   #Mapping
   pod 'ObjectMapper', '~> 1.3'
