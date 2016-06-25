@@ -83,7 +83,7 @@ class LoginViewController: UIViewController, BaseViewController {
                         }
                     } else {
                         FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
-                            if let user = user {
+                            if let _ = user {
                                 // User is signed in.
                             } else {
                                 // No user is signed in.
@@ -111,35 +111,35 @@ extension LoginViewController: GIDSignInUIDelegate {
 
 extension LoginViewController: UITextFieldDelegate {
     
-    func textFieldDidBeginEditing(textField: UITextField) {
-        switch textField {
-        case txtEmail:
-            if txtEmail.text == "Email Address" {
-                txtEmail.text = ""
-            }
-        case txtPass:
-            txtPass.text = ""
-            txtPass.secureTextEntry = true
-        default:
-            return
-        }
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        switch textField {
-        case txtEmail:
-            if txtEmail.text == "" {
-                txtEmail.text = "Email Address"
-            }
-        case txtPass:
-            if txtPass.text == "" {
-                txtPass.secureTextEntry = false
-                txtPass.text = "Password"
-            }
-        default:
-            return
-        }
-    }
+//    func textFieldDidBeginEditing(textField: UITextField) {
+//        switch textField {
+//        case txtEmail:
+//            if txtEmail.text == "Email Address" {
+//                txtEmail.text = ""
+//            }
+//        case txtPass:
+//            txtPass.text = ""
+//            txtPass.secureTextEntry = true
+//        default:
+//            return
+//        }
+//    }
+//    
+//    func textFieldDidEndEditing(textField: UITextField) {
+//        switch textField {
+//        case txtEmail:
+//            if txtEmail.text == "" {
+//                txtEmail.text = "Email Address"
+//            }
+//        case txtPass:
+//            if txtPass.text == "" {
+//                txtPass.secureTextEntry = false
+//                txtPass.text = "Password"
+//            }
+//        default:
+//            return
+//        }
+//    }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if textField == txtPass {

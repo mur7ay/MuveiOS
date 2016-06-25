@@ -91,43 +91,43 @@ class SignUpViewController: UIViewController, BaseViewController {
 
 extension SignUpViewController: UITextFieldDelegate {
     
-    func textFieldDidBeginEditing(textField: UITextField) {
-        switch textField {
-        case txtEmail:
-            if txtEmail.text == "Email Address" {
-                txtEmail.text = ""
-            }
-        case txtPass:
-            txtPass.text = ""
-            txtPass.secureTextEntry = true
-        case txtPassConfirm:
-            txtPassConfirm.text = ""
-            txtPassConfirm.secureTextEntry = true
-        default:
-            return
-        }
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        switch textField {
-        case txtEmail:
-            if txtEmail.text == "" {
-                txtEmail.text = "Email Address"
-            }
-        case txtPass:
-            if txtPass.text == "" {
-                txtPass.secureTextEntry = false
-                txtPass.text = "Password"
-            }
-        case txtPassConfirm:
-            if txtPassConfirm.text == "" {
-                txtPassConfirm.secureTextEntry = false
-                txtPassConfirm.text = "Confirm Password"
-            }
-        default:
-            return
-        }
-    }
+//    func textFieldDidBeginEditing(textField: UITextField) {
+//        switch textField {
+//        case txtEmail:
+//            if txtEmail.text == "Email Address" {
+//                txtEmail.text = ""
+//            }
+//        case txtPass:
+//            txtPass.text = ""
+//            txtPass.secureTextEntry = true
+//        case txtPassConfirm:
+//            txtPassConfirm.text = ""
+//            txtPassConfirm.secureTextEntry = true
+//        default:
+//            return
+//        }
+//    }
+//    
+//    func textFieldDidEndEditing(textField: UITextField) {
+//        switch textField {
+//        case txtEmail:
+//            if txtEmail.text == "" {
+//                txtEmail.text = "Email Address"
+//            }
+//        case txtPass:
+//            if txtPass.text == "" {
+//                txtPass.secureTextEntry = false
+//                txtPass.text = "Password"
+//            }
+//        case txtPassConfirm:
+//            if txtPassConfirm.text == "" {
+//                txtPassConfirm.secureTextEntry = false
+//                txtPassConfirm.text = "Confirm Password"
+//            }
+//        default:
+//            return
+//        }
+//    }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if textField == txtPass {

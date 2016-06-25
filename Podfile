@@ -12,6 +12,9 @@ target 'Muve' do
   pod 'PTPopupWebView', '~> 0.3'
   pod 'UITextField-Shake-Swift', '~> 1.0'
   
+  #Mapping
+  pod 'ObjectMapper', '~> 1.3'
+  
   # Firebase Pods
   pod 'Firebase'
   pod 'Firebase/Database'

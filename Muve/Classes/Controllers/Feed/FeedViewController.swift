@@ -9,12 +9,25 @@
 import UIKit
 
 class FeedViewController: UIViewController, BaseViewController {
-
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var dataSource = FeedsDataSource()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.dataSource = dataSource
+        collectionView.delegate = self
     }
     
     static func storyBoardName() -> String {
         return "Feed"
     }
+
+    
 }
+
+extension FeedViewController: UICollectionViewDelegate {
+    
+}
+
