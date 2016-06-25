@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController, BaseViewController {
 
@@ -20,8 +21,10 @@ class ProfileViewController: UIViewController, BaseViewController {
     
     @IBAction func btnSignOut(sender: AnyObject) {
         LoginHelper.removeKeyChains()
-        tabBarController?.dismissViewControllerAnimated(false) {
-            self.presentViewController(NavController.create(), animated: true, completion: nil)
+//        try? FIRAuth.auth()!.signOut()
+        dismissViewControllerAnimated(true) {
+            let appDelegate = UIApplication.sharedApplication().delegate
+            appDelegate?.window??.rootViewController = LoginViewController.create() as! LoginViewController
         }
     }
 }

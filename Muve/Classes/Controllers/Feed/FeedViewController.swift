@@ -23,15 +23,22 @@ class FeedViewController: UIViewController, BaseViewController {
         dataSource = FeedsDataSource(trigger: newDataTrigger)
         collectionView.dataSource = dataSource
         collectionView.delegate = self
+        let nibCell = UINib(nibName: "FeedCollectionViewCell", bundle: nil)
+        collectionView.registerNib(nibCell, forCellWithReuseIdentifier: "FeedCollectionViewCellID")
     }
     
     static func storyBoardName() -> String {
         return "Feed"
     }
-
 }
 
 extension FeedViewController: UICollectionViewDelegate {
     
+}
+
+extension FeedViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSize(width: UIScreen.mainScreen().bounds.width, height: 400)
+    }
 }
 

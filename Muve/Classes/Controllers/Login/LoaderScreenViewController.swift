@@ -20,17 +20,22 @@ class LoaderScreenViewController: UIViewController, BaseViewController {
                 ProgressHUD.hide()
                 if let _error = error {
                     DLog("\(_error.localizedDescription)")
-                    self.performSegueWithIdentifier("segueLoginScreenID", sender: self)
+                    let alert = UIAlertController(title: "Error", message: _error.localizedDescription, preferredStyle: .Alert)
+                    let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                        let nv = UINavigationController(rootViewController: LoginViewController.create())
+                        self.presentViewController(nv, animated: true, completion:  nil)
+                    }
+                    alert.addAction(OKAction)
+                    self.presentViewController(alert, animated: false, completion: nil)
                 } else {
                     DLog("\(user.debugDescription)")
-                    self.presentViewController(TabBarViewController(), animated: true) {
-                    self.navigationController?.dismissViewControllerAnimated(false, completion: nil)
-                    }
+                    self.presentViewController(TabBarViewController(), animated: true, completion: nil)
                 }
             }
         } else {
             ProgressHUD.hide()
-            self.performSegueWithIdentifier("segueLoginScreenID", sender: self)
+            let nv = UINavigationController(rootViewController: LoginViewController.create())
+            self.presentViewController(nv, animated: true, completion:  nil)
         }
     }
     

@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import ObjectMapper
 
-class FeedsDataSource: CollectionDataSource<Client>, UICollectionViewDataSource {
+class FeedsDataSource: CollectionDataSource<Order>, UICollectionViewDataSource {
     
     let loader = DataManager.sharedManager
     let dataSourceTrigger: QueryFunc
@@ -22,26 +22,26 @@ class FeedsDataSource: CollectionDataSource<Client>, UICollectionViewDataSource 
     }
     
     func setupDataObserving() {
-        loader.base.child(.clients).observeEventType(.ChildAdded, withBlock: { [weak self] snapshot in
+        loader.base.child(.activeClientOrders).child("tremerhl@gmail,com").observeEventType(.ChildAdded, withBlock: { [weak self] snapshot in
             guard let strongSelf = self else { return }
             guard let response = snapshot.value else { return }
-            if let data = Mapper<Client>().map(response) {
+            if let data = Mapper<Order>().map(response) {
                 strongSelf.add(element: [data])
             }
-
-            DLog("Export Native Value: \(Mapper<Client>().map(snapshot.value))")
-            DLog("Export Value: \(Mapper<Client>().map(snapshot.valueInExportFormat()))")
+            DLog("Export Native Value: \(Mapper<Order>().map(snapshot.value))")
+            DLog("Export Value: \(Mapper<Order>().map(snapshot.valueInExportFormat()))")
+            strongSelf.dataSourceTrigger()
         })
     }
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return collection.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("FeedCollectionViewCellID", forIndexPath: indexPath) as! FeedCollectionViewCell
-        cell.order = nil
+        cell.order = collection[indexPath.item]
         return cell
     }
     

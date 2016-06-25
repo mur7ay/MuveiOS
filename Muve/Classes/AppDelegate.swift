@@ -24,7 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 if let loginAndPass = LoginHelper.getKeyChainLogin() {
                     let loaderScreen = LoaderScreenViewController.create() as! LoaderScreenViewController
                     loaderScreen.credentials = loginAndPass
-                    setRoot(NavController(rootViewController: loaderScreen))
+                    setRoot(loaderScreen)
+                } else {
+                    setRoot(LoginViewController.create(), withNavigationController:  true)
                 }
             case .google:
                 if let token = LoginHelper.getKeyChainTokenGoogle() {

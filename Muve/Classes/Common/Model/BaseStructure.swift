@@ -16,6 +16,7 @@ enum BaseStructure {
     case clients
     case hands
     case helpers
+    case activeClientOrders
     
     func str() -> String {
         return "\(self)"
