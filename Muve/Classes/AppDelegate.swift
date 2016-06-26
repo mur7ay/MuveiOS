@@ -13,38 +13,74 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
+    let loginController = LoginViewController.create()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         FIRApp.configure()
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
+        
         if let loginType = LoginHelper.getLoginType() {
             switch loginType {
             case .email:
                 if let loginAndPass = LoginHelper.getKeyChainLogin() {
                     let loaderScreen = LoaderScreenViewController.create() as! LoaderScreenViewController
                     loaderScreen.credentials = loginAndPass
-                    setRoot(loaderScreen)
+                    switchRootViewController(loaderScreen, animated: true, withNavigationController: true, completion: nil)
                 } else {
-                    setRoot(LoginViewController.create(), withNavigationController:  true)
+                    switchRootViewController(LoginViewController.create(), animated: true, withNavigationController: true, completion: nil)
                 }
             case .google:
                 if let token = LoginHelper.getKeyChainTokenGoogle() {
+                    ProgressHUD.show()
                     LoginHelper.googleLogin(token.0, accessToken: token.1) { user, error in
+                        ProgressHUD.hide()
                         if let _error = error {
                             print(_error.localizedDescription)
-                            self.setRoot(LoginViewController())
+                            self.switchRootViewController(LoginViewController.create(), animated: true, withNavigationController: true, completion: nil)
                         } else {
-                            self.setRoot(TabBarViewController())
+                            self.switchRootViewController(TabBarViewController(), animated: true, withNavigationController: false, completion: nil)
                         }
                     }
                 }
             case .facebook:
                 break
             }
+        } else {
+            self.switchRootViewController(LoginViewController.create(), animated: true, withNavigationController: true, completion: nil)
         }
         return true
     }
+    
+    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
+                withError error: NSError!) {
+        
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        } else {
+            ProgressHUD.show()
+            let authentication = user.authentication
+            LoginHelper.googleLogin(authentication.idToken, accessToken: authentication.accessToken) { user, error in
+                
+                if let _error = error {
+                    print(_error.localizedDescription)
+                    ProgressHUD.hide()
+                } else {
+                    let tokens = (authentication.idToken!,authentication.accessToken!)
+                    LoginHelper.setKeyChainTokenGoogle(tokens)
+                    self.switchRootViewController(TabBarViewController(), animated: true, withNavigationController: true) {
+                        ProgressHUD.hide()
+                    }
+                }
+            }
+        }
+    }
+    
+    func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
+                withError error: NSError!) {
+    }
+    
 
     @available(iOS 9.0, *)
     func application(application: UIApplication,
@@ -54,31 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                                     annotation: options[UIApplicationOpenURLOptionsAnnotationKey])
     }
     
-    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
-                withError error: NSError!) {
-        if let error = error {
-            print(error.localizedDescription)
-            return
-        } else {
-            let authentication = user.authentication
-            LoginHelper.googleLogin(authentication.idToken, accessToken: authentication.accessToken) { user, error in
-                if let _error = error {
-                    print(_error.localizedDescription)
-                } else {
-                    let tokens = (authentication.idToken!,authentication.accessToken!)
-                    LoginHelper.setKeyChainTokenGoogle(tokens)
-                    self.setRoot(TabBarViewController())
-                }
-            }
-        }
-    }
-    
-    func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
-                withError error: NSError!) {
-        LoginHelper.removeKeyChains()
-        window?.rootViewController = LoginViewController.create() as! LoginViewController
-    }
-    
+        
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -100,12 +112,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-    private func setRoot(controller: UIViewController, withNavigationController: Bool = false) {
-        if withNavigationController {
-            self.window?.rootViewController? = UINavigationController(rootViewController: controller)
+    
+    private func switchRootViewController(rootViewController: UIViewController, animated: Bool, withNavigationController: Bool, completion: (() -> Void)?) {
+        if animated {
+            UIView.transitionWithView(window!, duration: 0.5, options: /*.TransitionCrossDissolve*/.TransitionFlipFromTop, animations: {
+                let oldState: Bool = UIView.areAnimationsEnabled()
+                UIView.setAnimationsEnabled(false)
+                if withNavigationController {
+                    self.window!.rootViewController = UINavigationController(rootViewController: rootViewController)
+                } else {
+                    self.window!.rootViewController = rootViewController
+                }
+                UIView.setAnimationsEnabled(oldState)
+                }, completion: { (finished: Bool) -> () in
+                    guard let _completion = completion else { return }
+                    _completion()
+            })
         } else {
-            self.window?.rootViewController? = controller
+            if withNavigationController {
+                self.window!.rootViewController = UINavigationController(rootViewController: rootViewController)
+            } else {
+                self.window!.rootViewController = rootViewController
+            }
         }
     }
 

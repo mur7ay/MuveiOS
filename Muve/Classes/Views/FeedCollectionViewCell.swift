@@ -25,5 +25,4 @@ class FeedCollectionViewCell: UICollectionViewCell {
         guard let _ = order else { return }
     
     }
-
 }

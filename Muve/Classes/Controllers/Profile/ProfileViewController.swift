@@ -20,11 +20,11 @@ class ProfileViewController: UIViewController, BaseViewController {
     }
     
     @IBAction func btnSignOut(sender: AnyObject) {
-        LoginHelper.removeKeyChains()
-//        try? FIRAuth.auth()!.signOut()
-        dismissViewControllerAnimated(true) {
+        if let _ = try? FIRAuth.auth()!.signOut() {
+            LoginHelper.removeKeyChains()
             let appDelegate = UIApplication.sharedApplication().delegate
-            appDelegate?.window??.rootViewController = LoginViewController.create() as! LoginViewController
+            let nc = NavController(rootViewController: LoginViewController.create() as! LoginViewController)
+            appDelegate?.window??.rootViewController = nc
         }
     }
 }

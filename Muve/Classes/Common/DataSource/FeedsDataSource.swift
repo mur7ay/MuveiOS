@@ -42,6 +42,7 @@ class FeedsDataSource: CollectionDataSource<Order>, UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("FeedCollectionViewCellID", forIndexPath: indexPath) as! FeedCollectionViewCell
         cell.order = collection[indexPath.item]
+        cell.image.image = (indexPath.item % 2 == 0) ? UIImage(named: "111") : UIImage(named: "222")
         return cell
     }
     

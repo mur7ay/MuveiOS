@@ -59,12 +59,19 @@ class LoginViewController: UIViewController, BaseViewController {
         txtPass.leftViewMode = .Always
     }
     
+    @IBAction func btnSignUp(sender: AnyObject) {
+        push(SignUpViewController.create())
+    }
     @IBAction func btnSignInGoogle(sender: AnyObject) {
         GIDSignIn.sharedInstance().signIn()
         ProgressHUD.show()
     }
     
     @IBAction func btnSignInFacebook(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func btnForgotPassword(sender: AnyObject) {
         
     }
     
@@ -104,6 +111,7 @@ extension LoginViewController: GIDSignInUIDelegate {
         ProgressHUD.hide()
     }
 }
+
 
 extension LoginViewController: UITextFieldDelegate {
     

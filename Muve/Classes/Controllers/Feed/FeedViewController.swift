@@ -27,18 +27,34 @@ class FeedViewController: UIViewController, BaseViewController {
         collectionView.registerNib(nibCell, forCellWithReuseIdentifier: "FeedCollectionViewCellID")
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     static func storyBoardName() -> String {
         return "Feed"
     }
+    
 }
 
 extension FeedViewController: UICollectionViewDelegate {
-    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        push(OrderViewController.create())  
+    }
 }
 
 extension FeedViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSize(width: UIScreen.mainScreen().bounds.width, height: 400)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0
     }
 }
 
