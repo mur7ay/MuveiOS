@@ -5,6 +5,9 @@ target 'Muve' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
+  # OnBoarding Pods
+  #pod 'GPPageColorTransition', :path => '~/Documents/Libraries/GPPageColorTransition'
+
   # Pods for Muve
   pod 'Font-Awesome-Swift', '~> 1.4'
   pod 'KRProgressHUD', '~> 1.4'
@@ -21,4 +24,5 @@ target 'Muve' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
+  
 end
