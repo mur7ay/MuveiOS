@@ -1,0 +1,17 @@
+{
+  "name": "GPPageColorTransition",
+  "version": "0.0.1",
+  "summary": "A short description of GPPageColorTransition.",
+  "description": "",
+  "homepage": "http://gp-apps.com",
+  "license": "MIT (example)",
+  "authors": {
+    "Givi": "pataridzegivi@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/givip/GPPageColorTransition.git",
+    "tag": "0.0.1"
+  },
+  "source_files": "GPPageColorTransition/**/*.{swift}",
+  "exclude_files": "Classes/Exclude"
+}
