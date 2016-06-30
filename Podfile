@@ -6,12 +6,11 @@ target 'Muve' do
   use_frameworks!
 
   # OnBoarding Pods
-  pod 'GPPageColorTransition', :path => '~/Documents/Libraries/GPPageColorTransition'
+  # pod 'GPPageColorTransition', :path => '~/Documents/Libraries/GPPageColorTransition'
 
   # Pods for Muve
   pod 'Font-Awesome-Swift', '~> 1.4'
   pod 'KRProgressHUD', '~> 1.4'
-  pod 'ActiveLabel', '~> 0.5'
   pod 'PTPopupWebView', '~> 0.3'
   pod 'UITextField-Shake-Swift', '~> 1.0'
   pod 'KeychainSwift', '~> 3.0'

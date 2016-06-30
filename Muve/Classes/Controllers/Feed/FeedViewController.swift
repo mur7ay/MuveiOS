@@ -16,6 +16,25 @@ class FeedViewController: UIViewController, BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupCollectionView()
+        setupNavigationBar()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        title = "Activity"
+    }
+    
+    static func storyBoardName() -> String {
+        return "Feed"
+    }
+    
+    private func setupNavigationBar() {
+        let plusButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: nil)
+        navigationItem.rightBarButtonItem = plusButton
+    }
+    
+    private func setupCollectionView() {
         let newDataTrigger = {
             DLog("Data was reloaded now!")
             self.collectionView.reloadData()
@@ -25,15 +44,6 @@ class FeedViewController: UIViewController, BaseViewController {
         collectionView.delegate = self
         let nibCell = UINib(nibName: "FeedCollectionViewCell", bundle: nil)
         collectionView.registerNib(nibCell, forCellWithReuseIdentifier: "FeedCollectionViewCellID")
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    static func storyBoardName() -> String {
-        return "Feed"
     }
     
 }
@@ -49,12 +59,12 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: UIScreen.mainScreen().bounds.width, height: 400)
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 0
-    }
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+//        return 0
+//    }
+//    
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+//        return 0
+//    }
 }
 

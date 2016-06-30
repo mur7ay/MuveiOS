@@ -1,6 +1,0 @@
-framework module GPPageColorTransition {
-  umbrella header "GPPageColorTransition-umbrella.h"
-
-  export *
-  module * { export * }
-}

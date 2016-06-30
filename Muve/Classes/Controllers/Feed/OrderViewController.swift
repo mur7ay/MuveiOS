@@ -12,14 +12,14 @@ class OrderViewController: UIViewController, BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
     }
     
     static func storyBoardName() -> String {
         return "Feed"
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
+    private func setupNavigationBar() {
+        navigationItem.title = "Delivery Title"
     }
 }
