@@ -19,68 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         FIRApp.configure()
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
-        
-        if let loginType = LoginHelper.getLoginType() {
-            switch loginType {
-            case .email:
-                if let loginAndPass = LoginHelper.getKeyChainLogin() {
-                    let loaderScreen = LoaderScreenViewController.create() as! LoaderScreenViewController
-                    loaderScreen.credentials = loginAndPass
-                    switchRootViewController(loaderScreen, animated: true, withNavigationController: true, completion: nil)
-                } else {
-                    switchRootViewController(LoginViewController.create(), animated: true, withNavigationController: true, completion: nil)
-                }
-            case .google:
-                if let token = LoginHelper.getKeyChainTokenGoogle() {
-                    ProgressHUD.show()
-                    LoginHelper.googleLogin(token.0, accessToken: token.1) { user, error in
-                        ProgressHUD.hide()
-                        if let _error = error {
-                            print(_error.localizedDescription)
-                            self.switchRootViewController(LoginViewController.create(), animated: true, withNavigationController: true, completion: nil)
-                        } else {
-                            self.switchRootViewController(TabBarViewController(), animated: true, withNavigationController: false, completion: nil)
-                        }
-                    }
-                }
-            case .facebook:
-                break
-            }
-        } else {
-            self.switchRootViewController(LoginViewController.create(), animated: true, withNavigationController: true, completion: nil)
-        }
+
+        window?.rootViewController = LoaderScreenViewController.create()
         return true
     }
     
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
                 withError error: NSError!) {
-        
-        if let error = error {
-            print(error.localizedDescription)
-            return
-        } else {
-            ProgressHUD.show()
-            let authentication = user.authentication
-            LoginHelper.googleLogin(authentication.idToken, accessToken: authentication.accessToken) { user, error in
-                
-                if let _error = error {
-                    print(_error.localizedDescription)
-                    ProgressHUD.hide()
-                } else {
-                    let tokens = (authentication.idToken!,authentication.accessToken!)
-                    LoginHelper.setKeyChainTokenGoogle(tokens)
-                    self.switchRootViewController(TabBarViewController(), animated: true, withNavigationController: true) {
-                        ProgressHUD.hide()
-                    }
-                }
-            }
-        }
     }
     
     func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
                 withError error: NSError!) {
     }
-    
 
     @available(iOS 9.0, *)
     func application(application: UIApplication,
@@ -89,7 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                                     sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as? String,
                                                     annotation: options[UIApplicationOpenURLOptionsAnnotationKey])
     }
-    
         
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -112,30 +61,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
-    private func switchRootViewController(rootViewController: UIViewController, animated: Bool, withNavigationController: Bool, completion: (() -> Void)?) {
-        if animated {
-            UIView.transitionWithView(window!, duration: 0.5, options: /*.TransitionCrossDissolve*/.TransitionFlipFromTop, animations: {
-                let oldState: Bool = UIView.areAnimationsEnabled()
-                UIView.setAnimationsEnabled(false)
-                if withNavigationController {
-                    self.window!.rootViewController = UINavigationController(rootViewController: rootViewController)
-                } else {
-                    self.window!.rootViewController = rootViewController
-                }
-                UIView.setAnimationsEnabled(oldState)
-                }, completion: { (finished: Bool) -> () in
-                    guard let _completion = completion else { return }
-                    _completion()
-            })
-        } else {
-            if withNavigationController {
-                self.window!.rootViewController = UINavigationController(rootViewController: rootViewController)
-            } else {
-                self.window!.rootViewController = rootViewController
-            }
-        }
-    }
-
 }
 

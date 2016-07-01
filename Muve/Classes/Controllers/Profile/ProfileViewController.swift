@@ -21,10 +21,15 @@ class ProfileViewController: UIViewController, BaseViewController {
     
     @IBAction func btnSignOut(sender: AnyObject) {
         if let _ = try? FIRAuth.auth()!.signOut() {
-            LoginHelper.removeKeyChains()
             let appDelegate = UIApplication.sharedApplication().delegate
-            let nc = NavController(rootViewController: LoginViewController.create() as! LoginViewController)
-            appDelegate?.window??.rootViewController = nc
+//            let nc = NavController(rootViewController: LoginViewController.create() as! LoginViewController)
+//            appDelegate?.window??.rootViewController = nc
+            
+            UIView.transitionWithView(appDelegate!.window!!, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+                appDelegate!.window!!.rootViewController = NavController(rootViewController: LoginViewController.create())
+                }, completion: nil)
+            
+
         }
     }
 }

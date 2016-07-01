@@ -79,7 +79,6 @@ class LoginViewController: UIViewController, BaseViewController {
         if txtEmail.text != "" {
             if let email = txtEmail.text, pass = txtPass.text {
                 ProgressHUD.show()
-                
                 LoginHelper.login(email, pass: pass) { (user, error) in
                     ProgressHUD.hide()
                     if let _error = error {
@@ -90,8 +89,6 @@ class LoginViewController: UIViewController, BaseViewController {
                             self.showSimpleAlert("Error", message: _error.localizedDescription)
                         }
                     } else {
-
-                        LoginHelper.setKeyChainLogin((email,pass))
                         self.presentViewController(TabBarViewController(), animated: true, completion: nil)
                     }
                 }
@@ -105,6 +102,7 @@ class LoginViewController: UIViewController, BaseViewController {
 extension LoginViewController: GIDSignInUIDelegate {
     func setupGoogleAuth() {
         GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().delegate = self
     }
     
     func signInWillDispatch(signIn: GIDSignIn!, error: NSError!) {
@@ -112,8 +110,25 @@ extension LoginViewController: GIDSignInUIDelegate {
     }
 }
 
+extension LoginViewController: GIDSignInDelegate {
+    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
+        if let _error = error {
+            showSimpleAlert("Error", message: _error.description)
+        } else {
+            self.presentViewController(TabBarViewController(), animated: true, completion: nil)
+        }
+    }
+}
 
 extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == txtPass {
+            btnSignIn(self)
+            return true
+        } else {
+            return false
+        }
+    }
     
 //    func textFieldDidBeginEditing(textField: UITextField) {
 //        switch textField {
@@ -145,13 +160,5 @@ extension LoginViewController: UITextFieldDelegate {
 //        }
 //    }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if textField == txtPass {
-            btnSignIn(self)
-            return true
-        } else {
-            return false
-        }
-    }
 }
 

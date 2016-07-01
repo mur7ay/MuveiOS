@@ -344,6 +344,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KiL-TT-Mot"/>
+                    <connections>
+                        <outlet property="logoConstrain" destination="86r-bm-wtZ" id="g8O-JG-4In"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="phn-RR-XBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

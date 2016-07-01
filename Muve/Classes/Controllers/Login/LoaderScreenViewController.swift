@@ -11,31 +11,15 @@ import Firebase
 
 class LoaderScreenViewController: UIViewController, BaseViewController {
 
+    @IBOutlet weak var logoConstrain: NSLayoutConstraint!
     var credentials: (String,String)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if  let loginAndPass = credentials {
-            LoginHelper.login(loginAndPass.0, pass: loginAndPass.1) { user, error in
-                ProgressHUD.hide()
-                if let _error = error {
-                    DLog("\(_error.localizedDescription)")
-                    let alert = UIAlertController(title: "Error", message: _error.localizedDescription, preferredStyle: .Alert)
-                    let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-                        let nv = UINavigationController(rootViewController: LoginViewController.create())
-                        self.presentViewController(nv, animated: true, completion:  nil)
-                    }
-                    alert.addAction(OKAction)
-                    self.presentViewController(alert, animated: false, completion: nil)
-                } else {
-                    DLog("\(user.debugDescription)")
-                    self.presentViewController(TabBarViewController(), animated: true, completion: nil)
-                }
-            }
+        if let _ = FIRAuth.auth()?.currentUser {
+            NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(loggedIn), userInfo: nil, repeats: false)
         } else {
-            ProgressHUD.hide()
-            let nv = UINavigationController(rootViewController: LoginViewController.create())
-            self.presentViewController(nv, animated: true, completion:  nil)
+            NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(notLoggedIn), userInfo: nil, repeats: false)
         }
     }
     
@@ -44,8 +28,26 @@ class LoaderScreenViewController: UIViewController, BaseViewController {
         ProgressHUD.show()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        UIView.animateWithDuration(1) {
+            self.logoConstrain.constant = 40
+            self.view.layoutIfNeeded()
+        }
+    }
+    
     static func storyBoardName() -> String {
         return "Login"
+    }
+    
+    func loggedIn() {
+        ProgressHUD.hide()
+        presentViewController(TabBarViewController(), animated: true, completion: nil)
+    }
+    
+    func notLoggedIn() {
+        ProgressHUD.hide()
+        presentViewController(NavController(rootViewController: LoginViewController.create()), animated:  true, completion: nil)
     }
 
 }
