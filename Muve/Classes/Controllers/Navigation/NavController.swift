@@ -8,12 +8,10 @@
 
 import UIKit
 
-class NavController: UINavigationController, UINavigationControllerDelegate {
+class NavController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        delegate = self
-        hidesBarsOnSwipe = true
         setupNavigationBar()
     }
     

@@ -28,10 +28,11 @@ class FeedViewController: UIViewController, BaseViewController {
     static func storyBoardName() -> String {
         return "Feed"
     }
-    
+
     private func setupNavigationBar() {
         let plusButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: nil)
         navigationItem.rightBarButtonItem = plusButton
+        addLeftBarButtonWithImage(UIImage(named: "HamburgerIcon")!)
     }
     
     private func setupCollectionView() {

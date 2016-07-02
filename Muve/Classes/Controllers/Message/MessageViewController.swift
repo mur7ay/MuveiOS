@@ -12,9 +12,14 @@ class MessageViewController: UIViewController, BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
     }
     
     static func storyBoardName() -> String {
         return "Message"
+    }
+    
+    private func setupNavigationBar() {
+        addLeftBarButtonWithImage(UIImage(named: "HamburgerIcon")!)
     }
 }

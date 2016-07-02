@@ -15,7 +15,8 @@ target 'Muve' do
   pod 'UITextField-Shake-Swift', '~> 1.0'
   
   # Paging Pod
-  pod 'PageMenu'
+  # NavigationBar pod
+  pod 'HidingNavigationBar', '~> 0.3'
   
   # Slide Menu
   pod 'SlideMenuControllerSwift', '~> 2.2'
@@ -28,6 +29,9 @@ target 'Muve' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
+  
+  # R.swift
+  #pod 'R.swift', '~> 2.4'
   
   # Google Maps
   pod 'GoogleMaps'

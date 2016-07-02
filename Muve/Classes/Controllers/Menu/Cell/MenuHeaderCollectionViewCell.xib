@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MenuHeaderCell" id="U6b-Vx-4bR" customClass="MenuHeaderCollectionViewCell" customModule="Muve" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="313"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="rAh-uS-oqm">
+                    <rect key="frame" x="60" y="35" width="200" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="rAh-uS-oqm" secondAttribute="height" multiplier="1:1" id="aEi-dR-j2c"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Smith" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6z-Az-z5Y">
+                    <rect key="frame" x="15" y="243" width="290" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="eiU-yd-Dbq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cincinatti, OH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRb-EZ-5Po">
+                    <rect key="frame" x="10" y="264" width="300" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="XlJ-iO-38f"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="r6z-Az-z5Y" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="15" id="5EM-xG-XRJ"/>
+                <constraint firstItem="rAh-uS-oqm" firstAttribute="centerX" secondItem="U6b-Vx-4bR" secondAttribute="centerX" id="8Lq-wK-Lfc"/>
+                <constraint firstAttribute="trailing" secondItem="rAh-uS-oqm" secondAttribute="trailing" constant="60" id="8id-zF-red"/>
+                <constraint firstItem="DRb-EZ-5Po" firstAttribute="top" secondItem="r6z-Az-z5Y" secondAttribute="bottom" id="9tz-qe-uyS"/>
+                <constraint firstAttribute="trailing" secondItem="r6z-Az-z5Y" secondAttribute="trailing" constant="15" id="Cbp-VN-Bcm"/>
+                <constraint firstAttribute="trailing" secondItem="DRb-EZ-5Po" secondAttribute="trailing" constant="10" id="RtW-0B-oia"/>
+                <constraint firstItem="r6z-Az-z5Y" firstAttribute="top" secondItem="rAh-uS-oqm" secondAttribute="bottom" constant="8" id="SRL-tb-nKy"/>
+                <constraint firstItem="rAh-uS-oqm" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="60" id="jKp-Hz-roP"/>
+                <constraint firstItem="DRb-EZ-5Po" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="10" id="mEx-Zv-Rp3"/>
+                <constraint firstItem="rAh-uS-oqm" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="35" id="oCf-QN-nGv"/>
+            </constraints>
+            <connections>
+                <outlet property="imgAvatar" destination="rAh-uS-oqm" id="auW-mg-zky"/>
+                <outlet property="lblName" destination="r6z-Az-z5Y" id="kZ7-bS-s6Q"/>
+                <outlet property="lblPlacement" destination="DRb-EZ-5Po" id="y22-2i-ZQq"/>
+            </connections>
+            <point key="canvasLocation" x="246" y="308.5"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="Avatar" width="397" height="397"/>
+    </resources>
+</document>

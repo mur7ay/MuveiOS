@@ -8,13 +8,17 @@
 
 import UIKit
 import Firebase
+import SlideMenuControllerSwift
 
 class LoaderScreenViewController: UIViewController, BaseViewController {
 
     @IBOutlet weak var logoConstrain: NSLayoutConstraint!
+    var slideMenu: SlideMenuController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupMenu()
+        
         if let _ = FIRAuth.auth()?.currentUser {
             NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(loggedIn), userInfo: nil, repeats: false)
         } else {
@@ -41,12 +45,17 @@ class LoaderScreenViewController: UIViewController, BaseViewController {
     
     func loggedIn() {
         ProgressHUD.hide()
-        presentViewController(TabBarViewController(), animated: true, completion: nil)
+        presentViewController(slideMenu, animated: true, completion: nil)
     }
     
     func notLoggedIn() {
         ProgressHUD.hide()
         presentViewController(NavController(rootViewController: LoginViewController.create()), animated:  true, completion: nil)
     }
-
+    
+    private func setupMenu() {
+        let menu = MenuViewController.create() as! MenuViewController
+        slideMenu = SlideMenuController(mainViewController: menu.activityController, leftMenuViewController: menu)
+        menu.slideMenu = slideMenu
+    }
 }

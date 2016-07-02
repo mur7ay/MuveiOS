@@ -16,6 +16,12 @@
 		A70E91821D19B2A500C287A6 /* UITextField+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70E91811D19B2A500C287A6 /* UITextField+Helper.swift */; };
 		A70E91841D19B41800C287A6 /* UIButton+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70E91831D19B41800C287A6 /* UIButton+Helper.swift */; };
 		A70E91861D19B4FD00C287A6 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70E91851D19B4FD00C287A6 /* UIImage+Color.swift */; };
+		A71647521D27BABD00D7D4FC /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71647511D27BABD00D7D4FC /* MenuViewController.swift */; };
+		A716475A1D27C01F00D7D4FC /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A71647591D27C01F00D7D4FC /* Menu.storyboard */; };
+		A716475E1D27D1EA00D7D4FC /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716475C1D27D1EA00D7D4FC /* MenuCollectionViewCell.swift */; };
+		A716475F1D27D1EA00D7D4FC /* MenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A716475D1D27D1EA00D7D4FC /* MenuCollectionViewCell.xib */; };
+		A71647621D27D27F00D7D4FC /* MenuHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71647601D27D27F00D7D4FC /* MenuHeaderCollectionViewCell.swift */; };
+		A71647631D27D27F00D7D4FC /* MenuHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71647611D27D27F00D7D4FC /* MenuHeaderCollectionViewCell.xib */; };
 		A72AD5661D1880F100FFC381 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72AD5651D1880F100FFC381 /* AppDelegate.swift */; };
 		A72AD5681D18810400FFC381 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A72AD5671D18810400FFC381 /* Assets.xcassets */; };
 		A72AD56A1D18811700FFC381 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A72AD5691D18811700FFC381 /* Login.storyboard */; };
@@ -67,6 +73,12 @@
 		A70E91811D19B2A500C287A6 /* UITextField+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITextField+Helper.swift"; path = "Classes/Common/Extentions/UITextField+Helper.swift"; sourceTree = "<group>"; };
 		A70E91831D19B41800C287A6 /* UIButton+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIButton+Helper.swift"; path = "Classes/Common/Extentions/UIButton+Helper.swift"; sourceTree = "<group>"; };
 		A70E91851D19B4FD00C287A6 /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Color.swift"; path = "Classes/Common/Extentions/UIImage+Color.swift"; sourceTree = "<group>"; };
+		A71647511D27BABD00D7D4FC /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = Classes/Controllers/Menu/MenuViewController.swift; sourceTree = "<group>"; };
+		A71647591D27C01F00D7D4FC /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Menu.storyboard; path = Resources/Storyboards/Menu.storyboard; sourceTree = "<group>"; };
+		A716475C1D27D1EA00D7D4FC /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuCollectionViewCell.swift; path = Classes/Controllers/Menu/Cell/MenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		A716475D1D27D1EA00D7D4FC /* MenuCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuCollectionViewCell.xib; path = Classes/Controllers/Menu/Cell/MenuCollectionViewCell.xib; sourceTree = "<group>"; };
+		A71647601D27D27F00D7D4FC /* MenuHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuHeaderCollectionViewCell.swift; path = Classes/Controllers/Menu/Cell/MenuHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		A71647611D27D27F00D7D4FC /* MenuHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuHeaderCollectionViewCell.xib; path = Classes/Controllers/Menu/Cell/MenuHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		A72AD5651D1880F100FFC381 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Classes/AppDelegate.swift; sourceTree = "<group>"; };
 		A72AD5671D18810400FFC381 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		A72AD5691D18811700FFC381 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Resources/Storyboards/Login.storyboard; sourceTree = "<group>"; };
@@ -152,6 +164,26 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		A71647501D27BA9600D7D4FC /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				A716475B1D27D1BE00D7D4FC /* Cell */,
+				A71647511D27BABD00D7D4FC /* MenuViewController.swift */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		A716475B1D27D1BE00D7D4FC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A716475C1D27D1EA00D7D4FC /* MenuCollectionViewCell.swift */,
+				A716475D1D27D1EA00D7D4FC /* MenuCollectionViewCell.xib */,
+				A71647601D27D27F00D7D4FC /* MenuHeaderCollectionViewCell.swift */,
+				A71647611D27D27F00D7D4FC /* MenuHeaderCollectionViewCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		A72AD55B1D187E4900FFC381 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +240,7 @@
 				A753AFA61D1B234100D1F30E /* Feed.storyboard */,
 				A753AFB91D1B351E00D1F30E /* Message.storyboard */,
 				CD4D11EC1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard */,
+				A71647591D27C01F00D7D4FC /* Menu.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -277,6 +310,7 @@
 		A72AD5721D188B2100FFC381 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A71647501D27BA9600D7D4FC /* Menu */,
 				A753AFAD1D1B327D00D1F30E /* TabBar */,
 				A753AFBB1D1B368C00D1F30E /* Navigation */,
 				A70E91741D1892DC00C287A6 /* Login */,
@@ -460,8 +494,11 @@
 				A74A18671D19DA9B00B323CE /* GoogleService-Info.plist in Resources */,
 				A753AFBA1D1B351E00D1F30E /* Message.storyboard in Resources */,
 				CD4D11EE1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard in Resources */,
+				A716475A1D27C01F00D7D4FC /* Menu.storyboard in Resources */,
+				A716475F1D27D1EA00D7D4FC /* MenuCollectionViewCell.xib in Resources */,
 				A72AD5681D18810400FFC381 /* Assets.xcassets in Resources */,
 				A753AFA51D1B233600D1F30E /* Profile.storyboard in Resources */,
+				A71647631D27D27F00D7D4FC /* MenuHeaderCollectionViewCell.xib in Resources */,
 				A76088371D1E2C9300C8461A /* FeedCollectionViewCell.xib in Resources */,
 				A753AFA31D1B232500D1F30E /* Map.storyboard in Resources */,
 			);
@@ -539,6 +576,8 @@
 				A7F8530F1D2443E300792DEE /* NavBar.swift in Sources */,
 				A7A07D281D1E449000E35B2E /* Logger.swift in Sources */,
 				A76088361D1E2C9300C8461A /* FeedCollectionViewCell.swift in Sources */,
+				A71647621D27D27F00D7D4FC /* MenuHeaderCollectionViewCell.swift in Sources */,
+				A716475E1D27D1EA00D7D4FC /* MenuCollectionViewCell.swift in Sources */,
 				A70E91761D18930200C287A6 /* LoginViewController.swift in Sources */,
 				A753AFA91D1B2A5800D1F30E /* ErrorHandler.swift in Sources */,
 				A73F50A61D1E5D030055A0A3 /* BaseStructure.swift in Sources */,
@@ -555,6 +594,7 @@
 				A72AD5661D1880F100FFC381 /* AppDelegate.swift in Sources */,
 				A70E91861D19B4FD00C287A6 /* UIImage+Color.swift in Sources */,
 				A73F50B11D1E9F8E0055A0A3 /* TypeAliases.swift in Sources */,
+				A71647521D27BABD00D7D4FC /* MenuViewController.swift in Sources */,
 				A73F50BB1D1FBAE70055A0A3 /* OrderViewController.swift in Sources */,
 				A70E917C1D1895D400C287A6 /* Constants.swift in Sources */,
 				A753AFAF1D1B333500D1F30E /* TabBarViewController.swift in Sources */,

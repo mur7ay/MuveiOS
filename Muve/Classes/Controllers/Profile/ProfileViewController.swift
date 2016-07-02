@@ -13,10 +13,15 @@ class ProfileViewController: UIViewController, BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
     }
     
     static func storyBoardName() -> String {
         return "Profile"
+    }
+    
+    private func setupNavigationBar() {
+        addLeftBarButtonWithImage(UIImage(named: "HamburgerIcon")!)
     }
     
     @IBAction func btnSignOut(sender: AnyObject) {

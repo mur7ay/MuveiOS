@@ -13,27 +13,35 @@ import CoreLocation
 class MapViewController: UIViewController, BaseViewController {
     
     let manager = CLLocationManager()
+
     var map: GMSMapView!
     var marker: GMSMarker!
+    
+    var controllerArray : [UIViewController] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
         setupCoreLocation()
         setupGoogleMapServices()
-        
     }
     
     static func storyBoardName() -> String {
         return "Map"
     }
     
+    private func setupNavigationBar() {
+        addLeftBarButtonWithImage(UIImage(named: "HamburgerIcon")!)
+    }
+    
     private func setupCoreLocation() {
+        manager.delegate = self
         switch CLLocationManager.authorizationStatus() {
-        case .AuthorizedWhenInUse:
-            manager.delegate = self
+        case .AuthorizedAlways:
+            break
         case .NotDetermined:
-            manager.requestWhenInUseAuthorization()
-        case .AuthorizedAlways, .Restricted, .Denied:
+            manager.requestAlwaysAuthorization()
+        case .Restricted, .Denied, .AuthorizedWhenInUse:
             let alertController = UIAlertController(
                 title: "Background Location Access Disabled",
                 message: "In order to be notified about moves near you, please open this app's settings and set location access to 'Always'.",
@@ -61,12 +69,6 @@ class MapViewController: UIViewController, BaseViewController {
         map.myLocationEnabled = true
         view.addSubview(map)
         
-        let manager = CLLocationManager()
-        if CLLocationManager.locationServicesEnabled() {
-            manager.startUpdatingLocation()
-        } else {
-            manager.requestAlwaysAuthorization()
-        }
         marker = GMSMarker()
         marker.position = CLLocationCoordinate2DMake(39.104252, -84.515648)
         marker.title = "Cincinnati"

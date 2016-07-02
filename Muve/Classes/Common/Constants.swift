@@ -15,6 +15,16 @@ struct Colors {
     static let loginTextFieldBg   = UIColor(red: 233/255, green: 93/255, blue: 93/255, alpha: 1)
 }
 
+struct Menu {
+    static let number = 6
+    static let items = ["Menu",
+                        "Activity",
+                        "History",
+                        "Messages",
+                        "Account",
+                        "Support"]
+}
+
 struct Keychain {
     static var loginType: String {
         guard let bundleID = NSBundle.mainBundle().bundleIdentifier else { return "" }
