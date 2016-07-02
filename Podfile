@@ -14,6 +14,9 @@ target 'Muve' do
   pod 'PTPopupWebView', '~> 0.3'
   pod 'UITextField-Shake-Swift', '~> 1.0'
   
+  # Paging Pod
+  pod 'PageMenu'
+  
   # Slide Menu
   pod 'SlideMenuControllerSwift', '~> 2.2'
   

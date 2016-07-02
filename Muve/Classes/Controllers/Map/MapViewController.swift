@@ -70,7 +70,7 @@ class MapViewController: UIViewController, BaseViewController {
         marker = GMSMarker()
         marker.position = CLLocationCoordinate2DMake(39.104252, -84.515648)
         marker.title = "Cincinnati"
-        marker.snippet = "Australia"
+        marker.snippet = "USA"
         marker.map = map
     }
 }

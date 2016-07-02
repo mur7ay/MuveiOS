@@ -44,6 +44,7 @@ PODS:
     - GoogleSymbolUtilities (~> 1.0)
   - KRProgressHUD (1.4.1)
   - ObjectMapper (1.3.0)
+  - PageMenu (1.2.9)
   - PTPopupWebView (0.3.0)
   - SlideMenuControllerSwift (2.2.0)
   - UITextField-Shake-Swift (1.0.3)
@@ -57,6 +58,7 @@ DEPENDENCIES:
   - GoogleSignIn
   - KRProgressHUD (~> 1.4)
   - ObjectMapper (~> 1.3)
+  - PageMenu
   - PTPopupWebView (~> 0.3)
   - SlideMenuControllerSwift (~> 2.2)
   - UITextField-Shake-Swift (~> 1.0)
@@ -78,10 +80,11 @@ SPEC CHECKSUMS:
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   KRProgressHUD: 9c356e2acb593dc86fe2c71c4fbf5d80c918f805
   ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
+  PageMenu: ba19ff267f7a19e444e93c20a7847b78954a7011
   PTPopupWebView: b2e30f5b9024ae23d0cd071ca0addf2abe99a7c6
   SlideMenuControllerSwift: 16dac00b1aaad153e64fffb5d6969ab31ad88372
   UITextField-Shake-Swift: 696d23a4af95293db711bd6ebeccd94a95034bd0
 
-PODFILE CHECKSUM: 04b53601bbcead601c770eeac2e677618eb5abeb
+PODFILE CHECKSUM: e33255b3a506a779a77f8955e2c68505aad29b3a
 
 COCOAPODS: 1.0.1
