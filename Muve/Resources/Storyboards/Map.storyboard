@@ -28,15 +28,22 @@
                                 <state key="normal" title="DROP OF LOCATION">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnDropLocationPressed:" destination="Kca-Wb-WjC" eventType="touchUpInside" id="JDL-Pg-njj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="2zn-X6-alu" firstAttribute="top" secondItem="ayI-lw-zLh" secondAttribute="bottom" id="5QO-og-H2J"/>
                             <constraint firstItem="2zn-X6-alu" firstAttribute="top" secondItem="ayI-lw-zLh" secondAttribute="bottom" id="71O-Ve-eTP"/>
                             <constraint firstAttribute="trailing" secondItem="ayI-lw-zLh" secondAttribute="trailing" id="shV-ny-Ln9"/>
                             <constraint firstItem="ayI-lw-zLh" firstAttribute="leading" secondItem="tgH-dz-cRT" secondAttribute="leading" id="uy6-7l-VVV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnDropLocation" destination="ayI-lw-zLh" id="688-rB-XPH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i7z-li-Y86" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

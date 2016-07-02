@@ -19,11 +19,13 @@ class MapViewController: UIViewController, BaseViewController {
     
     var controllerArray : [UIViewController] = []
 
+    @IBOutlet weak var btnDropLocation: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         setupCoreLocation()
-        setupGoogleMapServices()
+        setupGoogleMap()
     }
     
     static func storyBoardName() -> String {
@@ -61,19 +63,23 @@ class MapViewController: UIViewController, BaseViewController {
         }
     }
     
-    func setupGoogleMapServices() {
+    func setupGoogleMap() {
         
         let camera = GMSCameraPosition.cameraWithLatitude(39.104252, longitude: -84.515648, zoom: 10)
         map = GMSMapView.mapWithFrame(view.frame, camera: camera)
         map.delegate = self
         map.myLocationEnabled = true
-        view.addSubview(map)
+        view.insertSubview(map, atIndex: 0)
         
         marker = GMSMarker()
         marker.position = CLLocationCoordinate2DMake(39.104252, -84.515648)
         marker.title = "Cincinnati"
         marker.snippet = "USA"
         marker.map = map
+    }
+
+    @IBAction func btnDropLocationPressed(sender: AnyObject) {
+        
     }
 }
 
