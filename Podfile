@@ -13,7 +13,9 @@ target 'Muve' do
   pod 'KRProgressHUD', '~> 1.4'
   pod 'PTPopupWebView', '~> 0.3'
   pod 'UITextField-Shake-Swift', '~> 1.0'
-  pod 'KeychainSwift', '~> 3.0'
+  
+  # Slide Menu
+  pod 'SlideMenuControllerSwift', '~> 2.2'
   
   #Mapping
   pod 'ObjectMapper', '~> 1.3'
@@ -24,4 +26,6 @@ target 'Muve' do
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
   
+  # Google Maps
+  pod 'GoogleMaps'
 end

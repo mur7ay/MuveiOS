@@ -46,5 +46,5 @@ class FeedsDataSource: CollectionDataSource<Order>, UICollectionViewDataSource {
         
         return cell
     }
-    
+        
 }

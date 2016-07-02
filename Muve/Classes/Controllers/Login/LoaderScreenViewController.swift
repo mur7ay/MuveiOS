@@ -12,7 +12,6 @@ import Firebase
 class LoaderScreenViewController: UIViewController, BaseViewController {
 
     @IBOutlet weak var logoConstrain: NSLayoutConstraint!
-    var credentials: (String,String)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
