@@ -32,7 +32,7 @@ class FeedViewController: UIViewController, BaseViewController {
     private func setupNavigationBar() {
         let plusButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: nil)
         navigationItem.rightBarButtonItem = plusButton
-        addLeftBarButtonWithImage(UIImage(named: "HamburgerIcon")!)
+        addLeftBarButtonWithImage(R.image.hamburgerIcon()!)
     }
     
     private func setupCollectionView() {

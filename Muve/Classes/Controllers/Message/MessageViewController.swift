@@ -20,6 +20,6 @@ class MessageViewController: UIViewController, BaseViewController {
     }
     
     private func setupNavigationBar() {
-        addLeftBarButtonWithImage(UIImage(named: "HamburgerIcon")!)
+        addLeftBarButtonWithImage(R.image.hamburgerIcon()!)
     }
 }

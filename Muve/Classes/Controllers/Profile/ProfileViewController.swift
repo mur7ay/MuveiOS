@@ -21,7 +21,7 @@ class ProfileViewController: UIViewController, BaseViewController {
     }
     
     private func setupNavigationBar() {
-        addLeftBarButtonWithImage(UIImage(named: "HamburgerIcon")!)
+        addLeftBarButtonWithImage(R.image.hamburgerIcon()!)
     }
     
     @IBAction func btnSignOut(sender: AnyObject) {

@@ -33,13 +33,13 @@ class MapViewController: UIViewController, BaseViewController {
     }
     
     private func setupNavigationBar() {
-        addLeftBarButtonWithImage(UIImage(named: "HamburgerIcon")!)
-        let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "MessageIcon")!,
+        addLeftBarButtonWithImage(R.image.hamburgerIcon()!)
+        let leftButton: UIBarButtonItem = UIBarButtonItem(image: R.image.messageIcon()!,
                                                           style: .Plain,
                                                           target: self,
                                                           action: #selector(self.toggleLeft))
         navigationItem.leftBarButtonItem = leftButton;
-        addRightBarButtonWithImage(UIImage(named: "MessageIcon")!)
+        addRightBarButtonWithImage(R.image.messageIcon()!)
     }
     
     private func setupCoreLocation() {
@@ -98,11 +98,9 @@ extension MapViewController: GMSMapViewDelegate {
     }
     
     private func recenterMarkerInMapView() {
-        // Get the center of the mapView
         let center = map.convertPoint(map.center, toView: view)
-        
-        // Reset the marker position so it moves without animation
         map.clear()
+        
         marker.appearAnimation = kGMSMarkerAnimationNone
         marker.position = map.projection.coordinateForPoint(center)
         marker.map = map

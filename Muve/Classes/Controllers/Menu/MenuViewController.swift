@@ -58,11 +58,9 @@ extension MenuViewController: UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if indexPath.item == 0 {
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MenuHeaderCell", forIndexPath: indexPath) as! MenuHeaderCollectionViewCell
-//            cell.imgAvatar.layer.cornerRadius = (cell.bounds.width - 60 - 60) / 2
-            return cell
+            return collectionView.dequeueReusableCellWithReuseIdentifier(R.reuseIdentifier.menuHeaderCell, forIndexPath: indexPath)!
         } else {
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MenuCell", forIndexPath: indexPath) as! MenuCollectionViewCell
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(R.reuseIdentifier.menuCell, forIndexPath: indexPath)!
             cell.lblTitle.text = Menu.items[indexPath.item]
             cell.lblBadge.text = ""
             return cell
