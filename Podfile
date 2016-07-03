@@ -13,6 +13,7 @@ target 'Muve' do
   pod 'KRProgressHUD', '~> 1.4'
   pod 'PTPopupWebView', '~> 0.3'
   pod 'UITextField-Shake-Swift', '~> 1.0'
+  pod 'R.swift'
   
   # Paging Pod
   # NavigationBar pod

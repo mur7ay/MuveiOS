@@ -434,6 +434,7 @@
 			buildConfigurationList = CD4D11F21D0B0A4D00A0DBD3 /* Build configuration list for PBXNativeTarget "Muve" */;
 			buildPhases = (
 				F684DD45020A6221AF8854A5 /* [CP] Check Pods Manifest.lock */,
+				A75FF7031D28F13E00AABBE9 /* ShellScript */,
 				CD4D11DC1D0B0A4C00A0DBD3 /* Sources */,
 				CD4D11DD1D0B0A4C00A0DBD3 /* Frameworks */,
 				CD4D11DE1D0B0A4C00A0DBD3 /* Resources */,
@@ -521,6 +522,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Muve/Pods-Muve-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		A75FF7031D28F13E00AABBE9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"";
 		};
 		CCFDA82E41B490676B0A67E3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

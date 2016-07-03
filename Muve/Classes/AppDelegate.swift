@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         GMSServices.provideAPIKey("AIzaSyBsFmviOoRNaFX4TaFhUwSBRPHEruVTnR8")
         
-//        window?.backgroundColor = Colors.muveRed
+        window?.backgroundColor = UIColor.whiteColor()
         
         window?.rootViewController = LoaderScreenViewController.create()
         return true

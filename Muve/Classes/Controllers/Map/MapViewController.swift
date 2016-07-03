@@ -34,6 +34,12 @@ class MapViewController: UIViewController, BaseViewController {
     
     private func setupNavigationBar() {
         addLeftBarButtonWithImage(UIImage(named: "HamburgerIcon")!)
+        let leftButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "MessageIcon")!,
+                                                          style: .Plain,
+                                                          target: self,
+                                                          action: #selector(self.toggleLeft))
+        navigationItem.leftBarButtonItem = leftButton;
+        addRightBarButtonWithImage(UIImage(named: "MessageIcon")!)
     }
     
     private func setupCoreLocation() {
