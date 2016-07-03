@@ -60,7 +60,6 @@
 		A7A07D281D1E449000E35B2E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A07D271D1E449000E35B2E /* Logger.swift */; };
 		A7A07D2A1D1E47C900E35B2E /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A07D291D1E47C900E35B2E /* Client.swift */; };
 		A7F8530D1D2443C600792DEE /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F8530C1D2443C600792DEE /* NavController.swift */; };
-		A7F8530F1D2443E300792DEE /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F8530E1D2443E300792DEE /* NavBar.swift */; };
 		CD4D11EE1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11EC1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -120,7 +119,6 @@
 		A7A07D271D1E449000E35B2E /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = Classes/Common/Helpers/Logger.swift; sourceTree = "<group>"; };
 		A7A07D291D1E47C900E35B2E /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Client.swift; path = Classes/Common/Model/Client.swift; sourceTree = "<group>"; };
 		A7F8530C1D2443C600792DEE /* NavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavController.swift; path = Classes/Controllers/Navigation/NavController.swift; sourceTree = "<group>"; };
-		A7F8530E1D2443E300792DEE /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavBar.swift; path = Classes/Controllers/Navigation/NavBar.swift; sourceTree = "<group>"; };
 		CD392334C7FE2B0C8447F1D1 /* Pods-Muve.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Muve.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Muve/Pods-Muve.debug.xcconfig"; sourceTree = "<group>"; };
 		CD4D11E01D0B0A4C00A0DBD3 /* Muve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muve.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4D11ED1D0B0A4D00A0DBD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -386,7 +384,6 @@
 			isa = PBXGroup;
 			children = (
 				A7F8530C1D2443C600792DEE /* NavController.swift */,
-				A7F8530E1D2443E300792DEE /* NavBar.swift */,
 			);
 			name = Navigation;
 			sourceTree = "<group>";
@@ -591,7 +588,6 @@
 				A73F50AF1D1E73770055A0A3 /* FIRDatabaseReference+Helper.swift in Sources */,
 				A76088391D1E311800C8461A /* Order.swift in Sources */,
 				A7A07D261D1E434600E35B2E /* DataManager.swift in Sources */,
-				A7F8530F1D2443E300792DEE /* NavBar.swift in Sources */,
 				A7A07D281D1E449000E35B2E /* Logger.swift in Sources */,
 				A76088361D1E2C9300C8461A /* FeedCollectionViewCell.swift in Sources */,
 				A71647621D27D27F00D7D4FC /* MenuHeaderCollectionViewCell.swift in Sources */,

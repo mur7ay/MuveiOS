@@ -21,5 +21,4 @@ class NavController: UINavigationController {
         navigationBar.tintColor = UIColor.whiteColor()
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     }
-    
 }
