@@ -51,6 +51,7 @@
 		A753AFB61D1B34F200D1F30E /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A753AFB51D1B34F200D1F30E /* FeedViewController.swift */; };
 		A753AFB81D1B350900D1F30E /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A753AFB71D1B350900D1F30E /* MessageViewController.swift */; };
 		A753AFBA1D1B351E00D1F30E /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A753AFB91D1B351E00D1F30E /* Message.storyboard */; };
+		A75FF7051D28F23500AABBE9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75FF7041D28F23500AABBE9 /* R.generated.swift */; };
 		A76088361D1E2C9300C8461A /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76088341D1E2C9300C8461A /* FeedCollectionViewCell.swift */; };
 		A76088371D1E2C9300C8461A /* FeedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A76088351D1E2C9300C8461A /* FeedCollectionViewCell.xib */; };
 		A76088391D1E311800C8461A /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76088381D1E311800C8461A /* Order.swift */; };
@@ -110,6 +111,7 @@
 		A753AFB51D1B34F200D1F30E /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewController.swift; path = Classes/Controllers/Feed/FeedViewController.swift; sourceTree = "<group>"; };
 		A753AFB71D1B350900D1F30E /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageViewController.swift; path = Classes/Controllers/Message/MessageViewController.swift; sourceTree = "<group>"; };
 		A753AFB91D1B351E00D1F30E /* Message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Message.storyboard; path = Resources/Storyboards/Message.storyboard; sourceTree = "<group>"; };
+		A75FF7041D28F23500AABBE9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		A76088341D1E2C9300C8461A /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedCollectionViewCell.swift; path = Classes/Views/FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		A76088351D1E2C9300C8461A /* FeedCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FeedCollectionViewCell.xib; path = Classes/Views/FeedCollectionViewCell.xib; sourceTree = "<group>"; };
 		A76088381D1E311800C8461A /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Order.swift; path = Classes/Common/Model/Order.swift; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 				A72AD55B1D187E4900FFC381 /* Classes */,
 				A72AD55C1D187E5900FFC381 /* Resources */,
 				A72AD5671D18810400FFC381 /* Assets.xcassets */,
+				A75FF7041D28F23500AABBE9 /* R.generated.swift */,
 			);
 			path = Muve;
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A75FF7051D28F23500AABBE9 /* R.generated.swift in Sources */,
 				A70E91821D19B2A500C287A6 /* UITextField+Helper.swift in Sources */,
 				A70E91841D19B41800C287A6 /* UIButton+Helper.swift in Sources */,
 				A73F50B71D1EDA0B0055A0A3 /* LoaderScreenViewController.swift in Sources */,
