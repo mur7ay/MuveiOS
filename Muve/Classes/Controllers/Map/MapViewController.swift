@@ -39,7 +39,7 @@ class MapViewController: UIViewController, BaseViewController {
                                           style: .Plain,
                                           target: self,
                                           action: nil)
-        navigationItem.rightBarButtonItem = rightButton;
+        navigationItem.rightBarButtonItem = rightButton
     }
     
     private func setupCoreLocation() {
@@ -70,7 +70,6 @@ class MapViewController: UIViewController, BaseViewController {
     }
     
     func setupGoogleMap() {
-        
         let camera = GMSCameraPosition.cameraWithLatitude(39.104252, longitude: -84.515648, zoom: 10)
         map = GMSMapView.mapWithFrame(view.frame, camera: camera)
         map.delegate = self
@@ -85,14 +84,17 @@ class MapViewController: UIViewController, BaseViewController {
     }
 
     @IBAction func btnDropLocationPressed(sender: AnyObject) {
+        let dropOff = map.convertPoint(map.center, toView: view)
         
     }
 }
 
 extension MapViewController: GMSMapViewDelegate {
+    
     func mapView(mapView: GMSMapView, willMove gesture: Bool) {
         recenterMarkerInMapView()
     }
+    
     func mapView(mapView: GMSMapView, didChangeCameraPosition position: GMSCameraPosition) {
         recenterMarkerInMapView()
     }

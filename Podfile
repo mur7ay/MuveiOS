@@ -31,9 +31,7 @@ target 'Muve' do
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
   
-  # R.swift
-  #pod 'R.swift', '~> 2.4'
-  
   # Google Maps
   pod 'GoogleMaps'
+  
 end
