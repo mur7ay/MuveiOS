@@ -60,3 +60,7 @@ struct Keychain {
         return "\(bundleID).tokenAccessFacebook"
     }
 }
+
+struct Maps {
+    static let googleAPIKey = "AIzaSyBsFmviOoRNaFX4TaFhUwSBRPHEruVTnR8"
+}

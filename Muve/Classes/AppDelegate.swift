@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
-        GMSServices.provideAPIKey("AIzaSyBsFmviOoRNaFX4TaFhUwSBRPHEruVTnR8")
+        GMSServices.provideAPIKey(Maps.googleAPIKey)
         
         window?.backgroundColor = UIColor.whiteColor()
         

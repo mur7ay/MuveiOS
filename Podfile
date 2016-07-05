@@ -33,5 +33,6 @@ target 'Muve' do
   
   # Google Maps
   pod 'GoogleMaps'
+  pod 'GooglePlaces', '~> 1.0'
   
 end

@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import CoreLocation
+import GooglePlaces
 
 class MapViewController: UIViewController, BaseViewController {
     
@@ -16,16 +17,36 @@ class MapViewController: UIViewController, BaseViewController {
 
     private var map: GMSMapView!
     private var marker: GMSMarker!
-
+    
+    var searchResults: [String] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet private weak var tableContainer: UIView!
     @IBOutlet private weak var btnDropLocation: UIButton!
     @IBOutlet private weak var txtPickupLocation: UITextField!
     @IBOutlet private weak var imgPin: UIImageView!
     
+    @IBOutlet weak var constraintTxtFieldBottom: NSLayoutConstraint!
+    @IBOutlet weak var constraintImgPinBottom: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setupNavigationBar()
         setupCoreLocation()
         setupGoogleMap()
+        setupTextField()
+        setupAutoCompletion()
+        registerKeyboardNotifications()
+    }
+    
+    deinit {
+        unregisterKeyboardNotifications()
     }
     
     static func storyBoardName() -> String {
@@ -70,6 +91,8 @@ class MapViewController: UIViewController, BaseViewController {
     }
     
     private func setupGoogleMap() {
+        GooglePlaces.provideAPIKey(Maps.googleAPIKey)
+        
         let camera = GMSCameraPosition.cameraWithLatitude(39.104252, longitude: -84.515648, zoom: 10)
         map = GMSMapView.mapWithFrame(view.frame, camera: camera)
         map.delegate = self
@@ -84,13 +107,81 @@ class MapViewController: UIViewController, BaseViewController {
     }
 
     private func setupTextField() {
-        txt
+        txtPickupLocation.delegate = self
+        txtPickupLocation.backgroundColor = UIColor(white: 1.0, alpha: 0.7)
+        imgPin.backgroundColor = UIColor(white: 1.0, alpha: 0.7)
+    }
+    
+    private func setupAutoCompletion() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.registerNib(R.nib.autoCompletionCell)
     }
     
     @IBAction func btnDropLocationPressed(sender: AnyObject) {
         let _ = map.convertPoint(map.center, toView: view)
         
     }
+    
+    
+    
+    private func registerKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(willKeyboardShown(_:)),
+                                                         name: UIKeyboardWillShowNotification,
+                                                         object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(willKeyboardHidden(_:)),
+                                                         name: UIKeyboardWillHideNotification,
+                                                         object: nil)
+    }
+    
+    private func unregisterKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func willKeyboardShown(notification: NSNotification) {
+        let userInfo = notification.userInfo
+        guard let keyboardSize = userInfo?[UIKeyboardFrameBeginUserInfoKey]?.CGRectValue().size else { return }
+        DLog("Keyboard size \(keyboardSize)")
+        let previousPosition = constraintTxtFieldBottom.constant
+        constraintTxtFieldBottom.constant = previousPosition + keyboardSize.height - btnDropLocation.bounds.size.height
+        constraintImgPinBottom.constant = previousPosition + keyboardSize.height - btnDropLocation.bounds.size.height
+        UIView.animateWithDuration(0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func willKeyboardHidden(notification: NSNotification) {
+        let userInfo = notification.userInfo
+        guard let keyboardSize = userInfo?[UIKeyboardFrameBeginUserInfoKey]?.CGRectValue().size else { return }
+        DLog("Keyboard size \(keyboardSize)")
+        let previousPosition = constraintTxtFieldBottom.constant
+        constraintTxtFieldBottom.constant = previousPosition - keyboardSize.height + btnDropLocation.bounds.size.height
+        constraintImgPinBottom.constant = previousPosition - keyboardSize.height + btnDropLocation.bounds.size.height
+        UIView.animateWithDuration(0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func searchWithText(text: String) {
+        GooglePlaces.placeAutocomplete(forInput: text) { (response, error) -> Void in
+            guard response?.status == GooglePlaces.StatusCode.OK else {
+                DLog("\(response?.errorMessage)")
+                return
+            }
+            if let results = response?.predictions.map({ element in
+                return element.description!
+            }) {
+                self.searchResults = results
+            } else {
+                self.searchResults = []
+            }
+            DLog("first matched result: \(response?.predictions.first?.description)")
+        }
+    }
+
 }
 
 extension MapViewController: GMSMapViewDelegate {
@@ -119,6 +210,48 @@ extension MapViewController: CLLocationManagerDelegate {
         if status == .AuthorizedWhenInUse {
             manager.startUpdatingLocation()
         }
+    }
+}
+
+extension MapViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == txtPickupLocation {
+            btnDropLocationPressed(self)
+            txtPickupLocation.endEditing(true)
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if textField === txtPickupLocation {
+            let newString = (textField.text! as NSString).stringByReplacingCharactersInRange(range, withString: string)
+            searchWithText(newString)
+        }
+        return true
+    }
+    
+}
+
+extension MapViewController: UITableViewDelegate {
+    
+}
+
+extension MapViewController: UITableViewDataSource {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchResults.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(R.reuseIdentifier.autoCompletionCellID)!
+        cell.lblPlace.text = searchResults[indexPath.row]
+        return cell
     }
 }
 
