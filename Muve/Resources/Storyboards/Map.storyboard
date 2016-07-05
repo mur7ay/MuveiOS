@@ -32,17 +32,39 @@
                                     <action selector="btnDropLocationPressed:" destination="Kca-Wb-WjC" eventType="touchUpInside" id="JDL-Pg-njj"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PinIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Axi-ss-LIM">
+                                <rect key="frame" x="0.0" y="502" width="49" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="IBG-6n-vc0"/>
+                                    <constraint firstAttribute="width" constant="49" id="zj8-AT-14S"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MQN-DL-BMT">
+                                <rect key="frame" x="49" y="502" width="551" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="HAX-Mh-YaZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2zn-X6-alu" firstAttribute="top" secondItem="ayI-lw-zLh" secondAttribute="bottom" id="5QO-og-H2J"/>
                             <constraint firstItem="2zn-X6-alu" firstAttribute="top" secondItem="ayI-lw-zLh" secondAttribute="bottom" id="71O-Ve-eTP"/>
+                            <constraint firstAttribute="trailing" secondItem="MQN-DL-BMT" secondAttribute="trailing" id="DV2-TN-4Rm"/>
+                            <constraint firstItem="ayI-lw-zLh" firstAttribute="top" secondItem="Axi-ss-LIM" secondAttribute="bottom" id="aSd-ie-vmW"/>
+                            <constraint firstItem="ayI-lw-zLh" firstAttribute="top" secondItem="MQN-DL-BMT" secondAttribute="bottom" id="bGk-qW-KMu"/>
+                            <constraint firstItem="Axi-ss-LIM" firstAttribute="leading" secondItem="tgH-dz-cRT" secondAttribute="leading" id="im0-ib-DOE"/>
                             <constraint firstAttribute="trailing" secondItem="ayI-lw-zLh" secondAttribute="trailing" id="shV-ny-Ln9"/>
                             <constraint firstItem="ayI-lw-zLh" firstAttribute="leading" secondItem="tgH-dz-cRT" secondAttribute="leading" id="uy6-7l-VVV"/>
+                            <constraint firstItem="MQN-DL-BMT" firstAttribute="leading" secondItem="Axi-ss-LIM" secondAttribute="trailing" id="wyN-dN-HCw"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnDropLocation" destination="ayI-lw-zLh" id="688-rB-XPH"/>
+                        <outlet property="imgPin" destination="Axi-ss-LIM" id="tIg-DR-bsb"/>
+                        <outlet property="txtPickupLocation" destination="MQN-DL-BMT" id="IBQ-tI-rXe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i7z-li-Y86" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -50,4 +72,7 @@
             <point key="canvasLocation" x="-374" y="196"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="PinIcon" width="25" height="25"/>
+    </resources>
 </document>

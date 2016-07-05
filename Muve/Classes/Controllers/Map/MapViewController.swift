@@ -12,14 +12,14 @@ import CoreLocation
 
 class MapViewController: UIViewController, BaseViewController {
     
-    let manager = CLLocationManager()
+    private let manager = CLLocationManager()
 
-    var map: GMSMapView!
-    var marker: GMSMarker!
-    
-    var controllerArray : [UIViewController] = []
+    private var map: GMSMapView!
+    private var marker: GMSMarker!
 
-    @IBOutlet weak var btnDropLocation: UIButton!
+    @IBOutlet private weak var btnDropLocation: UIButton!
+    @IBOutlet private weak var txtPickupLocation: UITextField!
+    @IBOutlet private weak var imgPin: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +69,7 @@ class MapViewController: UIViewController, BaseViewController {
         }
     }
     
-    func setupGoogleMap() {
+    private func setupGoogleMap() {
         let camera = GMSCameraPosition.cameraWithLatitude(39.104252, longitude: -84.515648, zoom: 10)
         map = GMSMapView.mapWithFrame(view.frame, camera: camera)
         map.delegate = self
@@ -83,8 +83,12 @@ class MapViewController: UIViewController, BaseViewController {
         marker.map = map
     }
 
+    private func setupTextField() {
+        txt
+    }
+    
     @IBAction func btnDropLocationPressed(sender: AnyObject) {
-        let dropOff = map.convertPoint(map.center, toView: view)
+        let _ = map.convertPoint(map.center, toView: view)
         
     }
 }
