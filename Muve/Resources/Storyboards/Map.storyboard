@@ -44,7 +44,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="HAX-Mh-YaZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="no"/>
                             </textField>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O1W-wU-Zp7">
@@ -97,6 +97,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="PinIcon" width="25" height="25"/>
+        <image name="PinIcon" width="40" height="40"/>
     </resources>
 </document>
