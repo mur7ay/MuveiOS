@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		23D3EDFA064587E129AEBE1F /* Pods_Muve.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DB2C3167CE3F9D7E9BD1479 /* Pods_Muve.framework */; };
+		570DB4F71D2CF2EC0088E003 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570DB4F61D2CF2EC0088E003 /* R.generated.swift */; };
 		57E723BA1D1A5D0D00D21C8B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E723B91D1A5D0D00D21C8B /* BaseViewController.swift */; };
 		57E723BC1D1A5E2500D21C8B /* UIAlertViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E723BB1D1A5E2500D21C8B /* UIAlertViewController+Helper.swift */; };
 		A70E91761D18930200C287A6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70E91751D18930200C287A6 /* LoginViewController.swift */; };
@@ -59,12 +60,12 @@
 		A7A07D2A1D1E47C900E35B2E /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A07D291D1E47C900E35B2E /* Client.swift */; };
 		A7B3B05C1D2C773B00DF1399 /* AutoCompletionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B3B05A1D2C773B00DF1399 /* AutoCompletionCell.swift */; };
 		A7B3B05D1D2C773B00DF1399 /* AutoCompletionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7B3B05B1D2C773B00DF1399 /* AutoCompletionCell.xib */; };
-		A7B3B0611D2C786F00DF1399 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B3B0601D2C786F00DF1399 /* R.generated.swift */; };
 		A7F8530D1D2443C600792DEE /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F8530C1D2443C600792DEE /* NavController.swift */; };
 		CD4D11EE1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11EC1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		570DB4F61D2CF2EC0088E003 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		57E723B91D1A5D0D00D21C8B /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = Classes/Protocols/BaseViewController.swift; sourceTree = "<group>"; };
 		57E723BB1D1A5E2500D21C8B /* UIAlertViewController+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIAlertViewController+Helper.swift"; path = "Classes/Common/Extentions/UIAlertViewController+Helper.swift"; sourceTree = "<group>"; };
 		6DB2C3167CE3F9D7E9BD1479 /* Pods_Muve.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Muve.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,7 +120,6 @@
 		A7A07D291D1E47C900E35B2E /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Client.swift; path = Classes/Common/Model/Client.swift; sourceTree = "<group>"; };
 		A7B3B05A1D2C773B00DF1399 /* AutoCompletionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AutoCompletionCell.swift; path = Classes/Views/AutoCompletionCell.swift; sourceTree = "<group>"; };
 		A7B3B05B1D2C773B00DF1399 /* AutoCompletionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AutoCompletionCell.xib; path = Classes/Views/AutoCompletionCell.xib; sourceTree = "<group>"; };
-		A7B3B0601D2C786F00DF1399 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		A7F8530C1D2443C600792DEE /* NavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavController.swift; path = Classes/Controllers/Navigation/NavController.swift; sourceTree = "<group>"; };
 		CD392334C7FE2B0C8447F1D1 /* Pods-Muve.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Muve.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Muve/Pods-Muve.debug.xcconfig"; sourceTree = "<group>"; };
 		CD4D11E01D0B0A4C00A0DBD3 /* Muve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muve.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -424,7 +424,7 @@
 				A72AD55B1D187E4900FFC381 /* Classes */,
 				A72AD55C1D187E5900FFC381 /* Resources */,
 				A72AD5671D18810400FFC381 /* Assets.xcassets */,
-				A7B3B0601D2C786F00DF1399 /* R.generated.swift */,
+				570DB4F61D2CF2EC0088E003 /* R.generated.swift */,
 			);
 			path = Muve;
 			sourceTree = "<group>";
@@ -443,6 +443,7 @@
 				CD4D11DE1D0B0A4C00A0DBD3 /* Resources */,
 				9B45D0B5E5487440E03945DF /* [CP] Embed Pods Frameworks */,
 				CCFDA82E41B490676B0A67E3 /* [CP] Copy Pods Resources */,
+				5B12F0723A9B3921391A3093 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -512,6 +513,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5B12F0723A9B3921391A3093 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Muve/Pods-Muve-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9B45D0B5E5487440E03945DF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -604,7 +620,7 @@
 				57E723BC1D1A5E2500D21C8B /* UIAlertViewController+Helper.swift in Sources */,
 				A7F8530D1D2443C600792DEE /* NavController.swift in Sources */,
 				A753AFB61D1B34F200D1F30E /* FeedViewController.swift in Sources */,
-				A7B3B0611D2C786F00DF1399 /* R.generated.swift in Sources */,
+				570DB4F71D2CF2EC0088E003 /* R.generated.swift in Sources */,
 				A753AFB81D1B350900D1F30E /* MessageViewController.swift in Sources */,
 				A73F50AD1D1E67F90055A0A3 /* FeedsDataSource.swift in Sources */,
 				57E723BA1D1A5D0D00D21C8B /* BaseViewController.swift in Sources */,
