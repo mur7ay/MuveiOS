@@ -14,6 +14,7 @@ func DLog(message:String, functionName:String = #function, fileName:String = #fi
     
     /* For this to work, add the "-DDEBUG" flag to the "Swift Compiler - Custom Flags" to Debug mode, under Build Settings.  */
     #if DEBUG
+        print("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
         print("Logger: \(message)");
     #endif
 }

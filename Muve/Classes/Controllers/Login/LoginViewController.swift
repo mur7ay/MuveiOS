@@ -21,7 +21,7 @@ class LoginViewController: UIViewController, BaseViewController {
     @IBOutlet weak var btnSignUp: UIButton!
     
     static func storyBoardName() -> String {
-        return "Main"
+        return "Login"
     }
     
     override func viewDidLoad() {
@@ -59,6 +59,9 @@ class LoginViewController: UIViewController, BaseViewController {
         txtPass.leftViewMode = .Always
     }
     
+    @IBAction func btnSignUp(sender: AnyObject) {
+        push(SignUpViewController.create())
+    }
     @IBAction func btnSignInGoogle(sender: AnyObject) {
         GIDSignIn.sharedInstance().signIn()
         ProgressHUD.show()
@@ -68,11 +71,15 @@ class LoginViewController: UIViewController, BaseViewController {
         
     }
     
+    @IBAction func btnForgotPassword(sender: AnyObject) {
+        
+    }
+    
     @IBAction func btnSignIn(sender: AnyObject) {
         if txtEmail.text != "" {
             if let email = txtEmail.text, pass = txtPass.text {
                 ProgressHUD.show()
-                FIRAuth.auth()?.signInWithEmail(email, password: pass) { (user, error) in
+                LoginHelper.login(email, pass: pass) { (user, error) in
                     ProgressHUD.hide()
                     if let _error = error {
                         switch _error.code {
@@ -82,13 +89,6 @@ class LoginViewController: UIViewController, BaseViewController {
                             self.showSimpleAlert("Error", message: _error.localizedDescription)
                         }
                     } else {
-                        FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
-                            if let _ = user {
-                                // User is signed in.
-                            } else {
-                                // No user is signed in.
-                            }
-                        }
                         self.presentViewController(TabBarViewController(), animated: true, completion: nil)
                     }
                 }
@@ -102,6 +102,7 @@ class LoginViewController: UIViewController, BaseViewController {
 extension LoginViewController: GIDSignInUIDelegate {
     func setupGoogleAuth() {
         GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().delegate = self
     }
     
     func signInWillDispatch(signIn: GIDSignIn!, error: NSError!) {
@@ -109,7 +110,25 @@ extension LoginViewController: GIDSignInUIDelegate {
     }
 }
 
+extension LoginViewController: GIDSignInDelegate {
+    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
+        if let _error = error {
+            showSimpleAlert("Error", message: _error.description)
+        } else {
+            self.presentViewController(TabBarViewController(), animated: true, completion: nil)
+        }
+    }
+}
+
 extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == txtPass {
+            btnSignIn(self)
+            return true
+        } else {
+            return false
+        }
+    }
     
 //    func textFieldDidBeginEditing(textField: UITextField) {
 //        switch textField {
@@ -141,13 +160,5 @@ extension LoginViewController: UITextFieldDelegate {
 //        }
 //    }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if textField == txtPass {
-            btnSignIn(self)
-            return true
-        } else {
-            return false
-        }
-    }
 }
 

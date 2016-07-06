@@ -45,6 +45,7 @@ class TabBarViewController: UITabBarController {
         let profileNC = NavController.init(rootViewController: ProfileViewController.create())
         profileNC.tabBarItem.title = "Account"
         profileNC.tabBarItem.image = UIImage.init(named: "TabBarProfile")
+
         
         self.viewControllers = [feedNC,mapNC,profileNC]
     }

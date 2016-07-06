@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tMi-a0-I98">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1Id-Pa-wiq">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,30 +7,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="Kpe-xW-LcW">
-            <objects>
-                <navigationController navigationBarHidden="YES" id="tMi-a0-I98" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vfF-tm-cqt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="4Ov-HI-ZRa">
-                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="1Id-Pa-wiq" kind="relationship" relationship="rootViewController" id="zvx-rY-0uO"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pYh-co-Ixg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="701" y="348"/>
-        </scene>
         <!--Login View Controller-->
         <scene sceneID="q9q-TW-dVE">
             <objects>
-                <viewController id="1Id-Pa-wiq" customClass="LoginViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewControllerID" id="1Id-Pa-wiq" customClass="LoginViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Q7-fV-n8x"/>
                         <viewControllerLayoutGuide type="bottom" id="i78-jc-s4L"/>
@@ -86,7 +66,7 @@
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="NFB-s3-eW1" kind="show" id="yly-fG-I22"/>
+                                    <action selector="btnForgotPassword:" destination="1Id-Pa-wiq" eventType="touchUpInside" id="whb-J1-We0"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVG-vK-KR7">
@@ -155,7 +135,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ZWC-HS-yBj" kind="show" id="S7n-n8-EP4"/>
+                                    <action selector="btnSignUp:" destination="1Id-Pa-wiq" eventType="touchUpInside" id="0kA-JY-py3"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="MainLogo" translatesAutoresizingMaskIntoConstraints="NO" id="dgZ-yT-Zrg">
@@ -193,7 +173,7 @@
                         <outlet property="btnSignIn" destination="o1w-Pa-V72" id="MtY-5r-iNL"/>
                         <outlet property="btnSignInFacebook" destination="z58-HK-VLm" id="qBh-mU-LwI"/>
                         <outlet property="btnSignInGoogle" destination="zuM-Oo-igz" id="gEr-V6-VmG"/>
-                        <outlet property="btnSignUp" destination="zeQ-oc-nSB" id="uTG-8R-zjW"/>
+                        <outlet property="btnSignUp" destination="zeQ-oc-nSB" id="ErQ-Jq-VP9"/>
                         <outlet property="txtEmail" destination="8ZB-4W-Bx0" id="ucY-8H-bIC"/>
                         <outlet property="txtPass" destination="PBZ-44-KVS" id="hV6-w7-goz"/>
                     </connections>
@@ -202,37 +182,10 @@
             </objects>
             <point key="canvasLocation" x="1382" y="348"/>
         </scene>
-        <!--Forgot Password View Controller-->
-        <scene sceneID="onv-im-Ta9">
-            <objects>
-                <viewController id="NFB-s3-eW1" customClass="ForgotPasswordViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="EpU-iG-lF1"/>
-                        <viewControllerLayoutGuide type="bottom" id="Z0G-Ib-IoX"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Kri-0O-WbM">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.98431372549999996" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="HaL-zY-Fxf" appends="YES" id="7op-Gs-JWV"/>
-                        </connections>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GHF-75-rXH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="HaL-zY-Fxf">
-                    <connections>
-                        <segue destination="1Id-Pa-wiq" kind="show" id="884-gi-Gwc"/>
-                    </connections>
-                </swipeGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="1382" y="1046"/>
-        </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="CEe-d0-kdq">
             <objects>
-                <viewController id="ZWC-HS-yBj" customClass="SignUpViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewControllerID" id="ZWC-HS-yBj" customClass="SignUpViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ISb-o4-uIs"/>
                         <viewControllerLayoutGuide type="bottom" id="vYS-Pq-Mqz"/>
@@ -364,19 +317,44 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tOj-YT-dyL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="H0T-va-UFi">
-                    <connections>
-                        <segue destination="1Id-Pa-wiq" kind="show" id="wxx-WA-N92"/>
-                    </connections>
-                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="H0T-va-UFi"/>
             </objects>
             <point key="canvasLocation" x="2085" y="348"/>
         </scene>
+        <!--Loader Screen View Controller-->
+        <scene sceneID="AWC-rh-o4O">
+            <objects>
+                <viewController storyboardIdentifier="LoaderScreenViewControllerID" id="e5V-Af-gq0" customClass="LoaderScreenViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YwF-Fc-dbW"/>
+                        <viewControllerLayoutGuide type="bottom" id="L1b-eJ-CTM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h6A-8b-Ohk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="2No-pb-CZn">
+                                <rect key="frame" x="255" y="244" width="91" height="112"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2No-pb-CZn" firstAttribute="centerY" secondItem="h6A-8b-Ohk" secondAttribute="centerY" id="86r-bm-wtZ"/>
+                            <constraint firstItem="2No-pb-CZn" firstAttribute="centerX" secondItem="h6A-8b-Ohk" secondAttribute="centerX" id="Ohk-G7-Taq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="KiL-TT-Mot"/>
+                    <connections>
+                        <outlet property="logoConstrain" destination="86r-bm-wtZ" id="g8O-JG-4In"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="phn-RR-XBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="676" y="348"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="LaunchLogo" width="91" height="112"/>
         <image name="MainLogo" width="305" height="315"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="wxx-WA-N92"/>
-    </inferredMetricsTieBreakers>
 </document>

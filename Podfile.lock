@@ -1,5 +1,5 @@
 PODS:
-  - ActiveLabel (0.5.1)
+  - Alamofire (3.4.1)
   - Firebase (3.2.1):
     - Firebase/Core (= 3.2.1)
   - Firebase/Analytics (3.2.1):
@@ -32,8 +32,12 @@ PODS:
     - GoogleSymbolUtilities (~> 1.0)
   - GoogleInterchangeUtilities (1.2.1):
     - GoogleSymbolUtilities (~> 1.0)
+  - GoogleMaps (1.13.2)
   - GoogleNetworkingUtilities (1.2.1):
     - GoogleSymbolUtilities (~> 1.0)
+  - GooglePlaces (1.0.4):
+    - Alamofire (~> 3.0)
+    - ObjectMapper (~> 1.0)
   - GoogleSignIn (4.0.0):
     - GoogleAppUtilities (~> 1.1)
     - GoogleAuthUtilities (~> 2.0)
@@ -42,25 +46,34 @@ PODS:
   - GoogleSymbolUtilities (1.1.1)
   - GoogleUtilities (1.3.1):
     - GoogleSymbolUtilities (~> 1.0)
+  - HidingNavigationBar (0.3.0)
   - KRProgressHUD (1.4.1)
   - ObjectMapper (1.3.0)
   - PTPopupWebView (0.3.0)
+  - R.swift (2.3.0):
+    - R.swift.Library (~> 2.1.0)
+  - R.swift.Library (2.1.0)
+  - SlideMenuControllerSwift (2.2.0)
   - UITextField-Shake-Swift (1.0.3)
 
 DEPENDENCIES:
-  - ActiveLabel (~> 0.5)
   - Firebase
   - Firebase/Auth
   - Firebase/Database
   - Font-Awesome-Swift (~> 1.4)
+  - GoogleMaps
+  - GooglePlaces (~> 1.0)
   - GoogleSignIn
+  - HidingNavigationBar (~> 0.3)
   - KRProgressHUD (~> 1.4)
   - ObjectMapper (~> 1.3)
   - PTPopupWebView (~> 0.3)
+  - R.swift
+  - SlideMenuControllerSwift (~> 2.2)
   - UITextField-Shake-Swift (~> 1.0)
 
 SPEC CHECKSUMS:
-  ActiveLabel: 2360173515b6afabad23610824c222cc626d2166
+  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   Firebase: 6c80ac28d59d06bfd9152a7b6ea17625ca93183d
   FirebaseAnalytics: 6f75b04e6bfb8e0b6e9ef298e04c24eea3b13863
   FirebaseAuth: 94b851fc345ce98036dfedfdc2eddeaef8fa3b4c
@@ -70,15 +83,21 @@ SPEC CHECKSUMS:
   GoogleAppUtilities: f1730f91f67767b453c289577040dd3f425ffdc7
   GoogleAuthUtilities: d7a19615cd7627688afcf181737f1011ee8b5a23
   GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
+  GoogleMaps: b20a103ff307f58392e603cf142e59d7e30374c1
   GoogleNetworkingUtilities: 3e83269048cfb498dc7ec83ab36813360965c74f
+  GooglePlaces: 24006c1e8d0aed00fc2b94369d05efb32f18ba54
   GoogleSignIn: 09036ed61f8e75f1424100d63f7719480b2428c3
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
+  HidingNavigationBar: 6378af14cea27bfef8be73470b081a36d45b87c4
   KRProgressHUD: 9c356e2acb593dc86fe2c71c4fbf5d80c918f805
   ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
   PTPopupWebView: b2e30f5b9024ae23d0cd071ca0addf2abe99a7c6
+  R.swift: 38b2191a603c3d491a09baddfb4ccc7aa9be4d9d
+  R.swift.Library: e5e077ed04f6867a95676af491650091b23518e9
+  SlideMenuControllerSwift: 16dac00b1aaad153e64fffb5d6969ab31ad88372
   UITextField-Shake-Swift: 696d23a4af95293db711bd6ebeccd94a95034bd0
 
-PODFILE CHECKSUM: 5178cc20ac638bae3b73e44b7004b42c941aee6c
+PODFILE CHECKSUM: 9d523a8b450536f14d657bfaa2085d672c5a88e1
 
 COCOAPODS: 1.0.1

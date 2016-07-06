@@ -7,14 +7,29 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController, BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
     }
     
     static func storyBoardName() -> String {
         return "Profile"
+    }
+    
+    private func setupNavigationBar() {
+        addLeftBarButtonWithImage(R.image.hamburgerIcon()!)
+    }
+    
+    @IBAction func btnSignOut(sender: AnyObject) {
+        if let _ = try? FIRAuth.auth()!.signOut() {
+            let appDelegate = UIApplication.sharedApplication().delegate
+            UIView.transitionWithView(appDelegate!.window!!, duration: 0.5, options: .TransitionCrossDissolve, animations: { () -> Void in
+                appDelegate!.window!!.rootViewController = NavController(rootViewController: LoginViewController.create())
+                }, completion: nil)
+        }
     }
 }

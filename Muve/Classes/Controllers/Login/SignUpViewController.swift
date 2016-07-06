@@ -10,8 +10,6 @@ import UIKit
 import Firebase
 import UITextField_Shake_Swift
 
-//import TTTAttributedLabel
-
 class SignUpViewController: UIViewController, BaseViewController {
 
     
@@ -22,7 +20,7 @@ class SignUpViewController: UIViewController, BaseViewController {
     @IBOutlet weak var btnAlreadyRegistered: UIButton!
     
     static func storyBoardName() -> String {
-        return "Main"
+        return "Login"
     }
     
     override func viewDidLoad() {
@@ -90,6 +88,14 @@ class SignUpViewController: UIViewController, BaseViewController {
 }
 
 extension SignUpViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == txtPass {
+            btnSignUp(self)
+            return true
+        } else {
+            return false
+        }
+    }
     
 //    func textFieldDidBeginEditing(textField: UITextField) {
 //        switch textField {
@@ -129,12 +135,5 @@ extension SignUpViewController: UITextFieldDelegate {
 //        }
 //    }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if textField == txtPass {
-            btnSignUp(self)
-            return true
-        } else {
-            return false
-        }
-    }
+    
 }
