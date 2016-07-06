@@ -1,2 +1,5 @@
 Muve.xcodeproj/xcuserdata
 Pods/Pods.xcodeproj/xcuserdata
+Pods
+*.generated.swift
+Muve.xcworkspace/xcshareddata
