@@ -11,6 +11,12 @@ import GoogleMaps
 import CoreLocation
 import GooglePlaces
 
+struct RouteQuery {
+    var fromPlace: GMSPlace!
+    var toPlace: GMSPlace!
+}
+
+
 class MapViewController: UIViewController, BaseViewController {
     
     private let manager = CLLocationManager()
@@ -18,29 +24,37 @@ class MapViewController: UIViewController, BaseViewController {
     private var map: GMSMapView!
     private var marker: GMSMarker!
     
-    var searchResults: [String] = [] {
+    private var isFromFieldActive: Bool = true
+    
+    private var searchResults: [String] = [] {
         didSet {
             if searchResults.isEmpty {
                 tableContainer.hidden = true
             } else {
-                tableContainer.hidden = false
                 tableView.reloadData()
+                tableContainer.hidden = false
             }
             setupTableContainerHeight(searchResults.count)
         }
     }
+    
+    private var searchPredictions: [GooglePlaces.PlaceAutocompleteResponse.Prediction]!
     
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet private weak var tableContainer: UIView!
     @IBOutlet private weak var btnDropLocation: UIButton!
     @IBOutlet private weak var txtPickupLocation: UITextField!
-    @IBOutlet private weak var imgPin: UIImageView!
+    @IBOutlet private weak var txtDropOffLocation: UITextField!
+    @IBOutlet private weak var btnPin: UIButton!
+
     
 
     @IBOutlet weak var constraintTableContainerHeight: NSLayoutConstraint!
     @IBOutlet weak var constraintTxtFieldBottom: NSLayoutConstraint!
     @IBOutlet weak var constraintImgPinBottom: NSLayoutConstraint!
+    @IBOutlet weak var constraintTxtFieldLeading: NSLayoutConstraint!
+    @IBOutlet weak var constraintTableContainerBottom: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,7 +131,18 @@ class MapViewController: UIViewController, BaseViewController {
     private func setupTextField() {
         txtPickupLocation.delegate = self
         txtPickupLocation.backgroundColor = UIColor(white: 1.0, alpha: 0.7)
-        imgPin.backgroundColor = UIColor(white: 1.0, alpha: 0.7)
+        btnPin.backgroundColor = UIColor(white: 1.0, alpha: 0.7)
+        
+        txtDropOffLocation.delegate = self
+        txtDropOffLocation.leftViewMode = UITextFieldViewMode.Always
+        txtDropOffLocation.leftView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        txtDropOffLocation.backgroundColor = UIColor(white: 1.0, alpha: 0.8)
+        txtDropOffLocation.layer.masksToBounds = false
+        txtDropOffLocation.layer.shadowColor = UIColor.blackColor().CGColor
+        txtDropOffLocation.layer.shadowOpacity = 0.7
+        txtDropOffLocation.layer.shadowOffset = CGSizeMake(2.0, 2.0)
+        txtDropOffLocation.layer.shadowRadius = 8.0
+//        txtDropOffLocation.layer.shouldRasterize = true
     }
     
     private func setupAutoCompletion() {
@@ -130,9 +155,19 @@ class MapViewController: UIViewController, BaseViewController {
     
     @IBAction func btnDropLocationPressed(sender: AnyObject) {
         let _ = map.convertPoint(map.center, toView: view)
-        
+        constraintTxtFieldLeading.constant = 10 - txtPickupLocation.bounds.size.width
+        UIView.animateWithDuration(0.3) {
+            self.view.layoutIfNeeded()
+        }
     }
+
     
+    @IBAction func btnPinPressed(sender: AnyObject) {
+        constraintTxtFieldLeading.constant = 0
+        UIView.animateWithDuration(0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
     
     
     private func registerKeyboardNotifications() {
@@ -185,19 +220,22 @@ class MapViewController: UIViewController, BaseViewController {
                 DLog("\(response?.errorMessage)")
                 return
             }
-            if let results = response?.predictions.map({ element in
-                return element.description!
-            }) {
-                self.searchResults = results
-            } else {
-                self.searchResults = []
+            if let predictions = response?.predictions {
+                self.searchPredictions = predictions
+                self.searchResults = predictions.map({ $0.description! })
             }
             DLog("first matched result: \(response?.predictions.first?.description)")
         }
     }
     
     private func setupTableContainerHeight(count: Int) {
-        constraintTableContainerHeight.constant = CGFloat(count * 44)
+        if isFromFieldActive {
+            constraintTableContainerHeight.constant = CGFloat(count * 44)
+            constraintTableContainerBottom.constant = 0
+        } else {
+            constraintTableContainerHeight.constant = CGFloat(count * 44)
+            constraintTableContainerBottom.constant = 10
+        }
         tableContainer.layoutIfNeeded()
     }
 
@@ -235,11 +273,17 @@ extension MapViewController: CLLocationManagerDelegate {
 extension MapViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if textField == txtPickupLocation {
+        switch textField {
+        case txtPickupLocation:
             btnDropLocationPressed(self)
-            txtPickupLocation.endEditing(true)
+//            if !textField.text!.isEmpty {
+                txtPickupLocation.endEditing(true)
+//            }
             return true
-        } else {
+        case txtDropOffLocation:
+            txtDropOffLocation.endEditing(true)
+            return true
+        default:
             return false
         }
     }
@@ -247,6 +291,12 @@ extension MapViewController: UITextFieldDelegate {
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if textField === txtPickupLocation {
             let newString = (textField.text! as NSString).stringByReplacingCharactersInRange(range, withString: string)
+            isFromFieldActive = true
+            searchWithText(newString)
+        }
+        if textField === txtDropOffLocation {
+            let newString = (textField.text! as NSString).stringByReplacingCharactersInRange(range, withString: string)
+            isFromFieldActive = false
             searchWithText(newString)
         }
         return true
@@ -255,7 +305,15 @@ extension MapViewController: UITextFieldDelegate {
 }
 
 extension MapViewController: UITableViewDelegate {
-    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        searchResults = []
+        let place = searchPredictions[indexPath.row]
+        if isFromFieldActive {
+            txtPickupLocation.text = place.description
+        } else {
+            txtDropOffLocation.text = place.description
+        }
+    }
 }
 
 extension MapViewController: UITableViewDataSource {
