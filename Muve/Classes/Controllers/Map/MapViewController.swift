@@ -20,7 +20,13 @@ class MapViewController: UIViewController, BaseViewController {
     
     var searchResults: [String] = [] {
         didSet {
-            tableView.reloadData()
+            if searchResults.isEmpty {
+                tableContainer.hidden = true
+            } else {
+                tableContainer.hidden = false
+                tableView.reloadData()
+            }
+            setupTableContainerHeight(searchResults.count)
         }
     }
     
@@ -31,6 +37,8 @@ class MapViewController: UIViewController, BaseViewController {
     @IBOutlet private weak var txtPickupLocation: UITextField!
     @IBOutlet private weak var imgPin: UIImageView!
     
+
+    @IBOutlet weak var constraintTableContainerHeight: NSLayoutConstraint!
     @IBOutlet weak var constraintTxtFieldBottom: NSLayoutConstraint!
     @IBOutlet weak var constraintImgPinBottom: NSLayoutConstraint!
     
@@ -115,7 +123,9 @@ class MapViewController: UIViewController, BaseViewController {
     private func setupAutoCompletion() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorColor = UIColor.clearColor()
         tableView.registerNib(R.nib.autoCompletionCell)
+        tableContainer.hidden = true
     }
     
     @IBAction func btnDropLocationPressed(sender: AnyObject) {
@@ -166,6 +176,10 @@ class MapViewController: UIViewController, BaseViewController {
     }
     
     func searchWithText(text: String) {
+        guard text != "" else {
+            searchResults = []
+            return
+        }
         GooglePlaces.placeAutocomplete(forInput: text) { (response, error) -> Void in
             guard response?.status == GooglePlaces.StatusCode.OK else {
                 DLog("\(response?.errorMessage)")
@@ -180,6 +194,11 @@ class MapViewController: UIViewController, BaseViewController {
             }
             DLog("first matched result: \(response?.predictions.first?.description)")
         }
+    }
+    
+    private func setupTableContainerHeight(count: Int) {
+        constraintTableContainerHeight.constant = CGFloat(count * 44)
+        tableContainer.layoutIfNeeded()
     }
 
 }
