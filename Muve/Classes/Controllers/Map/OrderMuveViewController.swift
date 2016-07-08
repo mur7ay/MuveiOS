@@ -9,7 +9,7 @@
 import UIKit
 import GooglePlaces
 
-class OrderConfirmationViewController: UIViewController {
+class OrderMuveViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     var fromPlace: GoogleMapsService.Place!
