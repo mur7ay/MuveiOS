@@ -42,6 +42,7 @@
 		A73F50B71D1EDA0B0055A0A3 /* LoaderScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F50B61D1EDA0B0055A0A3 /* LoaderScreenViewController.swift */; };
 		A73F50B91D1F12200055A0A3 /* NSError+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F50B81D1F12200055A0A3 /* NSError+Helper.swift */; };
 		A73F50BB1D1FBAE70055A0A3 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F50BA1D1FBAE70055A0A3 /* OrderViewController.swift */; };
+		A74069121D3032F900A27C98 /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74069111D3032F900A27C98 /* OrderConfirmationViewController.swift */; };
 		A74A18671D19DA9B00B323CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A74A18661D19DA9B00B323CE /* GoogleService-Info.plist */; };
 		A74A18691D19E79700B323CE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74A18681D19E79700B323CE /* SignUpViewController.swift */; };
 		A753AFA31D1B232500D1F30E /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A753AFA21D1B232500D1F30E /* Map.storyboard */; };
@@ -103,6 +104,7 @@
 		A73F50B61D1EDA0B0055A0A3 /* LoaderScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoaderScreenViewController.swift; path = Classes/Controllers/Login/LoaderScreenViewController.swift; sourceTree = "<group>"; };
 		A73F50B81D1F12200055A0A3 /* NSError+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSError+Helper.swift"; path = "Classes/Common/Extentions/NSError+Helper.swift"; sourceTree = "<group>"; };
 		A73F50BA1D1FBAE70055A0A3 /* OrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderViewController.swift; path = Classes/Controllers/Feed/OrderViewController.swift; sourceTree = "<group>"; };
+		A74069111D3032F900A27C98 /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderConfirmationViewController.swift; path = Classes/Controllers/Map/OrderConfirmationViewController.swift; sourceTree = "<group>"; };
 		A74A18661D19DA9B00B323CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resources/Infos/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A74A18681D19E79700B323CE /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = Classes/Controllers/Login/SignUpViewController.swift; sourceTree = "<group>"; };
 		A753AFA21D1B232500D1F30E /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Map.storyboard; path = Resources/Storyboards/Map.storyboard; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				A753AFAB1D1B327900D1F30E /* MapViewController.swift */,
+				A74069111D3032F900A27C98 /* OrderConfirmationViewController.swift */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -620,6 +623,7 @@
 				A73F50AD1D1E67F90055A0A3 /* FeedsDataSource.swift in Sources */,
 				57E723BA1D1A5D0D00D21C8B /* BaseViewController.swift in Sources */,
 				A7B3B05C1D2C773B00DF1399 /* AutoCompletionCell.swift in Sources */,
+				A74069121D3032F900A27C98 /* OrderConfirmationViewController.swift in Sources */,
 				A72AD5661D1880F100FFC381 /* AppDelegate.swift in Sources */,
 				A70E91861D19B4FD00C287A6 /* UIImage+Color.swift in Sources */,
 				A73F50B11D1E9F8E0055A0A3 /* TypeAliases.swift in Sources */,
