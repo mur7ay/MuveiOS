@@ -18,7 +18,11 @@ class MapViewController: UIViewController {
     private var map: GMSMapView!
     private var marker: GMSMarker!
     
+    private var fromPlace: GoogleMapsService.Place?
+    private var toPlace:   GoogleMapsService.Place?
+    
     private var isFromFieldActive: Bool = true
+    private var isKeyboardHidden: Bool = true
     
     private var dataSource: MapViewDataSource!
     @IBOutlet weak var tableView: UITableView!
@@ -116,16 +120,17 @@ class MapViewController: UIViewController {
     }
     
     private func setupAutoCompletion() {
-        let newDataTrigger = {
+        let callback = {
             if self.dataSource.searchResults.isEmpty {
                 self.tableContainer.hidden = true
             } else {
                 self.tableView.reloadData()
                 self.tableContainer.hidden = false
+                self.setupTableContainerHeight(self.dataSource.searchResults.count)
             }
-            self.setupTableContainerHeight(self.dataSource.searchResults.count)
+            
         }
-        dataSource = MapViewDataSource(trigger: newDataTrigger)
+        dataSource = MapViewDataSource(callback: callback)
 
         tableView.delegate = self
         tableView.dataSource = dataSource
@@ -150,9 +155,6 @@ class MapViewController: UIViewController {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-    
-    
-    
     @IBAction func btnDropLocationPressed(sender: AnyObject) {
         let _ = map.convertPoint(map.center, toView: view)
         constraintTxtFieldLeading.constant = 10 - txtPickupLocation.bounds.size.width
@@ -160,7 +162,6 @@ class MapViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
-
     
     @IBAction func btnPinPressed(sender: AnyObject) {
         constraintTxtFieldLeading.constant = 0
@@ -170,24 +171,31 @@ class MapViewController: UIViewController {
     }
     
     func willKeyboardShown(notification: NSNotification) {
-        let userInfo = notification.userInfo
-        guard let keyboardSize = userInfo?[UIKeyboardFrameBeginUserInfoKey]?.CGRectValue().size else { return }
-        DLog("Keyboard size \(keyboardSize)")
-        let previousPosition = constraintTxtFieldBottom.constant
-        constraintTxtFieldBottom.constant = previousPosition + keyboardSize.height - btnDropLocation.bounds.size.height
-        constraintImgPinBottom.constant = previousPosition + keyboardSize.height - btnDropLocation.bounds.size.height
-        UIView.animateWithDuration(0.3) {
-            self.view.layoutIfNeeded()
+        if isKeyboardHidden {
+            searchFieldPosition(false, notification: notification)
+            isKeyboardHidden = false
         }
     }
     
     func willKeyboardHidden(notification: NSNotification) {
+        if !isKeyboardHidden {
+            searchFieldPosition(true, notification: notification)
+            isKeyboardHidden = true
+        }
+    }
+    
+    private func searchFieldPosition(hidden: Bool, notification: NSNotification) {
         let userInfo = notification.userInfo
         guard let keyboardSize = userInfo?[UIKeyboardFrameBeginUserInfoKey]?.CGRectValue().size else { return }
         DLog("Keyboard size \(keyboardSize)")
         let previousPosition = constraintTxtFieldBottom.constant
-        constraintTxtFieldBottom.constant = previousPosition - keyboardSize.height + btnDropLocation.bounds.size.height
-        constraintImgPinBottom.constant = previousPosition - keyboardSize.height + btnDropLocation.bounds.size.height
+        if hidden {
+            constraintTxtFieldBottom.constant = previousPosition - keyboardSize.height + btnDropLocation.bounds.size.height
+            constraintImgPinBottom.constant = previousPosition - keyboardSize.height + btnDropLocation.bounds.size.height
+        } else {
+            constraintTxtFieldBottom.constant = previousPosition + keyboardSize.height - btnDropLocation.bounds.size.height
+            constraintImgPinBottom.constant = previousPosition + keyboardSize.height - btnDropLocation.bounds.size.height
+        }
         UIView.animateWithDuration(0.3) {
             self.view.layoutIfNeeded()
         }
@@ -237,7 +245,8 @@ extension MapViewController: UITextFieldDelegate {
         switch textField {
         case txtPickupLocation:
             btnDropLocationPressed(self)
-            txtPickupLocation.endEditing(true)
+            txtDropOffLocation.becomeFirstResponder()
+//            txtPickupLocation.endEditing(true)
             return true
         case txtDropOffLocation:
             txtDropOffLocation.endEditing(true)
@@ -264,13 +273,15 @@ extension MapViewController: UITextFieldDelegate {
 
 extension MapViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        dataSource.searchResults = []
         let place = dataSource.searchResults[indexPath.row]
         if isFromFieldActive {
+            fromPlace = place.place
             txtPickupLocation.text = place.description
         } else {
+            toPlace = place.place
             txtDropOffLocation.text = place.description
         }
+        dataSource.searchResults = []
     }
 }
 

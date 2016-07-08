@@ -13,10 +13,10 @@ import ObjectMapper
 class FeedsDataSource: CollectionDataSource<Order>, UICollectionViewDataSource {
     
     let loader = DataManager.sharedManager
-    let dataSourceTrigger: QueryFunc
+    let dataSourceCallback: Callback
     
-    init(trigger: QueryFunc) {
-        dataSourceTrigger = trigger
+    init(callback: Callback) {
+        dataSourceCallback = callback
         super.init()
         setupDataObserving()
     }
@@ -30,7 +30,7 @@ class FeedsDataSource: CollectionDataSource<Order>, UICollectionViewDataSource {
             }
             DLog("Export Native Value: \(Mapper<Order>().map(snapshot.value))")
             DLog("Export Value: \(Mapper<Order>().map(snapshot.valueInExportFormat()))")
-            strongSelf.dataSourceTrigger()
+            strongSelf.dataSourceCallback()
         })
     }
     

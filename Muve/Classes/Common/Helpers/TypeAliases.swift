@@ -6,5 +6,4 @@
 //  Copyright © 2016 Muve. All rights reserved.
 //
 
-typealias QueryFunc = () -> ()
-typealias AuthStateChangeFunc = () -> ()
+typealias Callback = () -> ()

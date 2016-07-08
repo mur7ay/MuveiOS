@@ -11,15 +11,18 @@ import GooglePlaces
 
 class MapViewDataSource: NSObject {
     
-    var searchResults: [GooglePlaces.PlaceAutocompleteResponse.Prediction] = []
-    let dataSourceTrigger: QueryFunc
+    var searchResults: [GooglePlaces.PlaceAutocompleteResponse.Prediction] = [] {
+        didSet {
+            dataSourceCallback()
+        }
+    }
+    let dataSourceCallback: Callback
     
-    init(trigger: QueryFunc) {
-        dataSourceTrigger = trigger
+    init(callback: Callback) {
+        dataSourceCallback = callback
         super.init()
     }
 
-    
     func searchWithText(text: String) {
         guard text != "" else {
             searchResults = []
@@ -33,7 +36,7 @@ class MapViewDataSource: NSObject {
             if let predictions = response?.predictions {
                 self.searchResults = predictions
             }
-            self.dataSourceTrigger()
+            self.dataSourceCallback()
             DLog("first matched result: \(response?.predictions.first?.description)")
         }
     }

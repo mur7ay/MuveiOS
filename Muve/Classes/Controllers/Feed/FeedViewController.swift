@@ -36,11 +36,11 @@ class FeedViewController: UIViewController, BaseViewController {
     }
     
     private func setupCollectionView() {
-        let newDataTrigger = {
+        let callback = {
             DLog("Data was reloaded now!")
             self.collectionView.reloadData()
         }
-        dataSource = FeedsDataSource(trigger: newDataTrigger)
+        dataSource = FeedsDataSource(callback: callback)
         collectionView.dataSource = dataSource
         collectionView.delegate = self
         let nibCell = UINib(nibName: "FeedCollectionViewCell", bundle: nil)
