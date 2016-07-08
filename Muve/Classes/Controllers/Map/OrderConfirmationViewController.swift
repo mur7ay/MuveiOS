@@ -11,6 +11,7 @@ import GooglePlaces
 
 class OrderConfirmationViewController: UIViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
     var fromPlace: GoogleMapsService.Place!
     var toPlace:   GoogleMapsService.Place!
     
@@ -23,6 +24,28 @@ class OrderConfirmationViewController: UIViewController {
         navigationItem.title = "Add Move Details"
     }
 
+}
+
+extension OrderConfirmationViewController: UICollectionViewDataSource {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        return UICollectionViewCell()
+    }
+}
+
+extension OrderConfirmationViewController: UICollectionViewDelegate {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+}
+
+extension OrderConfirmationViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSizeZero
+    }
 }
 
 extension OrderConfirmationViewController: BaseViewController {

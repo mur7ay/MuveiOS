@@ -25,7 +25,6 @@
 		A716475F1D27D1EA00D7D4FC /* MenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A716475D1D27D1EA00D7D4FC /* MenuCollectionViewCell.xib */; };
 		A71647621D27D27F00D7D4FC /* MenuHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71647601D27D27F00D7D4FC /* MenuHeaderCollectionViewCell.swift */; };
 		A71647631D27D27F00D7D4FC /* MenuHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71647611D27D27F00D7D4FC /* MenuHeaderCollectionViewCell.xib */; };
-		A722F7F81D2EE4FB00AEABE7 /* MapViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A722F7F71D2EE4FB00AEABE7 /* MapViewDataSource.swift */; };
 		A72AD5661D1880F100FFC381 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72AD5651D1880F100FFC381 /* AppDelegate.swift */; };
 		A72AD5681D18810400FFC381 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A72AD5671D18810400FFC381 /* Assets.xcassets */; };
 		A72AD56A1D18811700FFC381 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A72AD5691D18811700FFC381 /* Login.storyboard */; };
@@ -43,6 +42,9 @@
 		A73F50B91D1F12200055A0A3 /* NSError+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F50B81D1F12200055A0A3 /* NSError+Helper.swift */; };
 		A73F50BB1D1FBAE70055A0A3 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73F50BA1D1FBAE70055A0A3 /* OrderViewController.swift */; };
 		A74069121D3032F900A27C98 /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74069111D3032F900A27C98 /* OrderConfirmationViewController.swift */; };
+		A74069141D30383800A27C98 /* NSNotification+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74069131D30383800A27C98 /* NSNotification+Keyboard.swift */; };
+		A740691B1D30417800A27C98 /* AutoCompletionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A740691A1D30417800A27C98 /* AutoCompletionTableView.swift */; };
+		A740691D1D30418E00A27C98 /* AutoCompletionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A740691C1D30418E00A27C98 /* AutoCompletionDataSource.swift */; };
 		A74A18671D19DA9B00B323CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A74A18661D19DA9B00B323CE /* GoogleService-Info.plist */; };
 		A74A18691D19E79700B323CE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74A18681D19E79700B323CE /* SignUpViewController.swift */; };
 		A753AFA31D1B232500D1F30E /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A753AFA21D1B232500D1F30E /* Map.storyboard */; };
@@ -85,7 +87,6 @@
 		A716475D1D27D1EA00D7D4FC /* MenuCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuCollectionViewCell.xib; path = Classes/Controllers/Menu/Cell/MenuCollectionViewCell.xib; sourceTree = "<group>"; };
 		A71647601D27D27F00D7D4FC /* MenuHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuHeaderCollectionViewCell.swift; path = Classes/Controllers/Menu/Cell/MenuHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		A71647611D27D27F00D7D4FC /* MenuHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuHeaderCollectionViewCell.xib; path = Classes/Controllers/Menu/Cell/MenuHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
-		A722F7F71D2EE4FB00AEABE7 /* MapViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewDataSource.swift; path = Classes/Common/DataSource/MapViewDataSource.swift; sourceTree = "<group>"; };
 		A72AD5651D1880F100FFC381 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Classes/AppDelegate.swift; sourceTree = "<group>"; };
 		A72AD5671D18810400FFC381 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		A72AD5691D18811700FFC381 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Resources/Storyboards/Login.storyboard; sourceTree = "<group>"; };
@@ -105,6 +106,9 @@
 		A73F50B81D1F12200055A0A3 /* NSError+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSError+Helper.swift"; path = "Classes/Common/Extentions/NSError+Helper.swift"; sourceTree = "<group>"; };
 		A73F50BA1D1FBAE70055A0A3 /* OrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderViewController.swift; path = Classes/Controllers/Feed/OrderViewController.swift; sourceTree = "<group>"; };
 		A74069111D3032F900A27C98 /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderConfirmationViewController.swift; path = Classes/Controllers/Map/OrderConfirmationViewController.swift; sourceTree = "<group>"; };
+		A74069131D30383800A27C98 /* NSNotification+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSNotification+Keyboard.swift"; path = "Classes/Common/Extentions/NSNotification+Keyboard.swift"; sourceTree = "<group>"; };
+		A740691A1D30417800A27C98 /* AutoCompletionTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AutoCompletionTableView.swift; path = Classes/Modules/AutoCompletionTableView/AutoCompletionTableView.swift; sourceTree = "<group>"; };
+		A740691C1D30418E00A27C98 /* AutoCompletionDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AutoCompletionDataSource.swift; path = Classes/Modules/AutoCompletionTableView/DataSource/AutoCompletionDataSource.swift; sourceTree = "<group>"; };
 		A74A18661D19DA9B00B323CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resources/Infos/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A74A18681D19E79700B323CE /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = Classes/Controllers/Login/SignUpViewController.swift; sourceTree = "<group>"; };
 		A753AFA21D1B232500D1F30E /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Map.storyboard; path = Resources/Storyboards/Map.storyboard; sourceTree = "<group>"; };
@@ -204,6 +208,7 @@
 			children = (
 				A72AD5651D1880F100FFC381 /* AppDelegate.swift */,
 				A72AD5731D188B2800FFC381 /* Protocols */,
+				A74069151D3040AC00A27C98 /* Modules */,
 				A72AD5721D188B2100FFC381 /* Controllers */,
 				A72AD5711D188AFD00FFC381 /* Common */,
 				A76088331D1E2C1100C8461A /* Views */,
@@ -263,6 +268,7 @@
 		A72AD5611D187EA100FFC381 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
+				A74069131D30383800A27C98 /* NSNotification+Keyboard.swift */,
 				A73F50B81D1F12200055A0A3 /* NSError+Helper.swift */,
 				57E723BB1D1A5E2500D21C8B /* UIAlertViewController+Helper.swift */,
 				A73F50AE1D1E73770055A0A3 /* FIRDatabaseReference+Helper.swift */,
@@ -349,9 +355,33 @@
 			children = (
 				A73F50AA1D1E67F90055A0A3 /* CollectionDataSource.swift */,
 				A73F50AB1D1E67F90055A0A3 /* FeedsDataSource.swift */,
-				A722F7F71D2EE4FB00AEABE7 /* MapViewDataSource.swift */,
 			);
 			name = DataSources;
+			sourceTree = "<group>";
+		};
+		A74069151D3040AC00A27C98 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				A74069161D3040BA00A27C98 /* AutoCompletionTableView */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		A74069161D3040BA00A27C98 /* AutoCompletionTableView */ = {
+			isa = PBXGroup;
+			children = (
+				A74069171D3040E600A27C98 /* DataSource */,
+				A740691A1D30417800A27C98 /* AutoCompletionTableView.swift */,
+			);
+			name = AutoCompletionTableView;
+			sourceTree = "<group>";
+		};
+		A74069171D3040E600A27C98 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				A740691C1D30418E00A27C98 /* AutoCompletionDataSource.swift */,
+			);
+			name = DataSource;
 			sourceTree = "<group>";
 		};
 		A753AFAA1D1B325800D1F30E /* Map */ = {
@@ -595,6 +625,7 @@
 				A70E91841D19B41800C287A6 /* UIButton+Helper.swift in Sources */,
 				A73F50B71D1EDA0B0055A0A3 /* LoaderScreenViewController.swift in Sources */,
 				A74A18691D19E79700B323CE /* SignUpViewController.swift in Sources */,
+				A74069141D30383800A27C98 /* NSNotification+Keyboard.swift in Sources */,
 				A73F50B91D1F12200055A0A3 /* NSError+Helper.swift in Sources */,
 				A7A07D2A1D1E47C900E35B2E /* Client.swift in Sources */,
 				A73F50AC1D1E67F90055A0A3 /* CollectionDataSource.swift in Sources */,
@@ -625,9 +656,10 @@
 				A7B3B05C1D2C773B00DF1399 /* AutoCompletionCell.swift in Sources */,
 				A74069121D3032F900A27C98 /* OrderConfirmationViewController.swift in Sources */,
 				A72AD5661D1880F100FFC381 /* AppDelegate.swift in Sources */,
+				A740691D1D30418E00A27C98 /* AutoCompletionDataSource.swift in Sources */,
 				A70E91861D19B4FD00C287A6 /* UIImage+Color.swift in Sources */,
 				A73F50B11D1E9F8E0055A0A3 /* TypeAliases.swift in Sources */,
-				A722F7F81D2EE4FB00AEABE7 /* MapViewDataSource.swift in Sources */,
+				A740691B1D30417800A27C98 /* AutoCompletionTableView.swift in Sources */,
 				A71647521D27BABD00D7D4FC /* MenuViewController.swift in Sources */,
 				A73F50BB1D1FBAE70055A0A3 /* OrderViewController.swift in Sources */,
 				A70E917C1D1895D400C287A6 /* Constants.swift in Sources */,

@@ -29,15 +29,11 @@ class MapViewController: UIViewController {
     
     @IBOutlet private weak var tableContainer: UIView!
     @IBOutlet private weak var btnDropLocation: UIButton!
+    
     @IBOutlet private weak var txtPickupLocation: UITextField!
     @IBOutlet private weak var txtDropOffLocation: UITextField!
-    @IBOutlet private weak var btnPin: UIButton!
 
-    @IBOutlet weak var constraintTableContainerHeight: NSLayoutConstraint!
-    @IBOutlet weak var constraintTxtFieldBottom: NSLayoutConstraint!
-    @IBOutlet weak var constraintImgPinBottom: NSLayoutConstraint!
-    @IBOutlet weak var constraintTxtFieldLeading: NSLayoutConstraint!
-    @IBOutlet weak var constraintTableContainerBottom: NSLayoutConstraint!
+    @IBOutlet weak var constraintNextButtonBottom: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,19 +100,7 @@ class MapViewController: UIViewController {
 
     private func setupTextField() {
         txtPickupLocation.delegate = self
-        txtPickupLocation.backgroundColor = UIColor(white: 1.0, alpha: 0.7)
-        btnPin.backgroundColor = UIColor(white: 1.0, alpha: 0.7)
-        
         txtDropOffLocation.delegate = self
-        txtDropOffLocation.leftViewMode = UITextFieldViewMode.Always
-        txtDropOffLocation.leftView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
-        txtDropOffLocation.backgroundColor = UIColor(white: 1.0, alpha: 0.8)
-        txtDropOffLocation.layer.masksToBounds = false
-        txtDropOffLocation.layer.shadowColor = UIColor.blackColor().CGColor
-        txtDropOffLocation.layer.shadowOpacity = 0.7
-        txtDropOffLocation.layer.shadowOffset = CGSizeMake(2.0, 2.0)
-        txtDropOffLocation.layer.shadowRadius = 8.0
-//        txtDropOffLocation.layer.shouldRasterize = true
     }
     
     private func setupAutoCompletion() {
