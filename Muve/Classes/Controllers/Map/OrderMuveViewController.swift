@@ -26,7 +26,7 @@ class OrderMuveViewController: UIViewController {
 
 }
 
-extension OrderConfirmationViewController: UICollectionViewDataSource {
+extension OrderMuveViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 0
     }
@@ -36,19 +36,19 @@ extension OrderConfirmationViewController: UICollectionViewDataSource {
     }
 }
 
-extension OrderConfirmationViewController: UICollectionViewDelegate {
+extension OrderMuveViewController: UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
     }
 }
 
-extension OrderConfirmationViewController: UICollectionViewDelegateFlowLayout {
+extension OrderMuveViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeZero
     }
 }
 
-extension OrderConfirmationViewController: BaseViewController {
+extension OrderMuveViewController: BaseViewController {
     static func storyBoardName() -> String {
         return "Map"
     }

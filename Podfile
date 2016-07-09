@@ -13,6 +13,7 @@ target 'Muve' do
   pod 'KRProgressHUD', '~> 1.4'
   pod 'PTPopupWebView', '~> 0.3'
   pod 'UITextField-Shake-Swift', '~> 1.0'
+  pod 'MediaPickerController', '~> 1.0'
   pod 'R.swift'
   
   # Paging Pod
@@ -22,13 +23,14 @@ target 'Muve' do
   # Slide Menu
   pod 'SlideMenuControllerSwift', '~> 2.2'
   
-  #Mapping
+  # Mapping
   pod 'ObjectMapper', '~> 1.3'
   
   # Firebase Pods
   pod 'Firebase'
-  pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
   pod 'GoogleSignIn'
   
   # Google Maps

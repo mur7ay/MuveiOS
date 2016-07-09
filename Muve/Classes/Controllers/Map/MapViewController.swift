@@ -25,9 +25,8 @@ class MapViewController: UIViewController {
     private var isKeyboardHidden: Bool = true
     
     private var dataSource: MapViewDataSource!
-    @IBOutlet weak var tableView: UITableView!
+    private var tableView: AutoCompletionTableView!
     
-    @IBOutlet private weak var tableContainer: UIView!
     @IBOutlet private weak var btnDropLocation: UIButton!
     
     @IBOutlet private weak var txtPickupLocation: UITextField!
@@ -41,7 +40,7 @@ class MapViewController: UIViewController {
         setupCoreLocation()
         setupGoogleMap()
         setupTextField()
-        setupAutoCompletion()
+        setupAutoCompletionView()
         registerKeyboardNotifications()
     }
     
@@ -103,7 +102,9 @@ class MapViewController: UIViewController {
         txtDropOffLocation.delegate = self
     }
     
-    private func setupAutoCompletion() {
+    private func setupAutoCompletionView() {
+        let tableSize = CGSize(width: <#T##CGFloat#>, height: <#T##CGFloat#>)
+        tableView = AutoCompletionTableView(frame: <#T##CGRect#>, style: <#T##UITableViewStyle#>)
         let callback = {
             if self.dataSource.searchResults.isEmpty {
                 self.tableContainer.hidden = true
@@ -140,60 +141,45 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func btnDropLocationPressed(sender: AnyObject) {
-        let _ = map.convertPoint(map.center, toView: view)
-        constraintTxtFieldLeading.constant = 10 - txtPickupLocation.bounds.size.width
-        UIView.animateWithDuration(0.3) {
-            self.view.layoutIfNeeded()
-        }
+
     }
-    
-    @IBAction func btnPinPressed(sender: AnyObject) {
-        constraintTxtFieldLeading.constant = 0
-        UIView.animateWithDuration(0.3) {
-            self.view.layoutIfNeeded()
-        }
-    }
+
     
     func willKeyboardShown(notification: NSNotification) {
         if isKeyboardHidden {
-            searchFieldPosition(false, notification: notification)
+            nextButtonPosition(false, notification: notification)
             isKeyboardHidden = false
         }
     }
     
     func willKeyboardHidden(notification: NSNotification) {
         if !isKeyboardHidden {
-            searchFieldPosition(true, notification: notification)
+            nextButtonPosition(true, notification: notification)
             isKeyboardHidden = true
         }
     }
     
-    private func searchFieldPosition(hidden: Bool, notification: NSNotification) {
-        let userInfo = notification.userInfo
-        guard let keyboardSize = userInfo?[UIKeyboardFrameBeginUserInfoKey]?.CGRectValue().size else { return }
-        DLog("Keyboard size \(keyboardSize)")
-        let previousPosition = constraintTxtFieldBottom.constant
+    private func nextButtonPosition(hidden: Bool, notification: NSNotification) {
+        let btnNewYConstraint = notification.keyboardSize().height
         if hidden {
-            constraintTxtFieldBottom.constant = previousPosition - keyboardSize.height + btnDropLocation.bounds.size.height
-            constraintImgPinBottom.constant = previousPosition - keyboardSize.height + btnDropLocation.bounds.size.height
+            constraintNextButtonBottom.constant = 0
         } else {
-            constraintTxtFieldBottom.constant = previousPosition + keyboardSize.height - btnDropLocation.bounds.size.height
-            constraintImgPinBottom.constant = previousPosition + keyboardSize.height - btnDropLocation.bounds.size.height
+            constraintNextButtonBottom.constant = btnNewYConstraint
         }
-        UIView.animateWithDuration(0.3) {
+        UIView.animateWithDuration(notification.duration()) {
             self.view.layoutIfNeeded()
         }
     }
     
     private func setupTableContainerHeight(count: Int) {
-        if isFromFieldActive {
-            constraintTableContainerHeight.constant = CGFloat(count * 44)
-            constraintTableContainerBottom.constant = 0
-        } else {
-            constraintTableContainerHeight.constant = CGFloat(count * 44)
-            constraintTableContainerBottom.constant = 10
-        }
-        tableContainer.layoutIfNeeded()
+//        if isFromFieldActive {
+//            constraintTableContainerHeight.constant = CGFloat(count * 44)
+//            constraintTableContainerBottom.constant = 0
+//        } else {
+//            constraintTableContainerHeight.constant = CGFloat(count * 44)
+//            constraintTableContainerBottom.constant = 10
+//        }
+//        tableContainer.layoutIfNeeded()
     }
 }
 

@@ -36,7 +36,7 @@
                 <outlet property="pageControl" destination="49W-5N-HKI" id="06Z-hU-4Nz"/>
                 <outlet property="scrollView" destination="w2g-Sm-O9l" id="h9O-xr-ThM"/>
             </connections>
-            <point key="canvasLocation" x="239" y="265"/>
+            <point key="canvasLocation" x="388" y="305"/>
         </collectionViewCell>
     </objects>
 </document>

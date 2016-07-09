@@ -10,7 +10,11 @@ import UIKit
 
 class OrderMuveImageCollectionViewCell: UICollectionViewCell {
 
-    var images: [UIImage]?
+    var images: [UIImage]? {
+        didSet {
+            
+        }
+    }
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!

@@ -29,7 +29,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnDropLocationPressed:" destination="Kca-Wb-WjC" eventType="touchUpInside" id="JDL-Pg-njj"/>
+                                    <action selector="btnDropLocationPressed:" destination="Kca-Wb-WjC" eventType="touchUpInside" id="ITg-ih-LjV"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zZB-JD-ouq">
@@ -73,10 +73,10 @@
             </objects>
             <point key="canvasLocation" x="-374" y="196"/>
         </scene>
-        <!--Order Confirmation View Controller-->
+        <!--Order Muve View Controller-->
         <scene sceneID="lN1-na-TjX">
             <objects>
-                <viewController storyboardIdentifier="OrderConfirmationViewControllerID" id="6xM-jP-6Zb" customClass="OrderConfirmationViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrderMuveViewControllerID" id="6xM-jP-6Zb" customClass="OrderMuveViewController" customModule="Muve" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="csG-3x-yjf"/>
                         <viewControllerLayoutGuide type="bottom" id="Q4u-wn-h56"/>

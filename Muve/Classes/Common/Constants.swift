@@ -64,3 +64,7 @@ struct Keychain {
 struct Maps {
     static let googleAPIKey = "AIzaSyBsFmviOoRNaFX4TaFhUwSBRPHEruVTnR8"
 }
+
+struct Firebase {
+    static let storageUrl = "gs://muve-1318.appspot.com"
+}
