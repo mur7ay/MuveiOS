@@ -21,21 +21,25 @@ class MapViewController: UIViewController {
     private var fromPlace: GoogleMapsService.Place?
     private var toPlace:   GoogleMapsService.Place?
     
-    private var isFromFieldActive: Bool = true
+    private var isFromPlace: Bool = true
     private var isKeyboardHidden: Bool = true
     
-    private var dataSource: MapViewDataSource!
-    private var tableView: AutoCompletionTableView!
+    private var dataSource: AutoCompletionDataSource!
     
-    @IBOutlet private weak var btnDropLocation: UIButton!
+    @IBOutlet private weak var tableView: UITableView!
     
-    @IBOutlet private weak var txtPickupLocation: UITextField!
-    @IBOutlet private weak var txtDropOffLocation: UITextField!
+    @IBOutlet private weak var btnBext: UIButton!
+    
+    @IBOutlet private weak var txtFromPlace: UITextField!
+    @IBOutlet private weak var txtToPlace: UITextField!
 
-    @IBOutlet weak var constraintNextButtonBottom: NSLayoutConstraint!
+    @IBOutlet private weak var constraintNextButtonBottom: NSLayoutConstraint!
+    @IBOutlet private weak var constraintTableViewHeight: NSLayoutConstraint!
+    @IBOutlet private weak var constraintTableViewTop: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        hideKeyboardWhenTappedAround()
         setupNavigationBar()
         setupCoreLocation()
         setupGoogleMap()
@@ -98,30 +102,27 @@ class MapViewController: UIViewController {
     }
 
     private func setupTextField() {
-        txtPickupLocation.delegate = self
-        txtDropOffLocation.delegate = self
+        txtFromPlace.delegate = self
+        txtToPlace.delegate = self
     }
     
     private func setupAutoCompletionView() {
-        let tableSize = CGSize(width: <#T##CGFloat#>, height: <#T##CGFloat#>)
-        tableView = AutoCompletionTableView(frame: <#T##CGRect#>, style: <#T##UITableViewStyle#>)
+        tableView.separatorColor = UIColor.clearColor()
+        tableView.layer.cornerRadius = 5
+        tableView.registerNib(R.nib.autoCompletionCell)
+        tableView.delegate = self
+        
         let callback = {
             if self.dataSource.searchResults.isEmpty {
-                self.tableContainer.hidden = true
+                self.tableView.hidden = true
             } else {
                 self.tableView.reloadData()
-                self.tableContainer.hidden = false
-                self.setupTableContainerHeight(self.dataSource.searchResults.count)
+                self.tableView.hidden = false
             }
             
         }
-        dataSource = MapViewDataSource(callback: callback)
-
-        tableView.delegate = self
+        dataSource = AutoCompletionDataSource(callback: callback)
         tableView.dataSource = dataSource
-        tableView.separatorColor = UIColor.clearColor()
-        tableView.registerNib(R.nib.autoCompletionCell)
-        tableContainer.hidden = true
     }
     
     private func registerKeyboardNotifications() {
@@ -138,10 +139,6 @@ class MapViewController: UIViewController {
     
     private func unregisterKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().removeObserver(self)
-    }
-    
-    @IBAction func btnDropLocationPressed(sender: AnyObject) {
-
     }
 
     
@@ -171,15 +168,12 @@ class MapViewController: UIViewController {
         }
     }
     
-    private func setupTableContainerHeight(count: Int) {
-//        if isFromFieldActive {
-//            constraintTableContainerHeight.constant = CGFloat(count * 44)
-//            constraintTableContainerBottom.constant = 0
-//        } else {
-//            constraintTableContainerHeight.constant = CGFloat(count * 44)
-//            constraintTableContainerBottom.constant = 10
-//        }
-//        tableContainer.layoutIfNeeded()
+    @IBAction func btnNextPressed(sender: AnyObject) {
+        guard let fromPlace = fromPlace, let toPlace = toPlace else { return }
+        let orderMuveVC = OrderMuveViewController.create() as! OrderMuveViewController
+        orderMuveVC.fromPlace = fromPlace
+        orderMuveVC.toPlace = toPlace
+        push(orderMuveVC)
     }
 }
 
@@ -212,30 +206,34 @@ extension MapViewController: CLLocationManagerDelegate {
 
 extension MapViewController: UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
         switch textField {
-        case txtPickupLocation:
-            btnDropLocationPressed(self)
-            txtDropOffLocation.becomeFirstResponder()
-//            txtPickupLocation.endEditing(true)
-            return true
-        case txtDropOffLocation:
-            txtDropOffLocation.endEditing(true)
-            return true
-        default:
-            return false
+        case txtFromPlace:
+            isFromPlace = true
+            constraintTableViewTop.constant = -30
+        case txtToPlace:
+            isFromPlace = false
+            constraintTableViewTop.constant = 0
+        default: break
         }
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        if textField === txtPickupLocation {
+        switch textField {
+        case txtFromPlace:
             let newString = (textField.text! as NSString).stringByReplacingCharactersInRange(range, withString: string)
-            isFromFieldActive = true
+            isFromPlace = true
             dataSource.searchWithText(newString)
-        }
-        if textField === txtDropOffLocation {
+        case txtToPlace:
             let newString = (textField.text! as NSString).stringByReplacingCharactersInRange(range, withString: string)
-            isFromFieldActive = false
+            isFromPlace = false
             dataSource.searchWithText(newString)
+        default:
+            break
         }
         return true
     }
@@ -243,13 +241,12 @@ extension MapViewController: UITextFieldDelegate {
 
 extension MapViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let place = dataSource.searchResults[indexPath.row]
-        if isFromFieldActive {
-            fromPlace = place.place
-            txtPickupLocation.text = place.description
+        if isFromPlace {
+            fromPlace = dataSource.searchResults[indexPath.row].place
+            txtFromPlace.text = dataSource.searchResults[indexPath.row].description
         } else {
-            toPlace = place.place
-            txtDropOffLocation.text = place.description
+            toPlace = dataSource.searchResults[indexPath.row].place
+            txtToPlace.text = dataSource.searchResults[indexPath.row].description
         }
         dataSource.searchResults = []
     }

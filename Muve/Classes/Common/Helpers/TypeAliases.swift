@@ -7,3 +7,4 @@
 //
 
 typealias Callback = () -> ()
+typealias ImagePickerBlock = (Int) -> ()

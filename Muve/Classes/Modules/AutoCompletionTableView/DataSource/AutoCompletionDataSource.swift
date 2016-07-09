@@ -9,14 +9,14 @@
 import UIKit
 import GooglePlaces
 
-class MapViewDataSource: NSObject {
+class AutoCompletionDataSource: NSObject {
     
+    let dataSourceCallback: Callback
     var searchResults: [GooglePlaces.PlaceAutocompleteResponse.Prediction] = [] {
         didSet {
             dataSourceCallback()
         }
     }
-    let dataSourceCallback: Callback
     
     init(callback: Callback) {
         dataSourceCallback = callback
@@ -42,7 +42,7 @@ class MapViewDataSource: NSObject {
     }
 }
 
-extension MapViewDataSource: UITableViewDataSource {
+extension AutoCompletionDataSource: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResults.count

@@ -7,36 +7,45 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="OrderMuveImageCollectionViewCell" customModule="Muve" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageOrderCellID" id="gTV-IL-0wX" customClass="ImageOrderCell" customModule="Muve" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="290" height="240"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="290" height="240"/>
                 <subviews>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2g-Sm-O9l">
-                        <rect key="frame" x="0.0" y="-11" width="290" height="214"/>
+                        <rect key="frame" x="0.0" y="0.0" width="290" height="240"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="290" id="1mm-Ns-POZ"/>
+                        </constraints>
                     </scrollView>
-                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="49W-5N-HKI">
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="49W-5N-HKI">
                         <rect key="frame" x="126" y="203" width="39" height="37"/>
                     </pageControl>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="49W-5N-HKI" firstAttribute="top" secondItem="w2g-Sm-O9l" secondAttribute="bottom" id="1u4-Qt-NEj"/>
                 <constraint firstItem="w2g-Sm-O9l" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6Rg-rT-lYB"/>
+                <constraint firstAttribute="bottom" secondItem="w2g-Sm-O9l" secondAttribute="bottom" id="7JW-i9-Fo5"/>
                 <constraint firstAttribute="bottom" secondItem="49W-5N-HKI" secondAttribute="bottom" id="Q2a-TY-Uey"/>
                 <constraint firstAttribute="trailing" secondItem="w2g-Sm-O9l" secondAttribute="trailing" id="TKZ-r5-2fY"/>
                 <constraint firstItem="49W-5N-HKI" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="bHs-8b-39b"/>
-                <constraint firstItem="w2g-Sm-O9l" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="-11" id="dlo-Fd-aq7"/>
-                <constraint firstItem="49W-5N-HKI" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="101.5" id="nrT-VY-ddD"/>
+                <constraint firstItem="w2g-Sm-O9l" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dlo-Fd-aq7"/>
             </constraints>
-            <size key="customSize" width="290" height="240"/>
+            <size key="customSize" width="290" height="261"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="1u4-Qt-NEj"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="pageControl" destination="49W-5N-HKI" id="06Z-hU-4Nz"/>
                 <outlet property="scrollView" destination="w2g-Sm-O9l" id="h9O-xr-ThM"/>
             </connections>
-            <point key="canvasLocation" x="388" y="305"/>
+            <point key="canvasLocation" x="388" y="315.5"/>
         </collectionViewCell>
     </objects>
 </document>

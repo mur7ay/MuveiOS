@@ -17,7 +17,7 @@ class NavController: UINavigationController {
     
     func setupNavigationBar() {
         navigationBar.setBackgroundImage(UIImage.imageWithColor(Colors.muveRed) , forBarMetrics: .Default)
-        navigationBar.translucent = true
+        navigationBar.translucent = false
         navigationBar.tintColor = UIColor.whiteColor()
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     }
