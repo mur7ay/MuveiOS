@@ -23,13 +23,8 @@ class LoginHelper {
          return FIRAuth.auth()?.currentUser?.email
     }
     
-    static func userEmailLikeId() -> String? {
-        return FIRAuth.auth()?.currentUser?.email.map({ letter in
-            if letter == "." {
-                return ","
-            }
-            return letter
-        })
+    static func userEmailAsId() -> String? {
+        return FIRAuth.auth()?.currentUser?.email?.stringByReplacingOccurrencesOfString(".", withString: ",")
     }
     
     //MARK:- Login methods

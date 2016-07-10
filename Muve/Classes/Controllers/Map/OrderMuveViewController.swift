@@ -52,7 +52,23 @@ class OrderMuveViewController: UIViewController {
 
     private func setupNavigationBar() {
         navigationItem.title = "Add Move Details"
+        let rightButton = UIBarButtonItem(image: R.image.messageIcon()!,
+                                          style: .Plain,
+                                          target: self,
+                                          action: nil)
+        navigationItem.rightBarButtonItem = rightButton
+        navigationItem.rightBarButtonItem?.action = #selector(placeOrder)
     }
+    
+    func placeOrder() {
+        var order = Order(uid: "first")
+        order.city = "Rostov-on-don"
+        order.timestamp = Double(NSDate().timeIntervalSince1970)
+        DataManager.sharedManager.createOrder(order) { error in
+            
+        }
+    }
+    
     private func setupCollectionView() {
         collectionView.registerNib(R.nib.imageOrderCell)
         collectionView.registerNib(R.nib.descriptionOrderCell)

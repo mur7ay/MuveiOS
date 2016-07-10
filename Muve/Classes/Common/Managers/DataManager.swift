@@ -47,7 +47,12 @@ public class DataManager {
     }
     
     func createOrder(order: Order, completion: Completion) {
-        base.child("activeClientOrders").child().setValue(["username": username])
+        guard let userMailKey = LoginHelper.userEmailAsId() else { return }
+        let key = base.child("activeClientOrders/\(userMailKey)").childByAutoId().key
+        var orderWithId = order
+        orderWithId.uid = key
+        let childUpdates = ["activeClientOrders/\(userMailKey)/\(key)": Mapper().toJSON(orderWithId)]
+        base.updateChildValues(childUpdates)
     }
 
 }

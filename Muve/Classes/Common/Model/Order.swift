@@ -23,12 +23,26 @@ enum ItemType {
     case charityDonation
 }
 
+struct Coordinate {
+    var latitude: Float
+    var longitude: Float
+}
+
 struct Order: Mappable {
     var uid: String?
     var images: [UIImage]?
     var city: String?
     var client: String?
-    var creationTime: String?
+    var timestamp: Double?
+    var creationDate: NSDate? {
+        if let timestamp = timestamp {
+            return NSDate(timeIntervalSince1970: timestamp)
+        } else {
+            return nil
+        }
+    }
+    var departureCoordinate: Coordinate?
+    var destinationCoordinate: Coordinate?
     var distance: String?
     var driver: String?
     var driverAlias: String?
@@ -41,12 +55,15 @@ struct Order: Mappable {
     init?(_ map: Map) {
     }
     
+    init(uid: String) {
+        self.uid = uid
+    }
+    
     mutating func mapping(map: Map) {
         uid                 <- map["orderId"]
         city                <- map["orderCity"]
         client              <- map["orderClient"]
-        city                <- map["city"]
-        creationTime        <- map["orderCreationTime.timestamp"]
+        timestamp           <- map["orderCreationTime.timestamp"]
         distance            <- map["orderDistance"]
         driver              <- map["orderDriver"]
         driverAlias         <- map["orderDriverAlias"]

@@ -19,9 +19,13 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BWK-vd-xvd">
-                        <rect key="frame" x="321" y="13" width="36" height="30"/>
-                        <state key="normal" title="Later"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BWK-vd-xvd">
+                        <rect key="frame" x="317" y="8" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="2sE-HL-KcU"/>
+                            <constraint firstAttribute="height" constant="40" id="HZw-FX-VQQ"/>
+                        </constraints>
+                        <state key="normal" title="Later" image="LaterOrder"/>
                         <connections>
                             <action selector="btnMuveTimeTypeChange:" destination="gTV-IL-0wX" eventType="touchUpInside" id="wyK-OA-db3"/>
                         </connections>
@@ -39,7 +43,7 @@
             <constraints>
                 <constraint firstItem="YLw-jz-EE3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="30" id="H4O-Ed-JP8"/>
                 <constraint firstAttribute="trailing" secondItem="coH-E2-usj" secondAttribute="trailing" constant="20" id="Ma8-gP-npE"/>
-                <constraint firstAttribute="trailing" secondItem="BWK-vd-xvd" secondAttribute="trailing" constant="30" id="bSA-m6-XpS"/>
+                <constraint firstAttribute="trailing" secondItem="BWK-vd-xvd" secondAttribute="trailing" constant="30" id="axe-SH-gr4"/>
                 <constraint firstItem="BWK-vd-xvd" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="bZQ-Nb-3mh"/>
                 <constraint firstItem="YLw-jz-EE3" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="eVc-1n-f6k"/>
                 <constraint firstItem="coH-E2-usj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="jxt-Ct-3Q3"/>
@@ -53,4 +57,7 @@
             <point key="canvasLocation" x="482.5" y="350"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="LaterOrder" width="40" height="40"/>
+    </resources>
 </document>
