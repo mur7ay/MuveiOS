@@ -9,3 +9,4 @@
 typealias Callback = () -> ()
 typealias ImagePickerBlock = (Int) -> ()
 typealias DescriptionTextBlock = (String) -> ()
+typealias MapCallbackBlock = (String?, [UIImage]?) -> ()

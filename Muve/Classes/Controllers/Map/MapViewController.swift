@@ -26,6 +26,9 @@ class MapViewController: UIViewController {
     
     private var dataSource: AutoCompletionDataSource!
     
+    var muveDescription: String?
+    var mediaPickerCollection: [UIImage]? = []
+    
     @IBOutlet private weak var tableView: UITableView!
     
     @IBOutlet private weak var btnBext: UIButton!
@@ -172,6 +175,16 @@ class MapViewController: UIViewController {
         txtToPlace.endEditing(true)
         txtFromPlace.endEditing(true)
         let orderMuveVC = OrderMuveViewController.create() as! OrderMuveViewController
+        orderMuveVC.mapCallbackBlock = { description, images in
+            if let description = description {
+                self.muveDescription = description
+            }
+            if let images = images {
+                self.mediaPickerCollection = images
+            }
+        }
+        orderMuveVC.mediaPickerCollection = mediaPickerCollection
+        orderMuveVC.muveDescription = muveDescription
         orderMuveVC.fromPlace = fromPlace
         orderMuveVC.toPlace = toPlace
         push(orderMuveVC)

@@ -29,3 +29,10 @@ class DescriptionOrderCell: UICollectionViewCell {
         txtDescription.layer.cornerRadius = 5
     }
 }
+
+extension DescriptionOrderCell: UITextViewDelegate {
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        textDescription = textView.text
+        return true
+    }
+}

@@ -18,10 +18,20 @@ class OrderMuveViewController: UIViewController {
     
     var fromPlace: GoogleMapsService.Place!
     var toPlace:   GoogleMapsService.Place!
-    var muveDescription: String?
+    var muveDescription: String? {
+        didSet {
+            mapCallbackBlock(muveDescription, nil)
+        }
+    }
     
     var mediaPicker: MediaPickerController!
-    var mediaPickerCollection: [UIImage]? = []
+    var mediaPickerCollection: [UIImage]? = [] {
+        didSet {
+            mapCallbackBlock(nil, mediaPickerCollection)
+        }
+    }
+    
+    var mapCallbackBlock: MapCallbackBlock!
     
     var isKeyboardHidden = true
     
@@ -32,6 +42,7 @@ class OrderMuveViewController: UIViewController {
         setupNavigationBar()
         setupMediaPicker()
         setupCollectionView()
+        
         registerKeyboardNotifications()
     }
     
