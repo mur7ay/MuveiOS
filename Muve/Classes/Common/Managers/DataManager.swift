@@ -45,5 +45,9 @@ public class DataManager {
     private func jsonString(data: NSData) -> String? {
         return NSString(data: data, encoding: NSUTF8StringEncoding)! as String
     }
+    
+    func createOrder(order: Order, completion: Completion) {
+        base.child("activeClientOrders").child().setValue(["username": username])
+    }
 
 }

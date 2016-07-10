@@ -7,6 +7,7 @@
 //
 
 typealias Callback = () -> ()
+typealias Completion = (NSError?) -> ()
 typealias ImagePickerBlock = (Int) -> ()
 typealias DescriptionTextBlock = (String) -> ()
 typealias MapCallbackBlock = (String?, [UIImage]?) -> ()

@@ -18,6 +18,20 @@ enum LoginType: Int {
 
 class LoginHelper {
     
+    //MARK:- User data
+    static func userEmail() -> String? {
+         return FIRAuth.auth()?.currentUser?.email
+    }
+    
+    static func userEmailLikeId() -> String? {
+        return FIRAuth.auth()?.currentUser?.email.map({ letter in
+            if letter == "." {
+                return ","
+            }
+            return letter
+        })
+    }
+    
     //MARK:- Login methods
     static func login(login: String, pass: String, completion: (FIRUser?, NSError?) -> Void) {
         FIRAuth.auth()?.signInWithEmail(login, password: pass) { (user, error) in
