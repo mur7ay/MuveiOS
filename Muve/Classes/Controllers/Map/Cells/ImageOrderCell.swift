@@ -8,12 +8,16 @@
 
 import UIKit
 
+protocol ImageOrderCellProtocol {
+    func addImage()
+}
+
 class ImageOrderCell: UICollectionViewCell {
 
     let screenSize = UIScreen.mainScreen().bounds.size
     
-    var imageTapBlock: ImagePickerBlock?
-    
+    var delegate: ImageOrderCellProtocol?
+
     var images: [UIImage]? = [] {
         didSet {
             setupContentViews()
@@ -29,21 +33,33 @@ class ImageOrderCell: UICollectionViewCell {
     }
 
     private func setupContentViews() {
-        guard let count = images?.count else { return }
-        pageControl.numberOfPages = count
-        pageControl.updateCurrentPageDisplay()
+        guard let count = images?.count where count != 0 else {
+            scrollView.hidden = true
+            return }
+        scrollView.hidden = false
         scrollView.contentSize = CGSize(width: screenSize.width * CGFloat(count),
                                         height: 203)
+        pageControl.numberOfPages = count
+        pageControl.updateCurrentPageDisplay()
+        
         for i in 0..<count {
             let imageFrame = CGRect(x: screenSize.width * CGFloat(i),
                                     y: 0,
                                     width: screenSize.width,
                                     height: 203)
             let imageView = UIImageView(frame: imageFrame)
+            let longTap = UILongPressGestureRecognizer(target: self, action: #selector(ImageOrderCell.longTap(_:)))
+            imageView.addGestureRecognizer(longTap)
+            imageView.userInteractionEnabled = true
             imageView.contentMode = .ScaleAspectFill
             imageView.image = images![i]
-            
             scrollView.addSubview(imageView)
+        }
+    }
+    
+    func longTap(gesture: UIGestureRecognizer) {
+        if gesture.state == .Began {
+            delegate?.addImage()
         }
     }
 

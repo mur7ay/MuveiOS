@@ -15,19 +15,13 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Name Header" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbK-ga-KVy">
                         <rect key="frame" x="30" y="8" width="357" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="VoS-So-KZl"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                         <color key="textColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Cincinatti" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wub-HH-Fgw">
-                        <rect key="frame" x="30" y="25" width="357" height="35"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="35" id="B2g-rP-kcs"/>
-                        </constraints>
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                    </textField>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jMK-Ga-z5M">
                         <rect key="frame" x="20" y="62" width="377" height="1"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,25 +29,31 @@
                             <constraint firstAttribute="height" constant="1" id="DrJ-ZG-dNe"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRl-bt-1XE">
+                        <rect key="frame" x="30" y="25" width="357" height="37"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstItem="Wub-HH-Fgw" firstAttribute="top" secondItem="gbK-ga-KVy" secondAttribute="bottom" id="4A7-pM-bsz"/>
                 <constraint firstAttribute="trailing" secondItem="gbK-ga-KVy" secondAttribute="trailing" constant="30" id="60S-ej-qxS"/>
                 <constraint firstAttribute="bottom" secondItem="jMK-Ga-z5M" secondAttribute="bottom" id="Pce-tY-UcH"/>
+                <constraint firstItem="uRl-bt-1XE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="30" id="Qvl-fJ-F36"/>
                 <constraint firstItem="gbK-ga-KVy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="RHU-ac-2dj"/>
                 <constraint firstItem="jMK-Ga-z5M" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="VSK-yn-rqO"/>
-                <constraint firstAttribute="trailing" secondItem="Wub-HH-Fgw" secondAttribute="trailing" constant="30" id="YEr-hY-cPU"/>
-                <constraint firstItem="jMK-Ga-z5M" firstAttribute="top" secondItem="Wub-HH-Fgw" secondAttribute="bottom" constant="2" id="Zuu-l0-aN1"/>
-                <constraint firstItem="Wub-HH-Fgw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="30" id="dOw-Lt-Pin"/>
+                <constraint firstItem="uRl-bt-1XE" firstAttribute="top" secondItem="gbK-ga-KVy" secondAttribute="bottom" id="brh-dc-fwH"/>
+                <constraint firstAttribute="trailing" secondItem="uRl-bt-1XE" secondAttribute="trailing" constant="30" id="cMf-6n-zRb"/>
                 <constraint firstAttribute="trailing" secondItem="jMK-Ga-z5M" secondAttribute="trailing" constant="20" id="iqz-wB-84b"/>
+                <constraint firstItem="jMK-Ga-z5M" firstAttribute="top" secondItem="uRl-bt-1XE" secondAttribute="bottom" id="lhJ-AH-sr4"/>
                 <constraint firstItem="gbK-ga-KVy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="30" id="tT6-YK-qiG"/>
             </constraints>
             <size key="customSize" width="417" height="70"/>
             <connections>
                 <outlet property="lblHeaderName" destination="gbK-ga-KVy" id="4d6-xq-b9Q"/>
-                <outlet property="lblPlaceName" destination="Wub-HH-Fgw" id="2jZ-xN-csy"/>
+                <outlet property="lblPlaceName" destination="uRl-bt-1XE" id="Ze6-Zw-VsY"/>
             </connections>
             <point key="canvasLocation" x="373.5" y="356"/>
         </collectionViewCell>

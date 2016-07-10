@@ -21,15 +21,22 @@ class OrderMuveViewController: UIViewController {
     var muveDescription: String?
     
     var mediaPicker: MediaPickerController!
-    var mediaPickerCollection: [UIImage]?
+    var mediaPickerCollection: [UIImage]? = []
     
     var isKeyboardHidden = true
+    
+    @IBOutlet weak var constraintCollectionViewBottom: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         setupMediaPicker()
         setupCollectionView()
+        registerKeyboardNotifications()
+    }
+    
+    deinit {
+        unregisterKeyboardNotifications()
     }
 
     private func setupNavigationBar() {
@@ -47,8 +54,6 @@ class OrderMuveViewController: UIViewController {
         mediaPicker = MediaPickerController(type: .ImageOnly,
                                             presentingViewController: self)
         mediaPicker.delegate = self
-        let placeHolder = [UIImage(resource: R.image.avatar)!,UIImage(resource: R.image.avatar)!]
-        mediaPickerCollection = placeHolder
 
     }
     
@@ -71,23 +76,27 @@ class OrderMuveViewController: UIViewController {
     
     func willKeyboardShown(notification: NSNotification) {
         if isKeyboardHidden {
-            contentSize(false, notification: notification)
+            contentSize(true, notification: notification)
             isKeyboardHidden = false
         }
     }
     
     func willKeyboardHidden(notification: NSNotification) {
         if !isKeyboardHidden {
-            contentSize(true, notification: notification)
+            contentSize(false, notification: notification)
             isKeyboardHidden = true
         }
     }
     
     private func contentSize(withKeyboard: Bool, notification: NSNotification) {
         if withKeyboard {
-            collectionView
+            constraintCollectionViewBottom.constant = notification.keyboardSize().height
+            collectionView.setContentOffset(CGPoint(x: 0, y:notification.keyboardSize().height), animated: true)
         } else {
-            
+            constraintCollectionViewBottom.constant = 0
+        }
+        UIView.animateWithDuration(notification.duration()) {
+            self.view.layoutIfNeeded()
         }
     }
 
@@ -102,6 +111,7 @@ extension OrderMuveViewController: UICollectionViewDataSource {
         switch indexPath.item {
         case 0:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(R.reuseIdentifier.imageOrderCellID, forIndexPath: indexPath)!
+            cell.delegate = self
             cell.images = mediaPickerCollection
             return cell
         case 1:
@@ -145,7 +155,14 @@ extension OrderMuveViewController: UICollectionViewDelegate {
 
 extension OrderMuveViewController: MediaPickerControllerDelegate {
     func mediaPickerControllerDidPickImage(image: UIImage) {
-        
+        mediaPickerCollection?.append(image)
+        collectionView.reloadItemsAtIndexPaths([NSIndexPath(index: 0)])
+    }
+}
+
+extension OrderMuveViewController: ImageOrderCellProtocol {
+    func addImage() {
+        mediaPicker.show()
     }
 }
 
@@ -156,19 +173,18 @@ extension OrderMuveViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: screenSize.width,
                           height: 240)
         case 1:
+            let cellHeight = fromPlace.toString().textHeight(UIFont(name: "HelveticaNeue", size: 17)!, boundingWidth: screenSize.width - 30 - 30)
             return CGSize(width: screenSize.width,
-                          height: 63)
+                          height: cellHeight + 30)
         case 2:
+            let cellHeight = toPlace.toString().textHeight(UIFont(name: "HelveticaNeue", size: 17)!, boundingWidth: screenSize.width - 30 - 30)
             return CGSize(width: screenSize.width,
-                          height: 63)
+                          height: cellHeight + 30)
         case 3:
             return CGSize(width: screenSize.width,
                           height: 63)
         case 4:
-            var descriptionHeight: CGFloat = 80 //baseHeight
-            if let additionalHeight = muveDescription?.textHeight(UIFont(name: "Helvetica Neue", size: 14)!, boundingWidth: screenSize.width - 30 - 30) {
-                descriptionHeight += additionalHeight
-            }
+            let descriptionHeight: CGFloat = 160 //baseHeight
             return CGSize(width: screenSize.width,
                           height: descriptionHeight)
         default:

@@ -39,7 +39,6 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        hideKeyboardWhenTappedAround()
         setupNavigationBar()
         setupCoreLocation()
         setupGoogleMap()
@@ -170,6 +169,8 @@ class MapViewController: UIViewController {
     
     @IBAction func btnNextPressed(sender: AnyObject) {
         guard let fromPlace = fromPlace, let toPlace = toPlace else { return }
+        txtToPlace.endEditing(true)
+        txtFromPlace.endEditing(true)
         let orderMuveVC = OrderMuveViewController.create() as! OrderMuveViewController
         orderMuveVC.fromPlace = fromPlace
         orderMuveVC.toPlace = toPlace

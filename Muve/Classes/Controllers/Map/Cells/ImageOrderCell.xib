@@ -13,11 +13,11 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="290" height="240"/>
                 <subviews>
-                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2g-Sm-O9l">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeHolder" translatesAutoresizingMaskIntoConstraints="NO" id="gtJ-pk-mJX">
                         <rect key="frame" x="0.0" y="0.0" width="290" height="240"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="290" id="1mm-Ns-POZ"/>
-                        </constraints>
+                    </imageView>
+                    <scrollView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2g-Sm-O9l">
+                        <rect key="frame" x="0.0" y="0.0" width="290" height="240"/>
                     </scrollView>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="49W-5N-HKI">
                         <rect key="frame" x="126" y="203" width="39" height="37"/>
@@ -30,10 +30,14 @@
                 <constraint firstItem="49W-5N-HKI" firstAttribute="top" secondItem="w2g-Sm-O9l" secondAttribute="bottom" id="1u4-Qt-NEj"/>
                 <constraint firstItem="w2g-Sm-O9l" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6Rg-rT-lYB"/>
                 <constraint firstAttribute="bottom" secondItem="w2g-Sm-O9l" secondAttribute="bottom" id="7JW-i9-Fo5"/>
+                <constraint firstAttribute="trailing" secondItem="gtJ-pk-mJX" secondAttribute="trailing" id="IcU-6V-5Ao"/>
+                <constraint firstItem="gtJ-pk-mJX" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="KeN-qY-DDh"/>
                 <constraint firstAttribute="bottom" secondItem="49W-5N-HKI" secondAttribute="bottom" id="Q2a-TY-Uey"/>
                 <constraint firstAttribute="trailing" secondItem="w2g-Sm-O9l" secondAttribute="trailing" id="TKZ-r5-2fY"/>
                 <constraint firstItem="49W-5N-HKI" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="bHs-8b-39b"/>
                 <constraint firstItem="w2g-Sm-O9l" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dlo-Fd-aq7"/>
+                <constraint firstAttribute="bottom" secondItem="gtJ-pk-mJX" secondAttribute="bottom" id="jnC-aY-vBX"/>
+                <constraint firstItem="gtJ-pk-mJX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="zRx-VF-QEU"/>
             </constraints>
             <size key="customSize" width="290" height="261"/>
             <variation key="default">
@@ -48,4 +52,7 @@
             <point key="canvasLocation" x="388" y="315.5"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="placeHolder" width="253" height="167"/>
+    </resources>
 </document>

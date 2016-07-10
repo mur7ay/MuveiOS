@@ -11,7 +11,7 @@ import UIKit
 class LocationOrderCell: UICollectionViewCell {
 
     @IBOutlet weak var lblHeaderName: UILabel!
-    @IBOutlet weak var lblPlaceName: UITextField!
+    @IBOutlet weak var lblPlaceName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

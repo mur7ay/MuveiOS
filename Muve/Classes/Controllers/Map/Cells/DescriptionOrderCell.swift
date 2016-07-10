@@ -26,5 +26,6 @@ class DescriptionOrderCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        txtDescription.layer.cornerRadius = 5
     }
 }
