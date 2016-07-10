@@ -10,6 +10,9 @@ import UIKit
 
 class LocationOrderCell: UICollectionViewCell {
 
+    @IBOutlet weak var lblHeaderName: UILabel!
+    @IBOutlet weak var lblPlaceName: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

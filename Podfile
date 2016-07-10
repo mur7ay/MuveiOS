@@ -14,6 +14,7 @@ target 'Muve' do
   pod 'PTPopupWebView', '~> 0.3'
   pod 'UITextField-Shake-Swift', '~> 1.0'
   pod 'MediaPickerController', '~> 1.0'
+  pod 'SwiftDate', '~> 3.0'
   pod 'R.swift'
   
   # Paging Pod

@@ -61,6 +61,7 @@ PODS:
     - R.swift.Library (~> 2.1.0)
   - R.swift.Library (2.1.0)
   - SlideMenuControllerSwift (2.2.0)
+  - SwiftDate (3.0.8)
   - UITextField-Shake-Swift (1.0.3)
 
 DEPENDENCIES:
@@ -79,6 +80,7 @@ DEPENDENCIES:
   - PTPopupWebView (~> 0.3)
   - R.swift
   - SlideMenuControllerSwift (~> 2.2)
+  - SwiftDate (~> 3.0)
   - UITextField-Shake-Swift (~> 1.0)
 
 SPEC CHECKSUMS:
@@ -107,8 +109,9 @@ SPEC CHECKSUMS:
   R.swift: 38b2191a603c3d491a09baddfb4ccc7aa9be4d9d
   R.swift.Library: e5e077ed04f6867a95676af491650091b23518e9
   SlideMenuControllerSwift: 16dac00b1aaad153e64fffb5d6969ab31ad88372
+  SwiftDate: 971f8b9394f664f2226b9c3ab64e801a7291c612
   UITextField-Shake-Swift: 696d23a4af95293db711bd6ebeccd94a95034bd0
 
-PODFILE CHECKSUM: feab5e7161c228d2649710efc7e92de2837beb83
+PODFILE CHECKSUM: c5b2e4b47a59cfb5ac7fbfef97806fc95e59a619
 
 COCOAPODS: 1.0.1

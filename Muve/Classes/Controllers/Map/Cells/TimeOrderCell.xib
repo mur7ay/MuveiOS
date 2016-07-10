@@ -8,12 +8,49 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimeOrderCellID" id="gTV-IL-0wX" customClass="TimeOrderCell" customModule="Muve" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="387" height="56"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="387" height="56"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="now time now day " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLw-jz-EE3">
+                        <rect key="frame" x="30" y="18" width="142" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BWK-vd-xvd">
+                        <rect key="frame" x="321" y="13" width="36" height="30"/>
+                        <state key="normal" title="Later"/>
+                        <connections>
+                            <action selector="btnMuveTimeTypeChange:" destination="gTV-IL-0wX" eventType="touchUpInside" id="wyK-OA-db3"/>
+                        </connections>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="coH-E2-usj">
+                        <rect key="frame" x="20" y="55" width="347" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="0ks-ic-DJL"/>
+                        </constraints>
+                    </view>
+                </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <constraints>
+                <constraint firstItem="YLw-jz-EE3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="30" id="H4O-Ed-JP8"/>
+                <constraint firstAttribute="trailing" secondItem="coH-E2-usj" secondAttribute="trailing" constant="20" id="Ma8-gP-npE"/>
+                <constraint firstAttribute="trailing" secondItem="BWK-vd-xvd" secondAttribute="trailing" constant="30" id="bSA-m6-XpS"/>
+                <constraint firstItem="BWK-vd-xvd" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="bZQ-Nb-3mh"/>
+                <constraint firstItem="YLw-jz-EE3" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="eVc-1n-f6k"/>
+                <constraint firstItem="coH-E2-usj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="jxt-Ct-3Q3"/>
+                <constraint firstAttribute="bottom" secondItem="coH-E2-usj" secondAttribute="bottom" id="kwr-Es-pMj"/>
+            </constraints>
+            <size key="customSize" width="387" height="60"/>
+            <connections>
+                <outlet property="btnMuveTimeType" destination="BWK-vd-xvd" id="pvi-OG-qbR"/>
+                <outlet property="lblDateTime" destination="YLw-jz-EE3" id="bWx-qh-jgc"/>
+            </connections>
+            <point key="canvasLocation" x="482.5" y="350"/>
         </collectionViewCell>
     </objects>
 </document>

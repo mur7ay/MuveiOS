@@ -8,11 +8,23 @@
 
 import UIKit
 
+protocol DescriptionOrderCellProtocol {
+    func muveDescription(description: String)
+}
+
 class DescriptionOrderCell: UICollectionViewCell {
 
+    @IBOutlet weak var txtDescription: UITextView!
+    var delegate: DescriptionOrderCellProtocol?
+    
+    var textDescription: String = "" {
+        didSet {
+            txtDescription.text = textDescription
+            delegate?.muveDescription(textDescription)
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
 }

@@ -8,3 +8,4 @@
 
 typealias Callback = () -> ()
 typealias ImagePickerBlock = (Int) -> ()
+typealias DescriptionTextBlock = (String) -> ()
