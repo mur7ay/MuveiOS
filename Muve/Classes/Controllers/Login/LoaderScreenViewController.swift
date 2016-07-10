@@ -17,12 +17,11 @@ class LoaderScreenViewController: UIViewController, BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupMenu()
-        
+
         if let _ = FIRAuth.auth()?.currentUser {
-            NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(loggedIn), userInfo: nil, repeats: false)
+            NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(3), target: self, selector: #selector(loggedIn), userInfo: nil, repeats: false)
         } else {
-            NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(5), target: self, selector: #selector(notLoggedIn), userInfo: nil, repeats: false)
+            NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(3), target: self, selector: #selector(notLoggedIn), userInfo: nil, repeats: false)
         }
     }
     
@@ -45,17 +44,14 @@ class LoaderScreenViewController: UIViewController, BaseViewController {
     
     func loggedIn() {
         ProgressHUD.hide()
-        presentViewController(slideMenu, animated: true, completion: nil)
+        if let slideMenu = LoginHelper.initSlideMenu() {
+            self.presentViewController(slideMenu, animated: true, completion: nil)
+        }
     }
     
     func notLoggedIn() {
         ProgressHUD.hide()
         presentViewController(NavController(rootViewController: LoginViewController.create()), animated:  true, completion: nil)
     }
-    
-    private func setupMenu() {
-        let menu = MenuViewController.create() as! MenuViewController
-        slideMenu = SlideMenuController(mainViewController: menu.activityController, leftMenuViewController: menu)
-        menu.slideMenu = slideMenu
-    }
 }
+

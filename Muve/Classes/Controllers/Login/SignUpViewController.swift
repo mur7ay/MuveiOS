@@ -70,7 +70,9 @@ class SignUpViewController: UIViewController, BaseViewController {
                         if let _error = error {
                             self.showSimpleAlert("Error", message: _error.localizedDescription)
                         } else {
-                            self.presentViewController(TabBarViewController(), animated: true, completion: nil)
+                            if let slideMenu = LoginHelper.initSlideMenu() {
+                                self.presentViewController(slideMenu, animated: true, completion: nil)
+                            }
                         }
                     }
                 }
@@ -96,44 +98,4 @@ extension SignUpViewController: UITextFieldDelegate {
             return false
         }
     }
-    
-//    func textFieldDidBeginEditing(textField: UITextField) {
-//        switch textField {
-//        case txtEmail:
-//            if txtEmail.text == "Email Address" {
-//                txtEmail.text = ""
-//            }
-//        case txtPass:
-//            txtPass.text = ""
-//            txtPass.secureTextEntry = true
-//        case txtPassConfirm:
-//            txtPassConfirm.text = ""
-//            txtPassConfirm.secureTextEntry = true
-//        default:
-//            return
-//        }
-//    }
-//    
-//    func textFieldDidEndEditing(textField: UITextField) {
-//        switch textField {
-//        case txtEmail:
-//            if txtEmail.text == "" {
-//                txtEmail.text = "Email Address"
-//            }
-//        case txtPass:
-//            if txtPass.text == "" {
-//                txtPass.secureTextEntry = false
-//                txtPass.text = "Password"
-//            }
-//        case txtPassConfirm:
-//            if txtPassConfirm.text == "" {
-//                txtPassConfirm.secureTextEntry = false
-//                txtPassConfirm.text = "Confirm Password"
-//            }
-//        default:
-//            return
-//        }
-//    }
-    
-    
 }

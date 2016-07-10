@@ -91,12 +91,13 @@ class OrderMuveViewController: UIViewController {
     private func contentSize(withKeyboard: Bool, notification: NSNotification) {
         if withKeyboard {
             constraintCollectionViewBottom.constant = notification.keyboardSize().height
-            collectionView.setContentOffset(CGPoint(x: 0, y:notification.keyboardSize().height), animated: true)
+            
         } else {
             constraintCollectionViewBottom.constant = 0
         }
         UIView.animateWithDuration(notification.duration()) {
             self.view.layoutIfNeeded()
+            self.collectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: 4, inSection: 0), atScrollPosition: .Bottom, animated: true)
         }
     }
 
@@ -144,7 +145,7 @@ extension OrderMuveViewController: UICollectionViewDelegate {
         case 0:
             mediaPicker.show()
         default:
-            break
+            view.endEditing(true)
         }
     }
     

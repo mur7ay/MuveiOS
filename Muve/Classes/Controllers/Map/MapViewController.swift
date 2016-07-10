@@ -207,7 +207,16 @@ extension MapViewController: CLLocationManagerDelegate {
 
 extension MapViewController: UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.endEditing(true)
+        switch textField {
+        case txtFromPlace:
+            dataSource.searchResults = []
+            txtToPlace.becomeFirstResponder()
+        case txtToPlace:
+            textField.endEditing(true)
+            btnNextPressed(self)
+        default:
+            break
+        }
         return true
     }
     

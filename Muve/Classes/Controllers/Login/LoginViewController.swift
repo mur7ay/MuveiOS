@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import Font_Awesome_Swift
 import UITextField_Shake_Swift
+import SlideMenuControllerSwift
 
 class LoginViewController: UIViewController, BaseViewController {
     
@@ -27,7 +28,6 @@ class LoginViewController: UIViewController, BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
-        
         setupGoogleAuth()
         setupTxtFields()
         setupButtons()
@@ -45,7 +45,6 @@ class LoginViewController: UIViewController, BaseViewController {
         btnSignInGoogle.titleLabel?.textColor = UIColor.whiteColor()
         btnSignInFacebook.setFAText(prefixText: "", icon: .FAFacebook, postfixText: "   Login With Facebook", size: 19, forState: .Normal)
         btnSignInFacebook.titleLabel?.textColor = UIColor.whiteColor()
-        
     }
     
     func setupTxtFields() {
@@ -89,7 +88,9 @@ class LoginViewController: UIViewController, BaseViewController {
                             self.showSimpleAlert("Error", message: _error.localizedDescription)
                         }
                     } else {
-                        self.presentViewController(TabBarViewController(), animated: true, completion: nil)
+                        if let slideMenu = LoginHelper.initSlideMenu() {
+                            self.presentViewController(slideMenu, animated: true, completion: nil)
+                        }
                     }
                 }
             }
@@ -115,7 +116,10 @@ extension LoginViewController: GIDSignInDelegate {
         if let _error = error {
             showSimpleAlert("Error", message: _error.description)
         } else {
-            self.presentViewController(TabBarViewController(), animated: true, completion: nil)
+            ProgressHUD.hide()
+            if let slideMenu = LoginHelper.initSlideMenu() {
+                self.presentViewController(slideMenu, animated: true, completion: nil)
+            }
         }
     }
 }
@@ -129,36 +133,5 @@ extension LoginViewController: UITextFieldDelegate {
             return false
         }
     }
-    
-//    func textFieldDidBeginEditing(textField: UITextField) {
-//        switch textField {
-//        case txtEmail:
-//            if txtEmail.text == "Email Address" {
-//                txtEmail.text = ""
-//            }
-//        case txtPass:
-//            txtPass.text = ""
-//            txtPass.secureTextEntry = true
-//        default:
-//            return
-//        }
-//    }
-//    
-//    func textFieldDidEndEditing(textField: UITextField) {
-//        switch textField {
-//        case txtEmail:
-//            if txtEmail.text == "" {
-//                txtEmail.text = "Email Address"
-//            }
-//        case txtPass:
-//            if txtPass.text == "" {
-//                txtPass.secureTextEntry = false
-//                txtPass.text = "Password"
-//            }
-//        default:
-//            return
-//        }
-//    }
-    
 }
 

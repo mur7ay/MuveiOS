@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import SlideMenuControllerSwift
 
 enum LoginType: Int {
     case email = 0
@@ -35,5 +36,12 @@ class LoginHelper {
         FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
             completion(auth, user)
         }
+    }
+    
+    static func initSlideMenu() -> SlideMenuController? {
+        let menu = MenuViewController.create() as! MenuViewController
+        let slideMenu = SlideMenuController(mainViewController: menu.activityController, leftMenuViewController: menu)
+        menu.slideMenu = slideMenu
+        return slideMenu
     }
 }
