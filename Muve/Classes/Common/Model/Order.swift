@@ -8,6 +8,7 @@
 
 import Foundation
 import ObjectMapper
+import CoreLocation
 
 enum OrderStatus {
     case placed
@@ -23,16 +24,12 @@ enum ItemType {
     case charityDonation
 }
 
-struct Coordinate {
-    var latitude: Float
-    var longitude: Float
-}
-
 struct Order: Mappable {
     var uid: String?
+    var email: String?
     var images: [UIImage]?
     var city: String?
-    var client: String?
+    var clientEmail: String?
     var timestamp: Double?
     var creationDate: NSDate? {
         if let timestamp = timestamp {
@@ -41,8 +38,8 @@ struct Order: Mappable {
             return nil
         }
     }
-    var departureCoordinate: Coordinate?
-    var destinationCoordinate: Coordinate?
+    var departureCoordinate =  CLLocationCoordinate2D()
+    var destinationCoordinate = CLLocationCoordinate2D()
     var distance: String?
     var driver: String?
     var driverAlias: String?
@@ -55,14 +52,13 @@ struct Order: Mappable {
     init?(_ map: Map) {
     }
     
-    init(uid: String) {
-        self.uid = uid
+    init() {
     }
     
     mutating func mapping(map: Map) {
         uid                 <- map["orderId"]
         city                <- map["orderCity"]
-        client              <- map["orderClient"]
+        clientEmail         <- map["orderClient"]
         timestamp           <- map["orderCreationTime.timestamp"]
         distance            <- map["orderDistance"]
         driver              <- map["orderDriver"]
@@ -72,5 +68,10 @@ struct Order: Mappable {
         price               <- map["orderPrice"]
         startTime           <- map["orderStartTimr.timestamp"]
         status              <- map["orderStatus"]
+        
+        departureCoordinate.latitude    <- map["orderDepartureLat"]
+        departureCoordinate.longitude   <- map["orderDepartureLng"]
+        destinationCoordinate.latitude  <- map["orderDestinationLat"]
+        destinationCoordinate.longitude <- map["orderDestinationLng"]
     }
 }

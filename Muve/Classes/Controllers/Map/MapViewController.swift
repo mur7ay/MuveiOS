@@ -18,8 +18,8 @@ class MapViewController: UIViewController {
     private var map: GMSMapView!
     private var marker: GMSMarker!
     
-    private var fromPlace: GoogleMapsService.Place?
-    private var toPlace:   GoogleMapsService.Place?
+    private var fromPlace: GMSPlace?
+    private var toPlace:   GMSPlace?
     
     private var isFromPlace: Bool = true
     private var isKeyboardHidden: Bool = true
@@ -264,11 +264,34 @@ extension MapViewController: UITextFieldDelegate {
 
 extension MapViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        ProgressHUD.show()
         if isFromPlace {
-            fromPlace = dataSource.searchResults[indexPath.row].place
+            let placeID = dataSource.searchResults[indexPath.row].place?.toString()
+            if let placeID = placeID {
+                let id = placeID.substringFromIndex(placeID.characters.startIndex.advancedBy(9))
+                DataManager.getGooglePlaceDetails(id, completion: { (place, error) in
+                    ProgressHUD.hide()
+                    if let error = error {
+                        DLog("\(error)")
+                    } else {
+                        self.fromPlace = place
+                    }
+                })
+            }
             txtFromPlace.text = dataSource.searchResults[indexPath.row].description
         } else {
-            toPlace = dataSource.searchResults[indexPath.row].place
+            let placeID = dataSource.searchResults[indexPath.row].place?.toString()
+            if let placeID = placeID {
+                let id = placeID.substringFromIndex(placeID.characters.startIndex.advancedBy(9))
+                DataManager.getGooglePlaceDetails(id, completion: { (place, error) in
+                    ProgressHUD.hide()
+                    if let error = error {
+                        DLog("\(error)")
+                    } else {
+                        self.toPlace = place
+                    }
+                })
+            }
             txtToPlace.text = dataSource.searchResults[indexPath.row].description
         }
         dataSource.searchResults = []

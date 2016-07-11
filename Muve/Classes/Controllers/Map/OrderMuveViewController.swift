@@ -9,6 +9,7 @@
 import UIKit
 import MediaPickerController
 import GooglePlaces
+import GoogleMaps
 
 class OrderMuveViewController: UIViewController {
 
@@ -16,8 +17,8 @@ class OrderMuveViewController: UIViewController {
     
     var screenSize = UIScreen.mainScreen().bounds.size
     
-    var fromPlace: GoogleMapsService.Place!
-    var toPlace:   GoogleMapsService.Place!
+    var fromPlace: GMSPlace!
+    var toPlace:   GMSPlace!
     var muveDescription: String? {
         didSet {
             mapCallbackBlock(muveDescription, nil)
@@ -61,11 +62,18 @@ class OrderMuveViewController: UIViewController {
     }
     
     func placeOrder() {
-        var order = Order(uid: "first")
-        order.city = "Rostov-on-don"
+        var order = Order()
+        order.city = "Rostov-on-Don"
         order.timestamp = Double(NSDate().timeIntervalSince1970)
+        order.departureCoordinate = fromPlace.coordinate
+        order.destinationCoordinate = toPlace.coordinate
+        order.email = LoginHelper.userEmail()
         DataManager.sharedManager.createOrder(order) { error in
-            
+            if let error = error {
+                self.showSimpleAlert("Error", message: error.localizedDescription)
+            } else {
+                self.showSimpleAlert("Success", message: "Order submitted!")
+            }
         }
     }
     
@@ -145,12 +153,12 @@ extension OrderMuveViewController: UICollectionViewDataSource {
         case 1:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(R.reuseIdentifier.locationOrderCellID, forIndexPath: indexPath)!
             cell.lblHeaderName.text = "Pickup Location"
-            cell.lblPlaceName.text = fromPlace.toString()
+            cell.lblPlaceName.text = fromPlace.name
             return cell
         case 2:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(R.reuseIdentifier.locationOrderCellID, forIndexPath: indexPath)!
             cell.lblHeaderName.text = "Dropoff Location"
-            cell.lblPlaceName.text = toPlace.toString()
+            cell.lblPlaceName.text = toPlace.name
             return cell
         case 3:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(R.reuseIdentifier.timeOrderCellID, forIndexPath: indexPath)!
@@ -201,11 +209,11 @@ extension OrderMuveViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: screenSize.width,
                           height: 240)
         case 1:
-            let cellHeight = fromPlace.toString().textHeight(UIFont(name: "HelveticaNeue", size: 17)!, boundingWidth: screenSize.width - 30 - 30)
+            let cellHeight = fromPlace.name.textHeight(UIFont(name: "HelveticaNeue", size: 17)!, boundingWidth: screenSize.width - 30 - 30)
             return CGSize(width: screenSize.width,
                           height: cellHeight + 30)
         case 2:
-            let cellHeight = toPlace.toString().textHeight(UIFont(name: "HelveticaNeue", size: 17)!, boundingWidth: screenSize.width - 30 - 30)
+            let cellHeight = toPlace.name.textHeight(UIFont(name: "HelveticaNeue", size: 17)!, boundingWidth: screenSize.width - 30 - 30)
             return CGSize(width: screenSize.width,
                           height: cellHeight + 30)
         case 3:
