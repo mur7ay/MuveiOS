@@ -9,10 +9,11 @@
 import UIKit
 import GoogleMaps
 import CoreLocation
-import GooglePlaces
+//import GooglePlaces
 
 class MapViewController: UIViewController {
     
+    //MARK:- Maps properties
     private let manager = CLLocationManager()
 
     private var map: GMSMapView!
@@ -21,14 +22,20 @@ class MapViewController: UIViewController {
     private var fromPlace: GMSPlace?
     private var toPlace:   GMSPlace?
     
+    private var camera: GMSCameraPosition!
+    
+    //MARK:- Some flags
     private var isFromPlace: Bool = true
     private var isKeyboardHidden: Bool = true
+    private var isFetching: Bool = false
     
+    //MARK:-
     private var dataSource: AutoCompletionDataSource!
     
     var muveDescription: String?
     var mediaPickerCollection: [UIImage]? = []
     
+    //MARK:- Outlets
     @IBOutlet private weak var tableView: UITableView!
     
     @IBOutlet private weak var btnBext: UIButton!
@@ -62,6 +69,7 @@ class MapViewController: UIViewController {
                                           target: self,
                                           action: nil)
         navigationItem.rightBarButtonItem = rightButton
+        navigationItem.rightBarButtonItem?.action = #selector(btnNextPressed(_:))
     }
     
     private func setupCoreLocation() {
@@ -89,8 +97,8 @@ class MapViewController: UIViewController {
     }
     
     private func setupGoogleMap() {
-        GooglePlaces.provideAPIKey(Maps.googleAPIKey)
-        let camera = GMSCameraPosition.cameraWithLatitude(39.104252, longitude: -84.515648, zoom: 10)
+//        GooglePlaces.provideAPIKey(Maps.googleAPIKey)
+        camera = GMSCameraPosition.cameraWithLatitude(39.104252, longitude: -84.515648, zoom: 10)
         map = GMSMapView.mapWithFrame(view.frame, camera: camera)
         map.delegate = self
         map.myLocationEnabled = true
@@ -167,6 +175,20 @@ class MapViewController: UIViewController {
         }
         UIView.animateWithDuration(notification.duration()) {
             self.view.layoutIfNeeded()
+        }
+    }
+    
+    @IBAction func btnFindMe(sender: AnyObject) {
+        GMSPlacesClient.sharedClient().currentPlaceWithCallback() { callback in
+            if let error = callback.1 {
+                DLog("\(error.localizedDescription)")
+            } else {
+                if let response = callback.0 {
+                    if let place = response.likelihoods.first?.place.coordinate {
+                        self.map.animateToLocation(place)
+                    }
+                }
+            }
         }
     }
     
@@ -266,10 +288,8 @@ extension MapViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         ProgressHUD.show()
         if isFromPlace {
-            let placeID = dataSource.searchResults[indexPath.row].place?.toString()
-            if let placeID = placeID {
-                let id = placeID.substringFromIndex(placeID.characters.startIndex.advancedBy(9))
-                DataManager.getGooglePlaceDetails(id, completion: { (place, error) in
+            if let placeID = dataSource.searchResults[indexPath.row].placeID {
+                DataManager.getGooglePlaceDetails(placeID, completion: { (place, error) in
                     ProgressHUD.hide()
                     if let error = error {
                         DLog("\(error)")
@@ -278,12 +298,10 @@ extension MapViewController: UITableViewDelegate {
                     }
                 })
             }
-            txtFromPlace.text = dataSource.searchResults[indexPath.row].description
+            txtFromPlace.attributedText = dataSource.searchResults[indexPath.row].attributedPrimaryText
         } else {
-            let placeID = dataSource.searchResults[indexPath.row].place?.toString()
-            if let placeID = placeID {
-                let id = placeID.substringFromIndex(placeID.characters.startIndex.advancedBy(9))
-                DataManager.getGooglePlaceDetails(id, completion: { (place, error) in
+            if let placeID = dataSource.searchResults[indexPath.row].placeID {
+                DataManager.getGooglePlaceDetails(placeID, completion: { (place, error) in
                     ProgressHUD.hide()
                     if let error = error {
                         DLog("\(error)")
@@ -292,7 +310,7 @@ extension MapViewController: UITableViewDelegate {
                     }
                 })
             }
-            txtToPlace.text = dataSource.searchResults[indexPath.row].description
+            txtToPlace.attributedText = dataSource.searchResults[indexPath.row].attributedPrimaryText
         }
         dataSource.searchResults = []
     }

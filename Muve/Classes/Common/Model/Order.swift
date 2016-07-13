@@ -40,19 +40,31 @@ struct Order: Mappable {
     }
     var departureCoordinate =  CLLocationCoordinate2D()
     var destinationCoordinate = CLLocationCoordinate2D()
-    var distance: String?
+    var distance: Double?
     var driver: String?
     var driverAlias: String?
     var duration: String?
     var paymentMethod: String?
     var price: Int?
-    var startTime: String?
+    var startTime: Double?
     var status: String?
     
     init?(_ map: Map) {
     }
     
     init() {
+    }
+    
+    init(city: String, email: String, timestamp: Double, distance: Double, driver: String, payment: String, price: Int, startTime: Double, status: String) {
+        self.city = city
+        self.clientEmail = email
+        self.timestamp = timestamp
+        self.distance = distance
+        self.driver = driver
+        self.paymentMethod = payment
+        self.price = price
+        self.startTime = startTime
+        self.status = status
     }
     
     mutating func mapping(map: Map) {

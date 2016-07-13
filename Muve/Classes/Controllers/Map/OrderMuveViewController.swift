@@ -17,8 +17,22 @@ class OrderMuveViewController: UIViewController {
     
     var screenSize = UIScreen.mainScreen().bounds.size
     
-    var fromPlace: GMSPlace!
+    var fromPlace: GMSPlace! {
+        didSet {
+            fromPlace.addressComponents
+        }
+    }
     var toPlace:   GMSPlace!
+    
+    var orderCity: String {
+        if let address = fromPlace.addressComponents {
+            for component in address where component.type == "administrative_area_level_2" {
+                return component.name
+            }
+        }
+        return ""
+    }
+    
     var muveDescription: String? {
         didSet {
             mapCallbackBlock(muveDescription, nil)
@@ -62,12 +76,21 @@ class OrderMuveViewController: UIViewController {
     }
     
     func placeOrder() {
-        var order = Order()
-        order.city = "Rostov-on-Don"
-        order.timestamp = Double(NSDate().timeIntervalSince1970)
+        guard let email = LoginHelper.userEmail() else { return }
+        
+        var order = Order(city: orderCity,
+                          email: email,
+                          timestamp: Double(NSDate().timeIntervalSince1970),
+                          distance: 0,
+                          driver: "searching",
+                          payment: "card",
+                          price: 100,
+                          startTime: Double(NSDate().timeIntervalSince1970) + 20000,
+                          status: "active")
+        
         order.departureCoordinate = fromPlace.coordinate
         order.destinationCoordinate = toPlace.coordinate
-        order.email = LoginHelper.userEmail()
+        
         DataManager.sharedManager.createOrder(order) { error in
             if let error = error {
                 self.showSimpleAlert("Error", message: error.localizedDescription)

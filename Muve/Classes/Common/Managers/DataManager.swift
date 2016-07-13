@@ -53,7 +53,14 @@ public class DataManager {
         var orderWithId = order
         orderWithId.uid = key
         let childUpdates = ["activeClientOrders/\(userMailKey)/\(key)": Mapper().toJSON(orderWithId)]
-        base.updateChildValues(childUpdates)
+        base.updateChildValues(childUpdates) { error, base in
+            completion(error)
+        }
+    }
+    
+    func uploadOrderImages(images: [UIImage], completion: Completion) {
+        let task = FIRStorageUploadTask()
+        task.enqueue()
     }
 
     static func getGooglePlaceDetails(placeID: String, completion: (GMSPlace?, NSError?) -> Void) {
