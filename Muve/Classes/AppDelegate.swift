@@ -24,8 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey(Maps.googleAPIKey)
         
         window?.backgroundColor = UIColor.whiteColor()
-        window?.rootViewController = LoaderScreenViewController.create()
-        
+//        window?.rootViewController = LoaderScreenViewController.create()
+
+        window?.rootViewController = ColorPagingController(views: [UIView(), UIView(), UIView()],
+                                                           colors: [UIColor.redColor(), UIColor.greenColor(), UIColor.blueColor()],
+                                                           indicatorPlace: .bottom,
+                                                           activeIndicator: R.image.pageActive(),
+                                                           inactiveIndicator: R.image.pageInactive())
         
         return true
     }
@@ -59,19 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
-    private func setupOnBoarding() {
-        let rect = CGRect(x: 0,
-                          y: 0,
-                          width: UIScreen.mainScreen().bounds.size.width,
-                          height: UIScreen.mainScreen().bounds.size.height)
-        let view1 = UIView(frame: rect)
-        view1.backgroundColor = UIColor.redColor()
-        let view2 = UIView(frame: rect)
-        view2.backgroundColor = UIColor.blueColor()
-        
-        
-    }
+
 }
 
 

@@ -13,7 +13,7 @@ extension UIButton {
         if let text = self.titleLabel?.text {
             let textRange = NSMakeRange(0, text.characters.count)
             let attributedText = NSMutableAttributedString(string: text)
-            attributedText.addAttribute(NSUnderlineStyleAttributeName , value:NSUnderlineStyle.StyleSingle.rawValue, range: textRange)
+            attributedText.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.StyleSingle.rawValue, range: textRange)
             self.titleLabel!.attributedText = attributedText
         }
     }
