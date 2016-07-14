@@ -6,7 +6,7 @@ target 'Muve' do
   use_frameworks!
 
   # OnBoarding Pods
-  # pod 'GPPageColorTransition', :path => '~/Documents/Libraries/GPPageColorTransition'
+  pod 'ColorPagingController', :path => '~/Documents/Projects/Libraries/ColorPagingController/'
 
   # Pods for Muve
   pod 'Font-Awesome-Swift', '~> 1.4'
@@ -36,6 +36,6 @@ target 'Muve' do
   
   # Google Maps
   pod 'GoogleMaps'
-  pod 'GooglePlaces', '~> 1.0'
+  # pod 'GooglePlaces', '~> 1.0'
   
 end

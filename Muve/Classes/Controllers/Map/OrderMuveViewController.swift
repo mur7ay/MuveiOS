@@ -8,7 +8,6 @@
 
 import UIKit
 import MediaPickerController
-import GooglePlaces
 import GoogleMaps
 
 class OrderMuveViewController: UIViewController {

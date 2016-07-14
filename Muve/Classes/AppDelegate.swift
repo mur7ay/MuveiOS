@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import GoogleMaps
+import ColorPagingController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.backgroundColor = UIColor.whiteColor()
         window?.rootViewController = LoaderScreenViewController.create()
+        
+        
         return true
     }
     
@@ -55,6 +58,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    private func setupOnBoarding() {
+        let rect = CGRect(x: 0,
+                          y: 0,
+                          width: UIScreen.mainScreen().bounds.size.width,
+                          height: UIScreen.mainScreen().bounds.size.height)
+        let view1 = UIView(frame: rect)
+        view1.backgroundColor = UIColor.redColor()
+        let view2 = UIView(frame: rect)
+        view2.backgroundColor = UIColor.blueColor()
+        
+        
     }
 }
 

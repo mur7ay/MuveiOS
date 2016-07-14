@@ -8,6 +8,7 @@
 
 import UIKit
 import SlideMenuControllerSwift
+import ColorPagingController
 
 class MenuViewController: UIViewController, BaseViewController {
 

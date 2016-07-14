@@ -4,18 +4,25 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9803A07548B2414EFBA48EE94602ED39C9C14EA5" : 0,
     "B8B683AA4859C40C37F201C02F87003B538E3BA3" : 0,
-    "9803A07548B2414EFBA48EE94602ED39C9C14EA5" : 0
+    "328FDF4C56F65133FA8BB08D65B815B82B57CD80" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A0408ABC-D0D3-49C9-94FF-0257A498BF58",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9803A07548B2414EFBA48EE94602ED39C9C14EA5" : "..\/Libraries\/GPPageColorTransition",
     "B8B683AA4859C40C37F201C02F87003B538E3BA3" : "MuveiOS\/",
-    "9803A07548B2414EFBA48EE94602ED39C9C14EA5" : "..\/Libraries\/GPPageColorTransition"
+    "328FDF4C56F65133FA8BB08D65B815B82B57CD80" : "Libraries\/ColorPagingController\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "Muve",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Muve.xcworkspace",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/givip\/ColorPagingController",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "328FDF4C56F65133FA8BB08D65B815B82B57CD80"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/givip\/GPPageColorTransition",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
