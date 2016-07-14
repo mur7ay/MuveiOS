@@ -22,7 +22,7 @@ class FeedsDataSource: CollectionDataSource<Order>, UICollectionViewDataSource {
     }
     
     func setupDataObserving() {
-        loader.base.child(.activeClientOrders).child("tremerhl@gmail,com").observeEventType(.ChildAdded, withBlock: { [weak self] snapshot in
+        loader.base.child(.activeClientOrders).child(LoginHelper.userEmailAsId()!).observeEventType(.ChildAdded, withBlock: { [weak self] snapshot in
             guard let strongSelf = self else { return }
             guard let response = snapshot.value else { return }
             if let data = Mapper<Order>().map(response) {
