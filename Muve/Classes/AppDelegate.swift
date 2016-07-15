@@ -24,14 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey(Maps.googleAPIKey)
         
         window?.backgroundColor = UIColor.whiteColor()
-//        window?.rootViewController = LoaderScreenViewController.create()
+        window?.rootViewController = LoaderScreenViewController.create()
 
-        window?.rootViewController = ColorPagingController(views: [UIView(), UIView(), UIView()],
-                                                           colors: [UIColor.redColor(), UIColor.greenColor(), UIColor.blueColor()],
-                                                           indicatorPlace: .bottom,
-                                                           activeIndicator: R.image.pageActive(),
-                                                           inactiveIndicator: R.image.pageInactive())
-        
+//        window?.rootViewController = ColorPagingController(views: [UIView(), UIView(), UIView()],
+//                                                           colors: [UIColor.redColor(), UIColor.greenColor(), UIColor.blueColor()],
+//                                                           indicatorPlace: .bottom,
+//                                                           activeIndicator: R.image.pageActive(),
+//                                                           inactiveIndicator: R.image.pageInactive())
         return true
     }
     

@@ -38,7 +38,7 @@ class MapViewController: UIViewController {
     //MARK:- Outlets
     @IBOutlet private weak var tableView: UITableView!
     
-    @IBOutlet private weak var btnBext: UIButton!
+    @IBOutlet private weak var btnNext: UIButton!
     
     @IBOutlet private weak var txtFromPlace: UITextField!
     @IBOutlet private weak var txtToPlace: UITextField!
@@ -54,10 +54,15 @@ class MapViewController: UIViewController {
         setupGoogleMap()
         setupTextField()
         setupAutoCompletionView()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         registerKeyboardNotifications()
     }
     
-    deinit {
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
         unregisterKeyboardNotifications()
     }
     
@@ -97,18 +102,24 @@ class MapViewController: UIViewController {
     }
     
     private func setupGoogleMap() {
-//        GooglePlaces.provideAPIKey(Maps.googleAPIKey)
-        camera = GMSCameraPosition.cameraWithLatitude(39.104252, longitude: -84.515648, zoom: 10)
-        map = GMSMapView.mapWithFrame(view.frame, camera: camera)
-        map.delegate = self
-        map.myLocationEnabled = true
-        view.insertSubview(map, atIndex: 0)
         
-        marker = GMSMarker()
-        marker.position = CLLocationCoordinate2DMake(39.104252, -84.515648)
-        marker.title = "Cincinnati"
-        marker.snippet = "USA"
-        marker.map = map
+        LocationManager.getGoogleCurrentPlace() { place, error in
+            if let error = error {
+                DLog("\(error.localizedDescription)")
+            } else if let place = place {
+                self.camera = GMSCameraPosition.cameraWithTarget(place.coordinate, zoom: Area.initialGoogleZoom)
+                self.map = GMSMapView.mapWithFrame(self.view.frame, camera: self.camera)
+                self.map.delegate = self
+//                self.map.myLocationEnabled = true
+                self.view .insertSubview(self.map, atIndex: 0)
+                
+                self.marker = GMSMarker()
+                self.marker.position = place.coordinate
+//                self.marker.title = "Cincinnati"
+//                self.marker.snippet = "USA"
+                self.marker.map = self.map
+            }
+        }
     }
 
     private func setupTextField() {
@@ -129,7 +140,6 @@ class MapViewController: UIViewController {
                 self.tableView.reloadData()
                 self.tableView.hidden = false
             }
-            
         }
         dataSource = AutoCompletionDataSource(callback: callback)
         tableView.dataSource = dataSource
@@ -154,27 +164,19 @@ class MapViewController: UIViewController {
     
     func willKeyboardShown(notification: NSNotification) {
         if isKeyboardHidden {
-            nextButtonPosition(false, notification: notification)
+            btnNext.animateConstraint(notification.duration(),
+                                      constant: notification.keyboardSize().height,
+                                      attribute: .Bottom)
             isKeyboardHidden = false
         }
     }
     
     func willKeyboardHidden(notification: NSNotification) {
         if !isKeyboardHidden {
-            nextButtonPosition(true, notification: notification)
+            btnNext.animateConstraint(notification.duration(),
+                                      constant: 0,
+                                      attribute: .Bottom)
             isKeyboardHidden = true
-        }
-    }
-    
-    private func nextButtonPosition(hidden: Bool, notification: NSNotification) {
-        let btnNewYConstraint = notification.keyboardSize().height
-        if hidden {
-            constraintNextButtonBottom.constant = 0
-        } else {
-            constraintNextButtonBottom.constant = btnNewYConstraint
-        }
-        UIView.animateWithDuration(notification.duration()) {
-            self.view.layoutIfNeeded()
         }
     }
     
@@ -226,7 +228,7 @@ extension MapViewController: GMSMapViewDelegate {
         let center = map.convertPoint(map.center, toView: view)
         map.clear()
         
-        marker.appearAnimation = kGMSMarkerAnimationNone
+        marker.appearAnimation = kGMSMarkerAnimationPop
         marker.position = map.projection.coordinateForPoint(center)
         marker.map = map
     }
@@ -242,44 +244,33 @@ extension MapViewController: CLLocationManagerDelegate {
 
 extension MapViewController: UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        switch textField {
-        case txtFromPlace:
+        if textField == txtFromPlace {
             dataSource.searchResults = []
             txtToPlace.becomeFirstResponder()
-        case txtToPlace:
+        }
+        if textField == txtToPlace {
             textField.endEditing(true)
             btnNextPressed(self)
-        default:
-            break
         }
         return true
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        switch textField {
-        case txtFromPlace:
+        if textField == txtFromPlace {
             isFromPlace = true
             constraintTableViewTop.constant = -30
-        case txtToPlace:
+        }
+        if textField == txtToPlace {
             isFromPlace = false
             constraintTableViewTop.constant = 0
-        default: break
         }
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        switch textField {
-        case txtFromPlace:
-            let newString = (textField.text! as NSString).stringByReplacingCharactersInRange(range, withString: string)
-            isFromPlace = true
-            dataSource.searchWithText(newString)
-        case txtToPlace:
-            let newString = (textField.text! as NSString).stringByReplacingCharactersInRange(range, withString: string)
-            isFromPlace = false
-            dataSource.searchWithText(newString)
-        default:
-            break
-        }
+        let newString = (textField.text! as NSString).stringByReplacingCharactersInRange(range, withString: string)
+        if textField == txtFromPlace { isFromPlace = true }
+        if textField == txtToPlace   { isFromPlace = false }
+        dataSource.searchWithText(newString)
         return true
     }
 }
@@ -287,29 +278,20 @@ extension MapViewController: UITextFieldDelegate {
 extension MapViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         ProgressHUD.show()
+        if let placeID = dataSource.searchResults[indexPath.row].placeID {
+            LocationManager.getGooglePlaceDetails(placeID, completion: { (place, error) in
+                ProgressHUD.hide()
+                if let error = error {
+                    DLog("\(error)")
+                } else {
+                    self.isFromPlace ? (self.fromPlace = place) : (self.toPlace = place)
+                }
+            })
+        }
+        
         if isFromPlace {
-            if let placeID = dataSource.searchResults[indexPath.row].placeID {
-                DataManager.getGooglePlaceDetails(placeID, completion: { (place, error) in
-                    ProgressHUD.hide()
-                    if let error = error {
-                        DLog("\(error)")
-                    } else {
-                        self.fromPlace = place
-                    }
-                })
-            }
             txtFromPlace.attributedText = dataSource.searchResults[indexPath.row].attributedPrimaryText
         } else {
-            if let placeID = dataSource.searchResults[indexPath.row].placeID {
-                DataManager.getGooglePlaceDetails(placeID, completion: { (place, error) in
-                    ProgressHUD.hide()
-                    if let error = error {
-                        DLog("\(error)")
-                    } else {
-                        self.toPlace = place
-                    }
-                })
-            }
             txtToPlace.attributedText = dataSource.searchResults[indexPath.row].attributedPrimaryText
         }
         dataSource.searchResults = []

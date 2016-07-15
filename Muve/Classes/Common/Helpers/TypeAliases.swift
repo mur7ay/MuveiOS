@@ -6,8 +6,11 @@
 //  Copyright © 2016 Muve. All rights reserved.
 //
 
+import GoogleMaps
+
 typealias Callback = () -> ()
 typealias Completion = (NSError?) -> ()
+typealias GooglePlaceCompletion = (GMSPlace?, NSError?) -> ()
 typealias ImagePickerBlock = (Int) -> ()
 typealias DescriptionTextBlock = (String) -> ()
 typealias MapCallbackBlock = (String?, [UIImage]?) -> ()

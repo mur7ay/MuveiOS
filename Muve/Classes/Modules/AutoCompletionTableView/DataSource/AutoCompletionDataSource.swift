@@ -18,8 +18,9 @@ class AutoCompletionDataSource: NSObject {
             dataSourceCallback()
         }
     }
-    
-    let autocompleteFetcher = GMSAutocompleteFetcher(bounds: nil, filter: nil)
+
+    let autocompleteFetcher = GMSAutocompleteFetcher(bounds: GMSCoordinateBounds(path: GMSPath(fromEncodedPath: Area.cincinattiBoundsEncodedWithPath)!),
+                                                     filter: nil)
     
     init(callback: Callback) {
         dataSourceCallback = callback
@@ -33,18 +34,6 @@ class AutoCompletionDataSource: NSObject {
             return
         }
         autocompleteFetcher.sourceTextHasChanged(text)
-        
-//        GooglePlaces.placeAutocomplete(forInput: text) { (response, error) -> Void in
-//            guard response?.status == GooglePlaces.StatusCode.OK else {
-//                DLog("\(response?.errorMessage)")
-//                return
-//            }
-//            if let predictions = response?.predictions {
-//                self.searchResults = predictions
-//            }
-//            self.dataSourceCallback()
-//            DLog("first matched result: \(response?.predictions.first?.description)")
-//        }
     }
 }
 

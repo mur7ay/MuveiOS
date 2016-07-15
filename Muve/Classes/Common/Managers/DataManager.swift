@@ -6,9 +6,8 @@
 //  Copyright © 2016 Muve. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import ObjectMapper
-import GoogleMaps
 import Firebase
 
 public class DataManager {
@@ -63,14 +62,4 @@ public class DataManager {
         task.enqueue()
     }
 
-    static func getGooglePlaceDetails(placeID: String, completion: (GMSPlace?, NSError?) -> Void) {
-        let placesClient = GMSPlacesClient.sharedClient()
-        placesClient.lookUpPlaceID(placeID, callback: { (place: GMSPlace?, error: NSError?) -> Void in
-            if let error = error {
-                completion(nil, error)
-            } else {
-                completion(place, nil)
-            }
-        })
-    }
 }

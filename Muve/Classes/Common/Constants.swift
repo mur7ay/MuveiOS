@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GoogleMaps
 
 struct Colors {
     static let googleBlue         = UIColor(red: 67/255, green: 123/255, blue: 248/255, alpha: 1)
@@ -23,6 +24,12 @@ struct Menu {
                         "Messages",
                         "Account",
                         "Support"]
+}
+
+struct Area {
+    //encoded with https://developers.google.com/maps/documentation/utilities/polylineutility
+    static let cincinattiBoundsEncodedWithPath = "o`{nFll}aOmaAe~EfiBidPlap@ouP`{Er|HtYb~EwqCzo`@vuFzaZ_SviV{eh@a}m@??woRgaKvhGldE"
+    static let initialGoogleZoom: Float = 15.0
 }
 
 struct Keychain {

@@ -131,7 +131,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnBext" destination="ayI-lw-zLh" id="3Be-Ws-gio"/>
+                        <outlet property="btnNext" destination="ayI-lw-zLh" id="wPf-Ut-fLz"/>
                         <outlet property="constraintNextButtonBottom" destination="71O-Ve-eTP" id="lYN-oc-fHp"/>
                         <outlet property="constraintTableViewHeight" destination="Eeb-6Y-B7B" id="9Qo-vR-45M"/>
                         <outlet property="constraintTableViewTop" destination="5Pr-Ja-gsh" id="3Fq-CU-qQb"/>

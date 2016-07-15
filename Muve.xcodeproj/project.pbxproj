@@ -73,6 +73,8 @@
 		A78730571D1B17BE009B0FFB /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78730561D1B17BE009B0FFB /* ProgressHUD.swift */; };
 		A7A07D281D1E449000E35B2E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A07D271D1E449000E35B2E /* Logger.swift */; };
 		A7A07D2A1D1E47C900E35B2E /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A07D291D1E47C900E35B2E /* Client.swift */; };
+		A7F110601D39703300168774 /* UIView+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F1105F1D39703300168774 /* UIView+Constraint.swift */; };
+		A7F110621D3973E100168774 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F110611D3973E100168774 /* LocationManager.swift */; };
 		A7F8530D1D2443C600792DEE /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F8530C1D2443C600792DEE /* NavController.swift */; };
 		CD4D11EE1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11EC1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -146,6 +148,8 @@
 		A78730561D1B17BE009B0FFB /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressHUD.swift; path = Classes/Common/Helpers/ProgressHUD.swift; sourceTree = "<group>"; };
 		A7A07D271D1E449000E35B2E /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = Classes/Common/Helpers/Logger.swift; sourceTree = "<group>"; };
 		A7A07D291D1E47C900E35B2E /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Client.swift; path = Classes/Common/Model/Client.swift; sourceTree = "<group>"; };
+		A7F1105F1D39703300168774 /* UIView+Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Constraint.swift"; path = "Classes/Common/Extentions/UIView+Constraint.swift"; sourceTree = "<group>"; };
+		A7F110611D3973E100168774 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = Classes/Common/Managers/LocationManager.swift; sourceTree = "<group>"; };
 		A7F8530C1D2443C600792DEE /* NavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavController.swift; path = Classes/Controllers/Navigation/NavController.swift; sourceTree = "<group>"; };
 		CD4D11E01D0B0A4C00A0DBD3 /* Muve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muve.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4D11ED1D0B0A4D00A0DBD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -289,6 +293,7 @@
 				A71831551D322274000A6B78 /* String+Height.swift */,
 				A71831561D322274000A6B78 /* UIView+CreateFromNib.swift */,
 				A74069131D30383800A27C98 /* NSNotification+Keyboard.swift */,
+				A7F1105F1D39703300168774 /* UIView+Constraint.swift */,
 				A73F50B81D1F12200055A0A3 /* NSError+Helper.swift */,
 				57E723BB1D1A5E2500D21C8B /* UIAlertViewController+Helper.swift */,
 				A73F50AE1D1E73770055A0A3 /* FIRDatabaseReference+Helper.swift */,
@@ -439,6 +444,7 @@
 			isa = PBXGroup;
 			children = (
 				A740692E1D30EE9000A27C98 /* DataManager.swift */,
+				A7F110611D3973E100168774 /* LocationManager.swift */,
 				A740692F1D30EE9000A27C98 /* MediaManager.swift */,
 			);
 			name = Managers;
@@ -691,6 +697,7 @@
 				A74069301D30EE9000A27C98 /* DataManager.swift in Sources */,
 				A740692C1D30EE3300A27C98 /* FeedsDataSource.swift in Sources */,
 				A74069141D30383800A27C98 /* NSNotification+Keyboard.swift in Sources */,
+				A7F110601D39703300168774 /* UIView+Constraint.swift in Sources */,
 				A73F50B91D1F12200055A0A3 /* NSError+Helper.swift in Sources */,
 				A7A07D2A1D1E47C900E35B2E /* Client.swift in Sources */,
 				A71831531D317487000A6B78 /* TimeOrderCell.swift in Sources */,
@@ -718,6 +725,7 @@
 				A78730571D1B17BE009B0FFB /* ProgressHUD.swift in Sources */,
 				57E723BC1D1A5E2500D21C8B /* UIAlertViewController+Helper.swift in Sources */,
 				A7F8530D1D2443C600792DEE /* NavController.swift in Sources */,
+				A7F110621D3973E100168774 /* LocationManager.swift in Sources */,
 				A718314F1D317438000A6B78 /* LocationOrderCell.swift in Sources */,
 				A753AFB61D1B34F200D1F30E /* FeedViewController.swift in Sources */,
 				A753AFB81D1B350900D1F30E /* MessageViewController.swift in Sources */,
