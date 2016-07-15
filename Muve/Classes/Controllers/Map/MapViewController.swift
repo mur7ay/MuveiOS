@@ -110,13 +110,10 @@ class MapViewController: UIViewController {
                 self.camera = GMSCameraPosition.cameraWithTarget(place.coordinate, zoom: Area.initialGoogleZoom)
                 self.map = GMSMapView.mapWithFrame(self.view.frame, camera: self.camera)
                 self.map.delegate = self
-//                self.map.myLocationEnabled = true
-                self.view .insertSubview(self.map, atIndex: 0)
+                self.map.myLocationEnabled = true //TODO:- put custom icon
+                self.view.insertSubview(self.map, atIndex: 0)
                 
-                self.marker = GMSMarker()
-                self.marker.position = place.coordinate
-//                self.marker.title = "Cincinnati"
-//                self.marker.snippet = "USA"
+                self.marker = GMSMarker(position: place.coordinate)
                 self.marker.map = self.map
             }
         }
@@ -226,10 +223,11 @@ extension MapViewController: GMSMapViewDelegate {
     
     private func recenterMarkerInMapView() {
         let center = map.convertPoint(map.center, toView: view)
+        DLog("\(center) - \(map.center)")
         map.clear()
         
-        marker.appearAnimation = kGMSMarkerAnimationPop
-        marker.position = map.projection.coordinateForPoint(center)
+        marker.appearAnimation = kGMSMarkerAnimationNone
+        marker.position = map.projection.coordinateForPoint(map.center)
         marker.map = map
     }
 }
