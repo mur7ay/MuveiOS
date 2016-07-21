@@ -30,7 +30,26 @@ struct Order: Mappable {
     var images: [UIImage]?
     var city: String?
     var clientEmail: String?
+    
+    ///Coordinates and location properties
+    var departureCoordinate =  CLLocationCoordinate2D()
+    var destinationCoordinate = CLLocationCoordinate2D()
+    var distance: Double?
+    
+    ///Mover data
+    var driver: String?
+    var driverAlias: String?
+    var car: String?
+    
+    ///Payment and prices
+    var paymentMethod: String?
+    var price: Int?
+    
+    ///Times and Dates
     var timestamp: Double?
+    var finishTime: Double?
+    var startTime: Double?
+    var duration: String?
     var creationDate: NSDate? {
         if let timestamp = timestamp {
             return NSDate(timeIntervalSince1970: timestamp)
@@ -38,22 +57,15 @@ struct Order: Mappable {
             return nil
         }
     }
-    var departureCoordinate =  CLLocationCoordinate2D()
-    var destinationCoordinate = CLLocationCoordinate2D()
-    var distance: Double?
-    var driver: String?
-    var driverAlias: String?
-    var duration: String?
-    var paymentMethod: String?
-    var price: Int?
-    var startTime: Double?
+    
+    ///Status
     var status: String?
     
     init?(_ map: Map) {
     }
     
-    init() {
-    }
+//    init() {
+//    }
     
     init(city: String, email: String, timestamp: Double, distance: Double, driver: String, payment: String, price: Int, startTime: Double, status: String) {
         self.city = city

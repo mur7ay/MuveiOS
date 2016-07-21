@@ -9,13 +9,14 @@
 import UIKit
 
 class FeedCollectionViewCell: UICollectionViewCell {
-
-    @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var btnDelivery: UIButton!
-    @IBOutlet weak var pendingView: UIView!
-    @IBOutlet weak var inProgressView: UIView!
     
-    var order: Order? {
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var lblTransportType: UILabel!
+    @IBOutlet weak var lblDateTime: UILabel!
+    @IBOutlet weak var lblPrice: UILabel!
+    @IBOutlet weak var viewMap: UIView!
+    
+    var order: Order! {
         didSet {
            cellInit()
         }
@@ -23,6 +24,10 @@ class FeedCollectionViewCell: UICollectionViewCell {
     
     func cellInit() {
         guard let _ = order else { return }
-    
+        lblTransportType.text = order.car
+        lblDateTime.text = String(order.finishTime)
+        lblPrice.text = "$" + String(order.price)
     }
+    
+    
 }

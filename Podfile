@@ -36,6 +36,6 @@ target 'Muve' do
   
   # Google Maps
   pod 'GoogleMaps'
-  # pod 'GooglePlaces', '~> 1.0'
+  pod 'Mapbox-iOS-SDK', '~> 3.3'
   
 end

@@ -28,15 +28,13 @@ class SignUpViewController: UIViewController, BaseViewController {
         hideKeyboardWhenTappedAround()
         setupButtons()
         setupTxtFields()
+        setupNavigationBar()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.view.backgroundColor = UIColor.clearColor()
-        
+        navigationController?.navigationBar.translucent = true
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     

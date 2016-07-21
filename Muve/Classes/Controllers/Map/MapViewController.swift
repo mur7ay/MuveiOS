@@ -157,7 +157,6 @@ class MapViewController: UIViewController {
     private func unregisterKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
-
     
     func willKeyboardShown(notification: NSNotification) {
         if isKeyboardHidden {

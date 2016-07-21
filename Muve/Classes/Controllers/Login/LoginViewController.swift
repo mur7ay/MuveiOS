@@ -12,7 +12,7 @@ import Font_Awesome_Swift
 import UITextField_Shake_Swift
 import SlideMenuControllerSwift
 
-class LoginViewController: UIViewController, BaseViewController {
+class LoginViewController: UIViewController {
     
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPass: UITextField!
@@ -20,10 +20,6 @@ class LoginViewController: UIViewController, BaseViewController {
     @IBOutlet weak var btnSignInGoogle: UIButton!
     @IBOutlet weak var btnSignInFacebook: UIButton!
     @IBOutlet weak var btnSignUp: UIButton!
-    
-    static func storyBoardName() -> String {
-        return "Login"
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,6 +128,12 @@ extension LoginViewController: UITextFieldDelegate {
         } else {
             return false
         }
+    }
+}
+
+extension LoginViewController: BaseViewController {
+    static func storyBoardName() -> String {
+        return "Login"
     }
 }
 

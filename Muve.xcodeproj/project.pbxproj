@@ -228,7 +228,6 @@
 		A72AD55B1D187E4900FFC381 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A72AD5651D1880F100FFC381 /* AppDelegate.swift */,
 				A72AD5731D188B2800FFC381 /* Protocols */,
 				A74069151D3040AC00A27C98 /* Modules */,
 				A72AD5721D188B2100FFC381 /* Controllers */,
@@ -308,6 +307,7 @@
 		A72AD5621D187EAA00FFC381 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				A70E917B1D1895D400C287A6 /* Constants.swift */,
 				A78730561D1B17BE009B0FFB /* ProgressHUD.swift */,
 				A73F50B41D1EC6990055A0A3 /* UserDefaultsHelper.swift */,
 				A753AFA81D1B2A5800D1F30E /* ErrorHandler.swift */,
@@ -340,7 +340,6 @@
 		A72AD5711D188AFD00FFC381 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				A70E917B1D1895D400C287A6 /* Constants.swift */,
 				A740692D1D30EE4900A27C98 /* Managers */,
 				A72AD5631D187EEF00FFC381 /* Model */,
 				A73F50A91D1E67A10055A0A3 /* DataSources */,
@@ -348,6 +347,7 @@
 				A72AD5621D187EAA00FFC381 /* Helpers */,
 				A72AD5641D187F0500FFC381 /* Vendors */,
 				A72AD5741D188C0700FFC381 /* Muve-Bridging-Header.h */,
+				A72AD5651D1880F100FFC381 /* AppDelegate.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -849,6 +849,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Muve/Resources/Infos/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -869,6 +873,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Muve/Resources/Infos/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
