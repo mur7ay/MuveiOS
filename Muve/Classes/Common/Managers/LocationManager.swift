@@ -8,8 +8,15 @@
 
 import Foundation
 import GoogleMaps
+import CoreLocation
 
 class LocationManager {
+    
+    var sharedManager: CLLocationManager {
+        return CLLocationManager()
+    }
+    
+    private init() {}
     
     static func getGooglePlaceDetails(placeID: String, completion: GooglePlaceCompletion) {
         let placesClient = GMSPlacesClient.sharedClient()
@@ -40,5 +47,20 @@ class LocationManager {
                 }
             }
         })
+    }
+    
+    func setupGMSMapView(map: GMSMapView) {
+        let myLocation = sharedManager.requestLocation()
+        var camera = GMSCameraPosition.cameraWithTarget(map.myLocation!.coordinate, zoom: Area.initialGoogleZoom)
+        map.camera = camera
+        marker = GMSMarker(position: map.myLocation!.coordinate)
+        map.mapType = kGMSTypeTerrain
+        map.accessibilityElementsHidden = false
+        map.delegate = self
+        map.myLocationEnabled = true
+        map.settings.myLocationButton = true
+        map.settings.compassButton = true
+        marker.map = map
+
     }
 }

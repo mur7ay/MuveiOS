@@ -9,7 +9,6 @@
 import UIKit
 import GoogleMaps
 import CoreLocation
-//import GooglePlaces
 
 class MapViewController: UIViewController {
     
@@ -51,7 +50,8 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         setupNavigationBar()
         setupCoreLocation()
-        setupGoogleMap()
+//        setupGoogleMap()
+                view.insertSubview(map, atIndex: 0)
         setupTextField()
         setupAutoCompletionView()
     }
@@ -97,25 +97,7 @@ class MapViewController: UIViewController {
                 }
             }
             alertController.addAction(openAction)
-            self.presentViewController(alertController, animated: true, completion: nil)
-        }
-    }
-    
-    private func setupGoogleMap() {
-        
-        LocationManager.getGoogleCurrentPlace() { place, error in
-            if let error = error {
-                DLog("\(error.localizedDescription)")
-            } else if let place = place {
-                self.camera = GMSCameraPosition.cameraWithTarget(place.coordinate, zoom: Area.initialGoogleZoom)
-                self.map = GMSMapView.mapWithFrame(self.view.frame, camera: self.camera)
-                self.map.delegate = self
-                self.map.myLocationEnabled = true //TODO:- put custom icon
-                self.view.insertSubview(self.map, atIndex: 0)
-                
-                self.marker = GMSMarker(position: place.coordinate)
-                self.marker.map = self.map
-            }
+            presentViewController(alertController, animated: true, completion: nil)
         }
     }
 
