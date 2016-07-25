@@ -13,10 +13,10 @@ import CoreLocation
 class MapViewController: UIViewController {
     
     //MARK:- Maps properties
-    private let manager = CLLocationManager()
-
-    private var map: GMSMapView!
+    private var manager: CLLocationManager!
+    
     private var marker: GMSMarker!
+    private var currentLocation: CLLocation?
     
     private var fromPlace: GMSPlace?
     private var toPlace:   GMSPlace?
@@ -36,6 +36,7 @@ class MapViewController: UIViewController {
     
     //MARK:- Outlets
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var map: GMSMapView!
     
     @IBOutlet private weak var btnNext: UIButton!
     
@@ -50,8 +51,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         setupNavigationBar()
         setupCoreLocation()
-//        setupGoogleMap()
-                view.insertSubview(map, atIndex: 0)
+        setupGoogleMap()
         setupTextField()
         setupAutoCompletionView()
     }
@@ -78,27 +78,30 @@ class MapViewController: UIViewController {
     }
     
     private func setupCoreLocation() {
+        guard CLLocationManager.locationServicesEnabled() else { return }
+        LocationManager.getLocationPermissions(self)
+        manager = CLLocationManager()
         manager.delegate = self
-        switch CLLocationManager.authorizationStatus() {
-        case .AuthorizedAlways:
-            break
-        case .NotDetermined:
-            manager.requestAlwaysAuthorization()
-        case .Restricted, .Denied, .AuthorizedWhenInUse:
-            let alertController = UIAlertController(
-                title: "Background Location Access Disabled",
-                message: "In order to be notified about moves near you, please open this app's settings and set location access to 'Always'.",
-                preferredStyle: .Alert)
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-            alertController.addAction(cancelAction)
-            let openAction = UIAlertAction(title: "Open Settings", style: .Default) { (action) in
-                if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
-                    UIApplication.sharedApplication().openURL(url)
-                }
-            }
-            alertController.addAction(openAction)
-            presentViewController(alertController, animated: true, completion: nil)
+        manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        manager.startUpdatingLocation()
+    }
+    
+    func setupGoogleMap() {
+        if let currentLocation = currentLocation {
+            map.camera = GMSCameraPosition.cameraWithTarget(currentLocation.coordinate, zoom: Area.initialGoogleZoom)
+            marker = GMSMarker(position: currentLocation.coordinate)
+        } else {
+            let location = CLLocationCoordinate2D(latitude: 39.098211, longitude: -84.248185) //Cincinatti
+            map.camera = GMSCameraPosition.cameraWithTarget(location, zoom: Area.initialGoogleZoom)
+            marker = GMSMarker(position: location)
         }
+            map.mapType = kGMSTypeTerrain
+            map.accessibilityElementsHidden = false
+            map.delegate = self
+            map.myLocationEnabled = true
+            map.settings.myLocationButton = true
+            map.settings.compassButton = true
+            marker.map = map
     }
 
     private func setupTextField() {
@@ -107,7 +110,7 @@ class MapViewController: UIViewController {
     }
     
     private func setupAutoCompletionView() {
-        tableView.separatorColor = UIColor.clearColor()
+        tableView.separatorStyle = .None
         tableView.layer.cornerRadius = 5
         tableView.registerNib(R.nib.autoCompletionCell)
         tableView.delegate = self
@@ -141,35 +144,19 @@ class MapViewController: UIViewController {
     }
     
     func willKeyboardShown(notification: NSNotification) {
-        if isKeyboardHidden {
-            btnNext.animateConstraint(notification.duration(),
-                                      constant: notification.keyboardSize().height,
-                                      attribute: .Bottom)
-            isKeyboardHidden = false
-        }
+        hideKeyboard(notification.keyboardSize().height, duration: notification.duration())
+        isKeyboardHidden = false
     }
     
     func willKeyboardHidden(notification: NSNotification) {
-        if !isKeyboardHidden {
-            btnNext.animateConstraint(notification.duration(),
-                                      constant: 0,
-                                      attribute: .Bottom)
-            isKeyboardHidden = true
-        }
+        hideKeyboard(0, duration: notification.duration())
+        isKeyboardHidden = true
     }
     
-    @IBAction func btnFindMe(sender: AnyObject) {
-        GMSPlacesClient.sharedClient().currentPlaceWithCallback() { callback in
-            if let error = callback.1 {
-                DLog("\(error.localizedDescription)")
-            } else {
-                if let response = callback.0 {
-                    if let place = response.likelihoods.first?.place.coordinate {
-                        self.map.animateToLocation(place)
-                    }
-                }
-            }
-        }
+    private func hideKeyboard(height: CGFloat, duration: NSTimeInterval) {
+        btnNext.animateConstraint(duration,
+                                  constant: height,
+                                  attribute: .Bottom)
     }
     
     @IBAction func btnNextPressed(sender: AnyObject) {
@@ -194,28 +181,27 @@ class MapViewController: UIViewController {
 }
 
 extension MapViewController: GMSMapViewDelegate {
-    func mapView(mapView: GMSMapView, willMove gesture: Bool) {
-        recenterMarkerInMapView()
-    }
-    
     func mapView(mapView: GMSMapView, didChangeCameraPosition position: GMSCameraPosition) {
-        recenterMarkerInMapView()
+        marker.position = position.target
     }
     
-    private func recenterMarkerInMapView() {
-        let center = map.convertPoint(map.center, toView: view)
-        DLog("\(center) - \(map.center)")
-        map.clear()
-        
-        marker.appearAnimation = kGMSMarkerAnimationNone
-        marker.position = map.projection.coordinateForPoint(map.center)
-        marker.map = map
+    func mapView(mapView: GMSMapView, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
+        txtToPlace.endEditing(true)
+        txtFromPlace.endEditing(true)
     }
 }
 
 extension MapViewController: CLLocationManagerDelegate {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        currentLocation = locations.last
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        DLog("\(error.localizedDescription)")
+    }
+    
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if status == .AuthorizedWhenInUse {
+        if status == .AuthorizedAlways {
             manager.startUpdatingLocation()
         }
     }

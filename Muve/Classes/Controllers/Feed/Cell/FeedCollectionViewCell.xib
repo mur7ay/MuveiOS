@@ -84,7 +84,7 @@
                 <outlet property="lblTransportType" destination="rM7-SL-s3B" id="88x-Gr-n2p"/>
                 <outlet property="viewMap" destination="hMz-hY-Lna" id="Btd-KB-UaN"/>
             </connections>
-            <point key="canvasLocation" x="552.5" y="354.5"/>
+            <point key="canvasLocation" x="387.5" y="161.5"/>
         </collectionViewCell>
     </objects>
 </document>

@@ -11,13 +11,7 @@ import GoogleMaps
 import CoreLocation
 
 class LocationManager {
-    
-    var sharedManager: CLLocationManager {
-        return CLLocationManager()
-    }
-    
-    private init() {}
-    
+
     static func getGooglePlaceDetails(placeID: String, completion: GooglePlaceCompletion) {
         let placesClient = GMSPlacesClient.sharedClient()
         placesClient.lookUpPlaceID(placeID, callback: { place, error in
@@ -49,18 +43,29 @@ class LocationManager {
         })
     }
     
-    func setupGMSMapView(map: GMSMapView) {
-        let myLocation = sharedManager.requestLocation()
-        var camera = GMSCameraPosition.cameraWithTarget(map.myLocation!.coordinate, zoom: Area.initialGoogleZoom)
-        map.camera = camera
-        marker = GMSMarker(position: map.myLocation!.coordinate)
-        map.mapType = kGMSTypeTerrain
-        map.accessibilityElementsHidden = false
-        map.delegate = self
-        map.myLocationEnabled = true
-        map.settings.myLocationButton = true
-        map.settings.compassButton = true
-        marker.map = map
-
+    static func getLocationPermissions(viewController: UIViewController?) {
+        switch CLLocationManager.authorizationStatus() {
+        case .AuthorizedAlways:
+            break
+        case .NotDetermined:
+            CLLocationManager().requestAlwaysAuthorization()
+        case .Restricted, .Denied, .AuthorizedWhenInUse:
+            guard let viewController = viewController else { return }
+            let alertController = UIAlertController(
+                title: "Background Location Access Disabled",
+                message: "In order to be notified about moves near you, please open this app's settings and set location access to 'Always'.",
+                preferredStyle: .Alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+            alertController.addAction(cancelAction)
+            let openAction = UIAlertAction(title: "Open Settings", style: .Default) { (action) in
+                if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
+                    UIApplication.sharedApplication().openURL(url)
+                }
+            }
+            alertController.addAction(openAction)
+            viewController.presentViewController(alertController, animated: true, completion: nil)
+        }
     }
+    
+
 }

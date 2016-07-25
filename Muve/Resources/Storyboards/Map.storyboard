@@ -92,6 +92,10 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAg-jG-iMV" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="65" width="600" height="535"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <tableView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h8s-zq-PpS">
                                 <rect key="frame" x="50" y="65" width="500" height="300"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -102,7 +106,7 @@
                                     <outlet property="delegate" destination="Kca-Wb-WjC" id="Q3k-s2-4pv"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iot-A8-4bm">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iot-A8-4bm">
                                 <rect key="frame" x="534" y="485" width="40" height="40"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -123,8 +127,12 @@
                             <constraint firstAttribute="trailing" secondItem="iot-A8-4bm" secondAttribute="trailing" constant="26" id="Mho-gi-Tc5"/>
                             <constraint firstItem="h8s-zq-PpS" firstAttribute="centerX" secondItem="tgH-dz-cRT" secondAttribute="centerX" id="QfP-MT-hnU"/>
                             <constraint firstItem="ayI-lw-zLh" firstAttribute="top" secondItem="iot-A8-4bm" secondAttribute="bottom" constant="26" id="UJq-Ek-ayD"/>
+                            <constraint firstItem="UAg-jG-iMV" firstAttribute="leading" secondItem="tgH-dz-cRT" secondAttribute="leading" id="Vhq-63-bNF"/>
+                            <constraint firstAttribute="trailing" secondItem="UAg-jG-iMV" secondAttribute="trailing" id="deM-ey-CB8"/>
                             <constraint firstItem="h8s-zq-PpS" firstAttribute="width" secondItem="zXi-CL-LjC" secondAttribute="width" id="ef9-4y-OQG"/>
+                            <constraint firstItem="2zn-X6-alu" firstAttribute="top" secondItem="UAg-jG-iMV" secondAttribute="bottom" id="hwN-sV-ucK"/>
                             <constraint firstItem="zZB-JD-ouq" firstAttribute="leading" secondItem="tgH-dz-cRT" secondAttribute="leading" id="lDv-WK-Sq5"/>
+                            <constraint firstItem="UAg-jG-iMV" firstAttribute="top" secondItem="zZB-JD-ouq" secondAttribute="bottom" id="mmR-bG-jUi"/>
                             <constraint firstItem="zZB-JD-ouq" firstAttribute="top" secondItem="tgH-dz-cRT" secondAttribute="top" id="r2v-2G-DV7"/>
                             <constraint firstAttribute="trailing" secondItem="ayI-lw-zLh" secondAttribute="trailing" id="shV-ny-Ln9"/>
                             <constraint firstItem="ayI-lw-zLh" firstAttribute="leading" secondItem="tgH-dz-cRT" secondAttribute="leading" id="uy6-7l-VVV"/>
@@ -135,6 +143,7 @@
                         <outlet property="constraintNextButtonBottom" destination="71O-Ve-eTP" id="lYN-oc-fHp"/>
                         <outlet property="constraintTableViewHeight" destination="Eeb-6Y-B7B" id="9Qo-vR-45M"/>
                         <outlet property="constraintTableViewTop" destination="5Pr-Ja-gsh" id="3Fq-CU-qQb"/>
+                        <outlet property="map" destination="UAg-jG-iMV" id="KI9-Qe-zOt"/>
                         <outlet property="tableView" destination="h8s-zq-PpS" id="7Ez-Ja-092"/>
                         <outlet property="txtFromPlace" destination="ujA-z0-Vod" id="7P6-QJ-C1y"/>
                         <outlet property="txtToPlace" destination="zXi-CL-LjC" id="vda-cm-gFW"/>
