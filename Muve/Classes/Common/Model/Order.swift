@@ -27,7 +27,7 @@ enum ItemType {
 struct Order: Mappable {
     var uid: String?
     var email: String?
-    var images: [UIImage]?
+    var images: [String]?
     var city: String?
     var clientEmail: String?
     
@@ -64,10 +64,7 @@ struct Order: Mappable {
     init?(_ map: Map) {
     }
     
-//    init() {
-//    }
-    
-    init(city: String, email: String, timestamp: Double, distance: Double, driver: String, payment: String, price: Int, startTime: Double, status: String) {
+    init(city: String, email: String, timestamp: Double, distance: Double, driver: String, payment: String, price: Int, startTime: Double, status: String, images: [String]) {
         self.city = city
         self.clientEmail = email
         self.timestamp = timestamp
@@ -77,6 +74,7 @@ struct Order: Mappable {
         self.price = price
         self.startTime = startTime
         self.status = status
+        self.images = images
     }
     
     mutating func mapping(map: Map) {
@@ -97,5 +95,7 @@ struct Order: Mappable {
         departureCoordinate.longitude   <- map["orderDepartureLng"]
         destinationCoordinate.latitude  <- map["orderDestinationLat"]
         destinationCoordinate.longitude <- map["orderDestinationLng"]
+        
+        images              <- map["orderImages"]
     }
 }

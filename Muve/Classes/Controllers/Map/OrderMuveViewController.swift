@@ -16,12 +16,12 @@ class OrderMuveViewController: UIViewController {
     
     var screenSize = UIScreen.mainScreen().bounds.size
     
+    var toPlace:   GMSPlace!
     var fromPlace: GMSPlace! {
         didSet {
             fromPlace.addressComponents
         }
     }
-    var toPlace:   GMSPlace!
     
     var orderCity: String {
         if let address = fromPlace.addressComponents {
@@ -45,8 +45,9 @@ class OrderMuveViewController: UIViewController {
         }
     }
     
-    var mapCallbackBlock: MapCallbackBlock!
+    var images: [String] = []
     
+    var mapCallbackBlock: MapCallbackBlock!
     var isKeyboardHidden = true
     
     @IBOutlet weak var constraintCollectionViewBottom: NSLayoutConstraint!
@@ -85,7 +86,8 @@ class OrderMuveViewController: UIViewController {
                           payment: "card",
                           price: 100,
                           startTime: Double(NSDate().timeIntervalSince1970) + 20000,
-                          status: "active")
+                          status: "active",
+                          images: images)
         
         order.departureCoordinate = fromPlace.coordinate
         order.destinationCoordinate = toPlace.coordinate
@@ -205,16 +207,19 @@ extension OrderMuveViewController: UICollectionViewDelegate {
             view.endEditing(true)
         }
     }
-    
-    private func uploadImage() {
-        
-    }
 }
 
 extension OrderMuveViewController: MediaPickerControllerDelegate {
     func mediaPickerControllerDidPickImage(image: UIImage) {
         mediaPickerCollection?.append(image)
+        StorageManager.sharedManager.uploadImage(image) { (url, name) in
+            self.images.append(name)
+        }
         collectionView.reloadItemsAtIndexPaths([NSIndexPath(index: 0)])
+    }
+    
+    private func uploadImage() {
+        
     }
 }
 

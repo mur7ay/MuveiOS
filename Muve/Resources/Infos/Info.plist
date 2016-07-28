@@ -66,6 +66,8 @@
 	<false/>
 	<key>MGLMapboxAccessToken</key>
 	<string>pk.eyJ1IjoiZ2l2aXAiLCJhIjoiY2lxcWhmc3htMDA3bWk0bm0wd2RlNWZ1NiJ9.nIVrkTCcfK31_2LZAlY6tg</string>
+	<key>UIAppFonts</key>
+	<array/>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>May we check your location?</string>
 </dict>

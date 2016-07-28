@@ -17,11 +17,9 @@ public class DataManager {
     }()
     
     let base: FIRDatabaseReference
-    let storage: FIRStorageReference
     
     private init() {
         base = FIRDatabase.database().reference()
-        storage = FIRStorage.storage().referenceForURL(Firebase.storageUrl)
         
         #if DEBUG
             FIRDatabase.setLoggingEnabled(true)
