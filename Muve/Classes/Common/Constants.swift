@@ -75,3 +75,7 @@ struct Maps {
 struct Firebase {
     static let storageUrl = "gs://muve-1318.appspot.com"
 }
+
+struct Urls {
+    static let baseUrl = "https://maps.googleapis.com/maps/api/directions/json?"
+}

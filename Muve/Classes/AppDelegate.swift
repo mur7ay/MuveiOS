@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import GoogleMaps
-import ColorPagingController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,12 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.backgroundColor = UIColor.whiteColor()
         window?.rootViewController = LoaderScreenViewController.create()
-
-//        window?.rootViewController = ColorPagingController(views: [UIView(), UIView(), UIView()],
-//                                                           colors: [UIColor.redColor(), UIColor.greenColor(), UIColor.blueColor()],
-//                                                           indicatorPlace: .bottom,
-//                                                           activeIndicator: R.image.pageActive(),
-//                                                           inactiveIndicator: R.image.pageInactive())
         return true
     }
     
@@ -66,7 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-
 extension AppDelegate: GIDSignInDelegate {
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
                 withError error: NSError!) {
@@ -75,5 +67,4 @@ extension AppDelegate: GIDSignInDelegate {
     func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
                 withError error: NSError!) {
     }
-
 }

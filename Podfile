@@ -5,9 +5,6 @@ target 'Muve' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # OnBoarding Pods
-  pod 'ColorPagingController', :path => '~/Documents/Projects/Libraries/ColorPagingController/'
-
   # Pods for Muve
   pod 'Font-Awesome-Swift', '~> 1.4'
   pod 'KRProgressHUD', '~> 1.4'
@@ -36,6 +33,6 @@ target 'Muve' do
   
   # Google Maps
   pod 'GoogleMaps'
-  pod 'Mapbox-iOS-SDK', '~> 3.3'
+  #pod 'Mapbox-iOS-SDK', '~> 3.3'
   
 end

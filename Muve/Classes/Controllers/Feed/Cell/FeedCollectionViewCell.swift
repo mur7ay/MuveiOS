@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class FeedCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var lblTransportType: UILabel!
     @IBOutlet weak var lblDateTime: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
-    @IBOutlet weak var viewMap: UIView!
+    @IBOutlet weak var viewMap: GMSMapView!
     
     var order: Order! {
         didSet {
@@ -22,12 +24,23 @@ class FeedCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func cellInit() {
-        guard let _ = order else { return }
-        lblTransportType.text = order.car
-        lblDateTime.text = String(order.finishTime)
-        lblPrice.text = "$" + String(order.price)
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        containerView.layer.borderWidth = 1
+        containerView.layer.borderColor = UIColor(red: 155/255,
+                                                  green: 155/255,
+                                                  blue: 155/255,
+                                                  alpha: 1).CGColor
+        containerView.layer.cornerRadius = 20
     }
     
+    private func cellInit() {
+        guard let _ = order else { return }
+        lblTransportType.text = order.car
+        lblDateTime.text = order.startTimeFormatter
+        lblPrice.text = order.priceFormatter
+    }
+    
+    private func
     
 }

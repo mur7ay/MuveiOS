@@ -1,5 +1,4 @@
 PODS:
-  - ColorPagingController (0.0.1)
   - Firebase (3.3.0):
     - Firebase/Core (= 3.3.0)
   - Firebase/Analytics (3.3.0):
@@ -55,7 +54,6 @@ PODS:
     - GoogleSymbolUtilities (~> 1.0)
   - HidingNavigationBar (0.3.0)
   - KRProgressHUD (1.5.0)
-  - Mapbox-iOS-SDK (3.3.0)
   - MediaPickerController (1.0.2)
   - ObjectMapper (1.3.0)
   - PTPopupWebView (0.3.0)
@@ -67,7 +65,6 @@ PODS:
   - UITextField-Shake-Swift (1.0.3)
 
 DEPENDENCIES:
-  - ColorPagingController (from `~/Documents/Projects/Libraries/ColorPagingController/`)
   - Firebase
   - Firebase/Auth
   - Firebase/Database
@@ -77,7 +74,6 @@ DEPENDENCIES:
   - GoogleSignIn
   - HidingNavigationBar (~> 0.3)
   - KRProgressHUD (~> 1.4)
-  - Mapbox-iOS-SDK (~> 3.3)
   - MediaPickerController (~> 1.0)
   - ObjectMapper (~> 1.3)
   - PTPopupWebView (~> 0.3)
@@ -86,12 +82,7 @@ DEPENDENCIES:
   - SwiftDate (~> 3.0)
   - UITextField-Shake-Swift (~> 1.0)
 
-EXTERNAL SOURCES:
-  ColorPagingController:
-    :path: "~/Documents/Projects/Libraries/ColorPagingController/"
-
 SPEC CHECKSUMS:
-  ColorPagingController: e270f128f6a25829772fdd9eaee17cf426dba420
   Firebase: 6250071f0e2440a5c4c67b8cb6b868f868237ac3
   FirebaseAnalytics: 0fd6532cb2c3d03cd5cf26ad295ccb091efd3104
   FirebaseAuth: 5efddc3fae47042b73585f083f956462be4f5b8e
@@ -110,7 +101,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   HidingNavigationBar: 6378af14cea27bfef8be73470b081a36d45b87c4
   KRProgressHUD: d5be7766b4718eefc9b674d17c926fe4196a7c77
-  Mapbox-iOS-SDK: 88171e67d043af5ba80f52bcbf5dd31478652c18
   MediaPickerController: 3cf444992140a81984275828b8a39228c8f2a107
   ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
   PTPopupWebView: b2e30f5b9024ae23d0cd071ca0addf2abe99a7c6
@@ -120,6 +110,6 @@ SPEC CHECKSUMS:
   SwiftDate: 971f8b9394f664f2226b9c3ab64e801a7291c612
   UITextField-Shake-Swift: 696d23a4af95293db711bd6ebeccd94a95034bd0
 
-PODFILE CHECKSUM: c72c2e2e0d509ccd0b25a8f6bc32a0b8a1c8e67d
+PODFILE CHECKSUM: 8df74d04474aa75bc5af03bc4051f94faa66d352
 
 COCOAPODS: 1.0.1

@@ -50,13 +50,7 @@ struct Order: Mappable {
     var finishTime: Double?
     var startTime: Double?
     var duration: String?
-    var creationDate: NSDate? {
-        if let timestamp = timestamp {
-            return NSDate(timeIntervalSince1970: timestamp)
-        } else {
-            return nil
-        }
-    }
+    
     
     ///Status
     var status: String?
@@ -98,4 +92,38 @@ struct Order: Mappable {
         
         images              <- map["orderImages"]
     }
+    
+    var creationDate: NSDate? {
+        if let timestamp = timestamp {
+            return NSDate(timeIntervalSince1970: timestamp)
+        } else {
+            return nil
+        }
+    }
+    
+    var priceFormatter: String {
+        if let price = price {
+            return "$" + String(price)
+        } else {
+            return "$0"
+        }
+    }
+    
+    var startTimeFormatter: String {
+        guard let startTime = startTime else { return "" }
+        return getDateStringWith1970(startTime)
+    }
+    
+    var finishTimeFormatted: String {
+        guard let finishTime = finishTime else { return "" }
+        return getDateStringWith1970(finishTime)
+    }
+    
+    private func getDateStringWith1970(interval: Double) -> String {
+        let date = NSDate(timeIntervalSince1970: interval)
+        return date.toString(.Custom("MM'/'dd'/'yy', 'hh':'mm' 'a"))!
+    }
 }
+
+
+

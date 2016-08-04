@@ -78,6 +78,7 @@
 		A7E498881D4A8C3500ED0DB0 /* Array+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E498871D4A8C3500ED0DB0 /* Array+Helper.swift */; };
 		A7F110601D39703300168774 /* UIView+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F1105F1D39703300168774 /* UIView+Constraint.swift */; };
 		A7F110621D3973E100168774 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F110611D3973E100168774 /* LocationManager.swift */; };
+		A7F84D651D53C896005CB9EA /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F84D641D53C896005CB9EA /* RequestManager.swift */; };
 		A7F8530D1D2443C600792DEE /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F8530C1D2443C600792DEE /* NavController.swift */; };
 		CD4D11EE1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4D11EC1D0B0A4D00A0DBD3 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -156,6 +157,7 @@
 		A7E498871D4A8C3500ED0DB0 /* Array+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+Helper.swift"; path = "Classes/Common/Extentions/Array+Helper.swift"; sourceTree = "<group>"; };
 		A7F1105F1D39703300168774 /* UIView+Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Constraint.swift"; path = "Classes/Common/Extentions/UIView+Constraint.swift"; sourceTree = "<group>"; };
 		A7F110611D3973E100168774 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = Classes/Common/Managers/LocationManager.swift; sourceTree = "<group>"; };
+		A7F84D641D53C896005CB9EA /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestManager.swift; path = Classes/Common/Managers/RequestManager.swift; sourceTree = "<group>"; };
 		A7F8530C1D2443C600792DEE /* NavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavController.swift; path = Classes/Controllers/Navigation/NavController.swift; sourceTree = "<group>"; };
 		CD4D11E01D0B0A4C00A0DBD3 /* Muve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muve.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4D11ED1D0B0A4D00A0DBD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 			isa = PBXGroup;
 			children = (
 				A740692E1D30EE9000A27C98 /* DataManager.swift */,
+				A7F84D641D53C896005CB9EA /* RequestManager.swift */,
 				A771EAA61D4A7D9E004E5306 /* StorageManager.swift */,
 				A7F110611D3973E100168774 /* LocationManager.swift */,
 				A740692F1D30EE9000A27C98 /* MediaManager.swift */,
@@ -733,6 +736,7 @@
 				A73F50A61D1E5D030055A0A3 /* BaseStructure.swift in Sources */,
 				A753AFB21D1B348A00D1F30E /* ProfileViewController.swift in Sources */,
 				A73F50B51D1EC6990055A0A3 /* UserDefaultsHelper.swift in Sources */,
+				A7F84D651D53C896005CB9EA /* RequestManager.swift in Sources */,
 				A78730571D1B17BE009B0FFB /* ProgressHUD.swift in Sources */,
 				57E723BC1D1A5E2500D21C8B /* UIAlertViewController+Helper.swift in Sources */,
 				A7F8530D1D2443C600792DEE /* NavController.swift in Sources */,
