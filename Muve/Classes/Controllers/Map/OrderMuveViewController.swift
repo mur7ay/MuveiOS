@@ -16,6 +16,8 @@ class OrderMuveViewController: UIViewController {
     
     var screenSize = UIScreen.mainScreen().bounds.size
     
+    var notificationCenter = NSNotificationCenter.defaultCenter()
+    
     var toPlace:   GMSPlace!
     var fromPlace: GMSPlace! {
         didSet {
@@ -96,7 +98,8 @@ class OrderMuveViewController: UIViewController {
             if let error = error {
                 self.showSimpleAlert("Error", message: error.localizedDescription)
             } else {
-                self.showSimpleAlert("Success", message: "Order submitted!")
+//                self.showSimpleAlert("Success", message: "Order submitted!")
+                self.notificationCenter.postNotificationName("muveOrderSubmitted", object: nil)
             }
         }
     }

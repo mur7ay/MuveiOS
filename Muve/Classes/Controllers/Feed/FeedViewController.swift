@@ -14,6 +14,8 @@ class FeedViewController: UIViewController, BaseViewController {
     
     var dataSource: FeedsDataSource!
     
+    var screenWidth = UIScreen.mainScreen().bounds.width
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
@@ -50,6 +52,11 @@ class FeedViewController: UIViewController, BaseViewController {
 }
 
 extension FeedViewController: UICollectionViewDelegate {
+    
+    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         push(OrderViewController.create())  
     }
@@ -57,7 +64,15 @@ extension FeedViewController: UICollectionViewDelegate {
 
 extension FeedViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: UIScreen.mainScreen().bounds.width, height: 337)
+        return CGSize(width: screenWidth, height: 65 + screenWidth * 235/439)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0
     }
 }
 

@@ -66,6 +66,4 @@ class LocationManager {
             viewController.presentViewController(alertController, animated: true, completion: nil)
         }
     }
-    
-
 }

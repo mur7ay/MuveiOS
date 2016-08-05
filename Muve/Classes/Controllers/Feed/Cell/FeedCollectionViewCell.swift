@@ -26,21 +26,34 @@ class FeedCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        containerView.layer.borderWidth = 1
-        containerView.layer.borderColor = UIColor(red: 155/255,
-                                                  green: 155/255,
-                                                  blue: 155/255,
-                                                  alpha: 1).CGColor
-        containerView.layer.cornerRadius = 20
     }
     
     private func cellInit() {
         guard let _ = order else { return }
-        lblTransportType.text = order.car
+        lblTransportType.text = order.car ?? "Ford F-350"
         lblDateTime.text = order.startTimeFormatter
         lblPrice.text = order.priceFormatter
+        renderMap()
     }
     
-    private func
-    
+    private func renderMap() {
+        let from = order.departureCoordinate
+        let to = order.destinationCoordinate
+        RequestManager.sharedManager.getPathBetweenLocations(from, to: to) { path in
+            if let path = path {
+                guard let routes = path["routes"] as? [AnyObject] else { return }
+                guard let overviewLine = routes.first?["overview_polyline"] as? [String: AnyObject] else { return }
+                guard let points = overviewLine["points"] as? String else { return }
+                dispatch_async(dispatch_get_main_queue(), { 
+                    let pathGoogle = GMSPath.init(fromEncodedPath: points)
+                    let line = GMSPolyline.init(path: pathGoogle)
+                    line.strokeColor = .redColor()
+                    line.strokeWidth = 3
+                    line.map = self.viewMap
+                    self.viewMap.camera = GMSCameraPosition.cameraWithTarget(from, zoom: 8)
+                })
+                
+            }
+        }
+    }
 }

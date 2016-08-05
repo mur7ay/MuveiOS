@@ -13,6 +13,8 @@ class MenuViewController: UIViewController, BaseViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var notificationCenter = NSNotificationCenter.defaultCenter()
+    
     var slideMenu: SlideMenuController!
     
     lazy var activityController = NavController(rootViewController:  MapViewController.create() as! MapViewController)
@@ -28,6 +30,11 @@ class MenuViewController: UIViewController, BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        notificationCenter.addObserverForName("muveOrderSubmitted",
+                                              object: nil,
+                                              queue: nil) { notification in
+            self.slideMenu.changeMainViewController(self.historyController, close: true)
+        }
     }
 
     override func didReceiveMemoryWarning() {
